@@ -160,6 +160,51 @@
     .demo-vote-tally { font-size: 0.72rem; letter-spacing: 0.1em; opacity: 0.6; }
     .demo-vote-tally .bull { color: var(--green); } .demo-vote-tally .bear { color: var(--red); }
 
+    /* ORACLE */
+    .oracle-wrapper { margin-top: 3rem; border: 1px solid var(--border); background: rgba(255,255,255,0.015); overflow: hidden; }
+    .oracle-platform-tabs { display: flex; border-bottom: 1px solid var(--border); }
+    .oracle-tab { padding: 0.85rem 1.4rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-pale); opacity: 0.4; cursor: pointer; transition: var(--trans); border-right: 1px solid var(--border);
+      background: transparent; border-top: none; border-left: none; border-bottom: none; font-family: 'Inter', sans-serif; }
+    .oracle-tab:last-child { border-right: none; }
+    .oracle-tab.active { opacity: 1; color: var(--gold); background: rgba(201,169,110,0.06); box-shadow: inset 0 -2px 0 var(--gold); }
+    .oracle-tab:hover:not(.active) { opacity: 0.75; }
+    .oracle-events { padding: 1.2rem 1.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border); }
+    .oracle-event-btn { padding: 0.35rem 0.9rem; border: 1px solid var(--border); font-size: 0.7rem;
+      color: var(--gold-pale); opacity: 0.5; background: transparent; cursor: pointer; transition: var(--trans);
+      font-family: 'Inter', sans-serif; letter-spacing: 0.05em; }
+    .oracle-event-btn.active { border-color: var(--gold); color: var(--gold); opacity: 1; background: rgba(201,169,110,0.05); }
+    .oracle-event-btn:hover:not(.active) { opacity: 0.8; }
+    .oracle-run-bar { padding: 1rem 1.8rem; display: flex; align-items: center; gap: 1.5rem; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.15); flex-wrap: wrap; }
+    .oracle-run-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); opacity: 0.6; }
+    .btn-run-oracle { background: var(--gold); color: var(--ink); border: none; padding: 0.6rem 1.5rem;
+      font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-weight: 600; transition: var(--trans); }
+    .btn-run-oracle:hover { background: var(--gold-light); }
+    .oracle-body { padding: 1.8rem; min-height: 280px; }
+    .oracle-placeholder { font-size: 0.82rem; opacity: 0.3; text-align: center; padding: 4rem 2rem; }
+    .oracle-result { display: none; }
+    .oracle-result.show { display: block; }
+    .oracle-event-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--gold-light); margin-bottom: 0.3rem; }
+    .oracle-platform-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); opacity: 0.55; margin-bottom: 1.5rem; }
+    .oracle-consensus { margin-bottom: 1.8rem; }
+    .oracle-consensus-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.6; margin-bottom: 0.5rem; }
+    .oracle-bar-wrap { height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; margin-bottom: 0.35rem; }
+    .oracle-bar-fill { height: 100%; border-radius: 4px; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); width: 0; }
+    .oracle-bar-fill.yes { background: linear-gradient(90deg, #4ade80, #22d3ee); }
+    .oracle-pct-row { display: flex; justify-content: space-between; font-size: 0.75rem; }
+    .oracle-pct-yes { color: var(--green); font-weight: 600; }
+    .oracle-pct-no { color: var(--red); font-weight: 600; }
+    .oracle-legend-votes { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; margin-top: 1.2rem; }
+    .oracle-legend-vote { border: 1px solid var(--border); padding: 0.7rem 0.9rem; font-size: 0.78rem; opacity: 0; transform: translateY(6px); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .oracle-legend-vote.show { opacity: 1; transform: none; }
+    .oracle-legend-vote span { color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; display: block; margin-bottom: 0.2rem; }
+    .oracle-legend-vote .yes-call { color: var(--green); font-size: 0.7rem; font-weight: 600; }
+    .oracle-legend-vote .no-call { color: var(--red); font-size: 0.7rem; font-weight: 600; }
+    .oracle-titan-verdict { margin-top: 1.5rem; padding: 1.2rem 1.5rem; border: 1px solid var(--gold); background: rgba(201,169,110,0.06); }
+    .oracle-titan-verdict strong { color: var(--gold); display: block; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .oracle-titan-verdict p { font-size: 0.85rem; color: var(--gold-pale); opacity: 0.85; line-height: 1.6; }
+
     /* PRODUCTS */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1px; margin-top: 3rem; background: var(--border); border: 1px solid var(--border); }
@@ -282,26 +327,152 @@
   <section id="legends" class="reveal">
     <p class="section-tag">The Anchor Product</p>
     <h2 class="section-title">18 Legends — Copy Trade AI</h2>
-    <p class="section-desc">Every Legend is a real historical investor whose documented philosophy, portfolio moves, and public filings have been encoded into a living AI model. Subscribers choose their Legend — or blend multiple — and the AI executes trades aligned to that master's proven style in real time across stocks and crypto.</p>
-    <div class="legends-grid">
-      <div class="legend-card"><div class="legend-num">01</div><div class="legend-name">Warren Buffett</div><div class="legend-title">The Oracle of Omaha</div><p class="legend-desc">Deep value investing. Wonderful companies at fair prices, held for decades. Focus on competitive moats and owner-operator management.</p><span class="legend-style">Value · Long-Term Hold</span></div>
-      <div class="legend-card"><div class="legend-num">02</div><div class="legend-name">George Soros</div><div class="legend-title">The Man Who Broke the Bank</div><p class="legend-desc">Reflexivity theory and global macro. Identifies market feedback loops before they self-correct. Famous for massive conviction-driven currency bets.</p><span class="legend-style">Macro · Forex · Momentum</span></div>
-      <div class="legend-card"><div class="legend-num">03</div><div class="legend-name">Charles Schwab</div><div class="legend-title">The Democratizer</div><p class="legend-desc">Accessible, diversified, low-cost market participation. Systematic index-based investing with disciplined rebalancing and cost minimization.</p><span class="legend-style">Index · Passive · Systematic</span></div>
-      <div class="legend-card"><div class="legend-num">04</div><div class="legend-name">Peter Lynch</div><div class="legend-title">The Magellan Master</div><p class="legend-desc">"Invest in what you know." Ten-baggers in overlooked small and mid-cap companies before Wall Street notices them. PEG ratio pioneer.</p><span class="legend-style">GARP · Small-Cap Growth</span></div>
-      <div class="legend-card"><div class="legend-num">05</div><div class="legend-name">Ray Dalio</div><div class="legend-title">The Architect</div><p class="legend-desc">All-weather portfolio and risk parity. Balances four economic environments (growth/decline × inflation/deflation) for consistent returns in any cycle.</p><span class="legend-style">Risk Parity · All-Weather</span></div>
-      <div class="legend-card"><div class="legend-num">06</div><div class="legend-name">Jim Simons</div><div class="legend-title">The Quant King</div><p class="legend-desc">Founder of Renaissance Technologies — the most successful quant fund in history. Pure mathematical pattern recognition and statistical arbitrage.</p><span class="legend-style">Quant · Statistical Arb</span></div>
-      <div class="legend-card"><div class="legend-num">07</div><div class="legend-name">Carl Icahn</div><div class="legend-title">The Corporate Raider</div><p class="legend-desc">Large stakes in undervalued companies, forcing management changes. Event-driven catalyst investing with high-conviction concentrated positions.</p><span class="legend-style">Activist · Event-Driven</span></div>
-      <div class="legend-card"><div class="legend-num">08</div><div class="legend-name">Paul Tudor Jones</div><div class="legend-title">The Macro Maverick</div><p class="legend-desc">Predicted and profited from the 1987 crash. Combines technical analysis with macro intuition. Famous for 5:1 risk/reward discipline.</p><span class="legend-style">Macro · Technical · Futures</span></div>
-      <div class="legend-card"><div class="legend-num">09</div><div class="legend-name">Stanley Druckenmiller</div><div class="legend-title">The Currency Killer</div><p class="legend-desc">Soros's right hand. Unmatched 30-year track record with zero down years. Concentration in highest-conviction ideas + ruthless cutting of losers.</p><span class="legend-style">Macro · Concentrated Bets</span></div>
-      <div class="legend-card"><div class="legend-num">10</div><div class="legend-name">Jesse Livermore</div><div class="legend-title">The Original Tape Reader</div><p class="legend-desc">The greatest speculator in history. Mastered price action and volume before charts existed. Short-seller of the 1907 panic and 1929 crash.</p><span class="legend-style">Momentum · Tape Reading</span></div>
-      <div class="legend-card"><div class="legend-num">11</div><div class="legend-name">Benjamin Graham</div><div class="legend-title">The Father of Value</div><p class="legend-desc">Wrote the bible of investing. Buys securities with a large margin of safety relative to intrinsic value. Ignore noise; focus on business fundamentals.</p><span class="legend-style">Deep Value · Fundamentals</span></div>
-      <div class="legend-card"><div class="legend-num">12</div><div class="legend-name">John Templeton</div><div class="legend-title">The Global Pioneer</div><p class="legend-desc">Invented global contrarian investing. Buys at maximum pessimism across international markets and holds through full recovery cycles.</p><span class="legend-style">Contrarian · Global Value</span></div>
-      <div class="legend-card"><div class="legend-num">13</div><div class="legend-name">Philip Fisher</div><div class="legend-title">The Growth Visionary</div><p class="legend-desc">Find great companies and hold them forever. Focus on R&amp;D, sales force quality, and management integrity — not just the balance sheet.</p><span class="legend-style">Quality Growth · Long-Term</span></div>
-      <div class="legend-card"><div class="legend-num">14</div><div class="legend-name">Michael Burry</div><div class="legend-title">The Big Short</div><p class="legend-desc">Deep contrarian research to find mispriced risk. Found the housing bubble years before 2008. Specializes in ignored, misunderstood assets.</p><span class="legend-style">Contrarian · Deep Research</span></div>
-      <div class="legend-card"><div class="legend-num">15</div><div class="legend-name">Cathie Wood</div><div class="legend-title">The Disruptive Tech Oracle</div><p class="legend-desc">Bets on convergence of disruptive technologies — AI, genomics, blockchain, robotics. 5-year investment horizon for exponential returns.</p><span class="legend-style">Innovation · Disruptive Tech</span></div>
-      <div class="legend-card"><div class="legend-num">16</div><div class="legend-name">Ken Griffin</div><div class="legend-title">The Citadel</div><p class="legend-desc">Founder of the world's most profitable hedge fund. Multi-strategy: equities, fixed income, quant, and market-making across all asset classes.</p><span class="legend-style">Multi-Strategy · Quant</span></div>
-      <div class="legend-card"><div class="legend-num">17</div><div class="legend-name">David Tepper</div><div class="legend-title">The Distressed King</div><p class="legend-desc">Made billions buying distressed bank debt in 2009 when everyone else fled. Masters buying extreme fear in fundamentally sound but temporarily broken assets.</p><span class="legend-style">Distressed · Contrarian Value</span></div>
-      <div class="legend-card"><div class="legend-num">18</div><div class="legend-name">William O'Neil</div><div class="legend-title">The CANSLIM Creator</div><p class="legend-desc">Founder of Investor's Business Daily. Created the CANSLIM system combining earnings acceleration, new highs, and institutional sponsorship.</p><span class="legend-style">Growth · Momentum · CANSLIM</span></div>
+    <p class="section-desc">Every Legend is a real historical investor whose documented philosophy, portfolio moves, and public filings have been encoded into a living AI model. Subscribers choose their Legend — or blend multiple — and the AI executes trades aligned to that master's proven style in real time across stocks    <div class="legends-grid">
+
+      <div class="legend-card">
+        <div class="legend-num">01</div>
+        <div class="legend-name">Warren Buffett</div>
+        <div class="legend-title">The Oracle of Omaha · Net Worth: $130B</div>
+        <p class="legend-desc">The most successful long-term investor in history. Starting with $10,000, he built Berkshire Hathaway into a $900B empire over 60 years — averaging 20%/year returns, double the S&P 500. <strong>Famous trade:</strong> Buying $5B of Goldman Sachs preferred stock during the 2008 crash — netting $3.7B in profit when others fled. His AI model hunts for companies with durable competitive advantages ("moats"), honest management, and prices below intrinsic value. You don't need to read 10-K filings. The AI does it for you.</p>
+        <span class="legend-style">Value · Long-Term Hold</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">02</div>
+        <div class="legend-name">George Soros</div>
+        <div class="legend-title">The Man Who Broke the Bank of England · Net Worth: $6.7B</div>
+        <p class="legend-desc">In 1992, Soros shorted the British Pound and made $1 billion in a single day — forcing the UK to withdraw from the European Exchange Rate Mechanism. No individual had ever moved a country's currency like this. His theory of "reflexivity" says markets create self-fulfilling feedback loops that overshoot in both directions. His AI model reads macro positioning, central bank policy, and crowd sentiment to find those inflection points — and times entries where the crowd is about to be wrong.</p>
+        <span class="legend-style">Macro · Forex · Momentum</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">03</div>
+        <div class="legend-name">Charles Schwab</div>
+        <div class="legend-title">The Democratizer of Investing · Net Worth: $11B</div>
+        <p class="legend-desc">Schwab didn't just invest — he changed who could invest. He founded the discount brokerage that eliminated $80 trading commissions, making markets accessible to regular people. His investing philosophy is low-cost, diversified, index-based, and systematic. His AI model does what he preached: broad market exposure, disciplined rebalancing, dollar-cost averaging. The safest Legend — ideal as a portfolio base that quietly compounds without drama.</p>
+        <span class="legend-style">Index · Passive · Systematic</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">04</div>
+        <div class="legend-name">Peter Lynch</div>
+        <div class="legend-title">The Magellan Master · 29.2% avg annual return (13 years)</div>
+        <p class="legend-desc">Lynch ran Fidelity's Magellan Fund from 1977–1990 achieving the best long-term mutual fund record in history — turning $10,000 into $280,000. His golden rule: "invest in what you know." He found ten-baggers (stocks that 10x) by walking through shopping malls and noticing which stores were packed. His AI model hunts overlooked small and mid-cap companies with strong earnings growth before institutional money has noticed. The PEG ratio (price-to-earnings-to-growth) he pioneered is its core screen.</p>
+        <span class="legend-style">GARP · Small-Cap Growth</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">05</div>
+        <div class="legend-name">Ray Dalio</div>
+        <div class="legend-title">The Architect · Bridgewater: largest hedge fund on Earth ($150B)</div>
+        <p class="legend-desc">Dalio built Bridgewater Associates into the world's largest hedge fund by mapping the economy as a machine. His "All Weather" portfolio — 30% stocks, 40% long-term bonds, 15% medium-term bonds, 7.5% gold, 7.5% commodities — returned positive in 2008 when everything else crashed. His AI model continuously balances positions across four economic scenarios: growth, recession, inflation, and deflation. You don't need to predict the economy. The model stays balanced for all of them.</p>
+        <span class="legend-style">Risk Parity · All-Weather</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">06</div>
+        <div class="legend-name">Jim Simons</div>
+        <div class="legend-title">The Quant King · 66% avg annual return (30 years, before fees)</div>
+        <p class="legend-desc">A former NSA codebreaker and math professor, Simons built the most successful investment firm in history: Renaissance Technologies. His Medallion Fund returned 66% per year before fees for 30 years — a track record no other fund has come close to. No intuition, no thesis — only patterns. His AI model uses statistical arbitrage: detecting tiny pricing inefficiencies across thousands of instruments and exploiting them milliseconds before they close. When humans panic, Simons's model finds the edge.</p>
+        <span class="legend-style">Quant · Statistical Arbitrage</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">07</div>
+        <div class="legend-name">Carl Icahn</div>
+        <div class="legend-title">The Corporate Raider · Net Worth: $6.5B</div>
+        <p class="legend-desc">Icahn made his fortune by buying large stakes in companies he believed were grossly undervalued — then pressuring boards to change strategy, sell divisions, or return cash to shareholders. He forced changes at Apple, Netflix, and Motorola. His AI model finds companies trading at steep discounts to their true worth — particularly where activist pressure, spin-offs, or buybacks could unlock value fast. High conviction, concentrated positions. Not for the faint-hearted, but powerful when right.</p>
+        <span class="legend-style">Activist · Event-Driven</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">08</div>
+        <div class="legend-name">Paul Tudor Jones</div>
+        <div class="legend-title">The Macro Maverick · Net Worth: $8.1B</div>
+        <p class="legend-desc">Jones predicted and profited from the Black Monday 1987 crash — tripling his money on a single day when markets fell 22%. He combines technical chart analysis with macro intuition and is famous for his iron 5:1 risk/reward rule: he won't take a trade unless he can make $5 for every $1 risked. His AI model applies this discipline systematically to futures, currencies, and indexes — scanning for macro dislocation signals and executing only when asymmetry is extreme.</p>
+        <span class="legend-style">Macro · Technical · Futures</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">09</div>
+        <div class="legend-name">Stanley Druckenmiller</div>
+        <div class="legend-title">The Currency Killer · 30 years, zero down years</div>
+        <p class="legend-desc">Druckenmiller worked alongside Soros and co-executed the 1992 UK Pound trade. He then ran his own fund for 30 years without a single losing year — a record no other major fund manager has achieved. His edge: enormous concentration in his highest-conviction ideas, and ruthless cutting of losers the moment they prove him wrong. His AI model concentrates capital in the top macro signals and monitors global liquidity to time risk-on and risk-off rotations with institutional-grade precision.</p>
+        <span class="legend-style">Macro · Concentrated Bets</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">10</div>
+        <div class="legend-name">Jesse Livermore</div>
+        <div class="legend-title">The Original Tape Reader · Made $100M shorting 1929 crash</div>
+        <p class="legend-desc">Livermore began trading at age 14 in the 1890s with no chart software, no internet — only reading the "tape" (price and volume tickers). He made $3M shorting the 1907 Panic and $100M ($1.5B in today's money) shorting the 1929 crash. He is the godfather of momentum and trend trading. His AI model reads price action and volume in real time to identify the moments when a trend has enough institutional backing to carry you into significant gains. When the tape says go — you go.</p>
+        <span class="legend-style">Momentum · Tape Reading</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">11</div>
+        <div class="legend-name">Benjamin Graham</div>
+        <div class="legend-title">The Father of Value Investing · Buffett's Mentor</div>
+        <p class="legend-desc">Graham wrote "The Intelligent Investor" (1949) — Warren Buffett called it "by far the best book on investing ever written." He created the entire framework of value investing: paying less for a business than it is actually worth, with a large margin of safety. His AI model screens thousands of companies for those trading below their net asset value, with low debt, consistent earnings, and institutional neglect. If Graham's model buys something, it means the market is pricing in disaster and the math says otherwise.</p>
+        <span class="legend-style">Deep Value · Fundamentals</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">12</div>
+        <div class="legend-name">John Templeton</div>
+        <div class="legend-title">The Global Pioneer · 15.8% annual returns for 38 years</div>
+        <p class="legend-desc">Templeton invented the global mutual fund concept. In 1939, while Europe was about to go to war, he borrowed $10,000 and bought 100 shares of every stock on the NYSE under $1. Within five years he made 4x. Throughout his career he operated on one principle: buy at maximum pessimism. His AI model tracks global contrarian indicators — scanning markets in countries, sectors, and assets experiencing maximum fear — and executes when the fundamental case contradicts the crowd's despair.</p>
+        <span class="legend-style">Contrarian · Global Value</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">13</div>
+        <div class="legend-name">Philip Fisher</div>
+        <div class="legend-title">The Growth Visionary · Held Motorola for 21 years</div>
+        <p class="legend-desc">Fisher wrote "Common Stocks and Uncommon Profits" (1958), which Buffett credits as one of his two foundational texts. His philosophy: find a truly great company and hold it essentially forever. He would conduct exhaustive "scuttlebutt" research — calling competitors, suppliers, customers — to build a complete picture of a business before touching it. His AI model runs a modern version: analyzing R&D investment, sales force quality, management track record, and competitive positioning to find companies worthy of a decade-long hold.</p>
+        <span class="legend-style">Quality Growth · Long-Term</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">14</div>
+        <div class="legend-name">Michael Burry</div>
+        <div class="legend-title">The Big Short · Made $700M betting against the 2008 housing market</div>
+        <p class="legend-desc">Burry diagnosed the US subprime mortgage bubble in 2005 — years before it burst — and constructed a $1.3B short position using credit default swaps. When 2008 hit, his investors made 489% returns while the market collapsed. He has since predicted the 2021 meme stock bubble, warned about index fund concentration risk, and held positions in overlooked value plays including physical water. His AI model finds assets that everyone knows but no one has read the fine print on — and short-sells when the emperor has no clothes.</p>
+        <span class="legend-style">Contrarian · Deep Research</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">15</div>
+        <div class="legend-name">Cathie Wood</div>
+        <div class="legend-title">The Disruptive Tech Oracle · ARK Innovation: +152% in 2020</div>
+        <p class="legend-desc">Wood founded ARK Invest to focus exclusively on companies at the intersection of disruptive technologies: AI, genomics, blockchain, energy storage, and autonomous vehicles. ARK Innovation ETF returned 152% in 2020, making it the best-performing large ETF of the year. Her investment thesis is 5-year horizons: she is willing to own volatile, unprofitable companies because she models the total addressable market of the technology, not just the current financials. Her AI model maps innovation convergence across sectors and positions ahead of exponential adoption curves.</p>
+        <span class="legend-style">Innovation · Disruptive Tech</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">16</div>
+        <div class="legend-name">Ken Griffin</div>
+        <div class="legend-title">The Citadel · $65B fund, $16B personal net worth</div>
+        <p class="legend-desc">Griffin started trading from his Harvard dorm room in 1987 and built Citadel into the most profitable hedge fund of the modern era — generating over $74B in total gains since inception, more than any other fund ever. Citadel wins not by being brilliant once but by running thousands of strategies simultaneously: quantitative equity, fixed income, commodity arbitrage, and global macro all generating alpha at the same time. His AI model runs a diversified multi-strategy approach — capturing alpha across uncorrelated sources with institutional-grade risk management.</p>
+        <span class="legend-style">Multi-Strategy · Quant</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">17</div>
+        <div class="legend-name">David Tepper</div>
+        <div class="legend-title">The Distressed King · Made $7B buying bank stocks in 2009</div>
+        <p class="legend-desc">Tepper is considered the greatest distressed debt investor of his generation. In early 2009, when investors feared the US banking system would collapse entirely, Tepper bought massive positions in Citigroup and Bank of America — instruments so cheap they reflected near-certainty of failure. When the Fed backstopped the banks, he made $7B in under a year. His specialty: buying extreme fear in assets that are fundamentally sound but temporarily broken. His AI model hunts for that precise scenario — deep distress with structural safety beneath.</p>
+        <span class="legend-style">Distressed · Contrarian Value</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-num">18</div>
+        <div class="legend-name">William O'Neil</div>
+        <div class="legend-title">The CANSLIM Creator · Founded Investor's Business Daily</div>
+        <p class="legend-desc">O'Neil built one of the most rigorous and tested stock selection systems in history: CANSLIM — seven specific criteria combining fundamental earnings strength with technical price leadership and institutional sponsorship. He founded Investor's Business Daily in 1984 as a data-driven alternative to the Wall Street Journal. His method identified Apple, Cisco, and Google early. His AI model applies CANSLIM screening in real time — filtering thousands of stocks to find those with accelerating earnings, new product cycles, and institutional accumulation beginning — before the price fully reflects it.</p>
+        <span class="legend-style">Growth · Momentum · CANSLIM</span>
+      </div>
+
     </div>
   </section>
 
@@ -353,6 +524,53 @@
       <div class="demo-footer">
         <span class="demo-footer-note">Demo — actual debates powered by live market data in the full product</span>
         <div class="demo-vote-tally" id="voteTally"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGEND ORACLE DEMO -->
+  <section id="oracle" class="reveal">
+    <p class="section-tag">Live Demo · Product 4</p>
+    <h2 class="section-title">Legend Oracle — Prediction Markets</h2>
+    <p class="section-desc">The 18 Legends applied to <strong>Polymarket, Kalshi, Manifold, PredictIt, and Metaculus</strong>. Select a platform, pick a live event, and watch all 18 Legends argue the probability — each from their documented worldview. <strong>Titan Signal synthesizes the final consensus.</strong></p>
+    <div class="oracle-wrapper">
+      <div class="oracle-platform-tabs">
+        <button class="oracle-tab active" data-platform="Polymarket">Polymarket</button>
+        <button class="oracle-tab" data-platform="Kalshi">Kalshi</button>
+        <button class="oracle-tab" data-platform="Manifold">Manifold</button>
+        <button class="oracle-tab" data-platform="PredictIt">PredictIt</button>
+        <button class="oracle-tab" data-platform="Metaculus">Metaculus</button>
+      </div>
+      <div class="oracle-events" id="oracleEvents">
+        <button class="oracle-event-btn active" data-event="Will Bitcoin hit $100K before June 2026?">BTC $100K by June?</button>
+        <button class="oracle-event-btn" data-event="Will the Fed cut rates in Q2 2026?">Fed rate cut Q2?</button>
+        <button class="oracle-event-btn" data-event="Will the US enter recession before end of 2026?">US recession 2026?</button>
+        <button class="oracle-event-btn" data-event="Will Nvidia stock price exceed $200 by year-end 2026?">NVDA $200 EOY?</button>
+        <button class="oracle-event-btn" data-event="Will Ethereum surpass $5,000 before Q3 2026?">ETH $5K Q3?</button>
+        <button class="oracle-event-btn" data-event="Will S&P 500 hit a new all-time high in Q2 2026?">SPX ATH Q2?</button>
+        <button class="oracle-event-btn" data-event="Will Trump sign a crypto market structure bill in 2026?">US Crypto Bill 2026?</button>
+        <button class="oracle-event-btn" data-event="Will gold exceed $3,500/oz in 2026?">Gold $3,500?</button>
+      </div>
+      <div class="oracle-run-bar">
+        <span class="oracle-run-label">All 18 Legends · Platform: <span id="selectedPlatform">Polymarket</span></span>
+        <button class="btn-run-oracle" id="runOracleBtn">Run Oracle →</button>
+      </div>
+      <div class="oracle-body">
+        <div class="oracle-placeholder" id="oraclePlaceholder">Select a platform, choose an event, and run the Oracle to see the Legend consensus.</div>
+        <div class="oracle-result" id="oracleResult">
+          <div class="oracle-event-title" id="oracleEventTitle"></div>
+          <div class="oracle-platform-label" id="oraclePlatformLabel"></div>
+          <div class="oracle-consensus">
+            <div class="oracle-consensus-label">Legend Consensus — Probability YES</div>
+            <div class="oracle-bar-wrap"><div class="oracle-bar-fill yes" id="oracleBarYes"></div></div>
+            <div class="oracle-pct-row"><span class="oracle-pct-yes" id="oraclePctYes"></span><span class="oracle-pct-no" id="oraclePctNo"></span></div>
+          </div>
+          <div class="oracle-legend-votes" id="oracleLegendVotes"></div>
+          <div class="oracle-titan-verdict" id="oracleTitanVerdict">
+            <strong>⚡ Titan Signal Verdict</strong>
+            <p id="oracleTitanText"></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -639,6 +857,102 @@
 
     document.getElementById('startDebateBtn').addEventListener('click', runDebate);
     document.getElementById('tickerInput').addEventListener('keydown', e => { if (e.key === 'Enter') runDebate(); });
+
+    // ── ORACLE DEMO ─────────────────────────────────────────────────────────
+    const ORACLE_LEGENDS = [
+      { key:'WB', name:'Warren Buffett',       yes_bias:0.52 },
+      { key:'GS', name:'George Soros',         yes_bias:0.48 },
+      { key:'JS', name:'Jim Simons',           yes_bias:0.55 },
+      { key:'RD', name:'Ray Dalio',            yes_bias:0.50 },
+      { key:'PL', name:'Peter Lynch',          yes_bias:0.60 },
+      { key:'MB', name:'Michael Burry',        yes_bias:0.38 },
+      { key:'CW', name:'Cathie Wood',          yes_bias:0.72 },
+      { key:'CI', name:'Carl Icahn',           yes_bias:0.42 },
+      { key:'PT', name:'Paul Tudor Jones',     yes_bias:0.53 },
+      { key:'SD', name:'Stan Druckenmiller',   yes_bias:0.46 },
+      { key:'JL', name:'Jesse Livermore',      yes_bias:0.55 },
+      { key:'BG', name:'Benjamin Graham',      yes_bias:0.40 },
+      { key:'JT', name:'John Templeton',       yes_bias:0.58 },
+      { key:'PF', name:'Philip Fisher',        yes_bias:0.62 },
+      { key:'KG', name:'Ken Griffin',          yes_bias:0.51 },
+      { key:'DT', name:'David Tepper',         yes_bias:0.49 },
+      { key:'WO', name:"William O'Neil",       yes_bias:0.57 },
+      { key:'CS', name:'Charles Schwab',       yes_bias:0.53 },
+    ];
+    const YES_PHRASES = [
+      'HIGH probability. The setup is there.',
+      'YES — data supports this outcome.',
+      'Likely YES. Fundamentally backed.',
+      'I would take the YES side here.',
+      'Strong YES from my framework.',
+      'The asymmetry favors YES.',
+    ];
+    const NO_PHRASES = [
+      'I say NO — too many headwinds.',
+      'NO. The consensus is wrong here.',
+      'Unlikely. Data does not support this.',
+      'NO — market is mispricing the risk.',
+      'I lean NO. Caution warranted.',
+      'NO. The timing is off.',
+    ];
+
+    let selPlatform = 'Polymarket';
+    let selEvent    = 'Will Bitcoin hit $100K before June 2026?';
+
+    document.querySelectorAll('.oracle-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.oracle-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        selPlatform = tab.dataset.platform;
+        document.getElementById('selectedPlatform').textContent = selPlatform;
+      });
+    });
+
+    document.querySelectorAll('.oracle-event-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.oracle-event-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selEvent = btn.dataset.event;
+      });
+    });
+
+    document.getElementById('runOracleBtn').addEventListener('click', () => {
+      const votes = ORACLE_LEGENDS.map(l => ({ ...l, vote: Math.random() < l.yes_bias ? 'yes' : 'no' }));
+      const yesCount = votes.filter(v => v.vote === 'yes').length;
+      const pctYes = Math.round((yesCount / 18) * 100);
+      const pctNo  = 100 - pctYes;
+
+      document.getElementById('oraclePlaceholder').style.display = 'none';
+      const result = document.getElementById('oracleResult');
+      result.classList.add('show');
+      document.getElementById('oracleEventTitle').textContent   = selEvent;
+      document.getElementById('oraclePlatformLabel').textContent = `Platform: ${selPlatform}  ·  18 Legends voting  ·  Titan Signal consensus`;
+      document.getElementById('oraclePctYes').textContent = `YES ${pctYes}%`;
+      document.getElementById('oraclePctNo').textContent  = `NO ${pctNo}%`;
+
+      const bar = document.getElementById('oracleBarYes');
+      bar.style.width = '0';
+      setTimeout(() => { bar.style.width = pctYes + '%'; }, 120);
+
+      const votesContainer = document.getElementById('oracleLegendVotes');
+      votesContainer.innerHTML = '';
+      votes.forEach((v, i) => {
+        const el = document.createElement('div');
+        el.className = 'oracle-legend-vote';
+        const phrase = v.vote === 'yes'
+          ? YES_PHRASES[Math.floor(Math.random() * YES_PHRASES.length)]
+          : NO_PHRASES[Math.floor(Math.random() * NO_PHRASES.length)];
+        el.innerHTML = `<span>${v.name}</span><span class="${v.vote === 'yes' ? 'yes-call' : 'no-call'}">${v.vote === 'yes' ? '✦ YES' : '✕ NO'} — ${phrase}</span>`;
+        votesContainer.appendChild(el);
+        setTimeout(() => el.classList.add('show'), 80 + i * 70);
+      });
+
+      const verdict  = pctYes >= 70 ? 'HIGH CONFIDENCE YES' : pctYes >= 56 ? 'LEAN YES' : pctYes <= 30 ? 'HIGH CONFIDENCE NO' : pctYes <= 44 ? 'LEAN NO' : 'CONTESTED — NO EDGE';
+      const color    = pctYes >= 56 ? 'var(--green)' : pctYes <= 44 ? 'var(--red)' : 'var(--gold)';
+      const guidance = pctYes >= 60 ? 'Signal is actionable. Position accordingly.' : pctYes <= 40 ? 'Consensus leans NO. Contrarian opportunity or prudent avoidance.' : 'Signal is mixed. Reduce size or wait for clarity.';
+      document.getElementById('oracleTitanText').innerHTML = `<strong style="color:${color}">${verdict}</strong> — ${pctYes}% of Legends predict YES on "${selEvent}" via ${selPlatform}. ${guidance}`;
+    });
   </script>
+
 </body>
 </html>
