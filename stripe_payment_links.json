@@ -1,0 +1,83 @@
+[
+  {
+    "id": "p1",
+    "tier": "Starter",
+    "name": "18 Legends — Debate Chamber",
+    "price_usd": 99,
+    "product_id": "prod_UDuMutSHmKsBHL",
+    "price_id": "price_1TFSXSQjMo90dGzHLyXKXxel",
+    "payment_link": "https://buy.stripe.com/28E28tfqn326gXpbmld7q0r"
+  },
+  {
+    "id": "p2",
+    "tier": "Growth",
+    "name": "18 Legends — Council of 8",
+    "price_usd": 249,
+    "product_id": "prod_UDuMPzNoFPxdPf",
+    "price_id": "price_1TFSXTQjMo90dGzHe1iszxYa",
+    "payment_link": "https://buy.stripe.com/3cI9AV2DBauy22vfCBd7q0s"
+  },
+  {
+    "id": "p3",
+    "tier": "Professional",
+    "name": "18 Legends — Full Council (All 18)",
+    "price_usd": 499,
+    "product_id": "prod_UDuM0Npu4QxDiW",
+    "price_id": "price_1TFSXUQjMo90dGzHZIHAsbNb",
+    "payment_link": "https://buy.stripe.com/eVq6oJ7XVcCGgXp765d7q0t"
+  },
+  {
+    "id": "p4",
+    "tier": "Prediction",
+    "name": "18 Legends — Legend Oracle",
+    "price_usd": 599,
+    "product_id": "prod_UDuMyrW7uhnnhF",
+    "price_id": "price_1TFSXVQjMo90dGzHcJNbyCX5",
+    "payment_link": "https://buy.stripe.com/4gMbJ3gurbyCfTl4XXd7q0u"
+  },
+  {
+    "id": "p5",
+    "tier": "Intelligence",
+    "name": "18 Legends — Legend Spotlight",
+    "price_usd": 699,
+    "product_id": "prod_UDuMleZ6n2k5gP",
+    "price_id": "price_1TFSXWQjMo90dGzHeWw6Gndd",
+    "payment_link": "https://buy.stripe.com/7sYcN7fqn7im0Yreyxd7q0v"
+  },
+  {
+    "id": "p6",
+    "tier": "Alpha",
+    "name": "18 Legends — Titan Signal Solo",
+    "price_usd": 999,
+    "product_id": "prod_UDuMVR5m9A7ibv",
+    "price_id": "price_1TFSXXQjMo90dGzHSf7ycni5",
+    "payment_link": "https://buy.stripe.com/fZu14p2DBfOS7mP4XXd7q0w"
+  },
+  {
+    "id": "p7",
+    "tier": "Crypto",
+    "name": "18 Legends — CryptoVault + Legends",
+    "price_usd": 1299,
+    "product_id": "prod_UDuMHf6YDpoBVE",
+    "price_id": "price_1TFSXXQjMo90dGzHeK5pY2pG",
+    "payment_link": "https://buy.stripe.com/4gMbJ35PNcCG4aDcqpd7q0x"
+  },
+  {
+    "id": "p8",
+    "tier": "Portfolio",
+    "name": "18 Legends — Portfolio Builder",
+    "price_usd": 1799,
+    "product_id": "prod_UDuMgmrooKucNG",
+    "price_id": "price_1TFSXYQjMo90dGzHz3j33hgp",
+    "payment_link": "https://buy.stripe.com/7sYeVf91Z8mqbD5bmld7q0y"
+  },
+  {
+    "id": "p9",
+    "tier": "Institutional",
+    "name": "18 Legends — Command Center",
+    "price_usd": 2499,
+    "product_id": "prod_UDuM26iCoXi0jF",
+    "price_id": "price_1TFSXZQjMo90dGzHjSoWpaTM",
+    "payment_link": "https://buy.stripe.com/3cI7sN3HFauy22v9edd7q0z"
+  }
+]
