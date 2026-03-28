@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simon Chu | Titan Exchange AI — 18 Legends 複製交易平台 Partner Portal</title>
+  <meta name="description" content="Titan Exchange AI Taiwan 合作夥伴入口 — 18 Legends AI Copy-Trade Platform. Warren Buffett, George Soros, Ray Dalio and 15 more legendary investor strategies, powered by Titan Signal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #08100d;
+      --ink-mid:    #0d1a14;
+      --ink-light:  #162b20;
+      --gold:       #c9a96e;
+      --gold-light: #e8cfa0;
+      --gold-pale:  #f5e9d4;
+      --ivory:      #faf6ef;
+      --smoke:      rgba(201,169,110,0.10);
+      --border:     rgba(201,169,110,0.22);
+      --radius:     3px;
+      --trans:      0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Noto Serif TC', sans-serif;
+      background: var(--ink);
+      color: var(--gold-pale);
+      overflow-x: hidden;
+    }
+
+    /* ── Ornament ── */
+    .ornament {
+      display: flex; align-items: center; gap: 1rem;
+      color: var(--gold); opacity: 0.55; margin: 1.2rem 0;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; flex: 1; height: 1px; background: var(--gold); opacity: 0.35;
+    }
+    .ornament span { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; white-space: nowrap; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 1.4rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(to bottom, rgba(8,16,13,0.97), transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.9rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 300; letter-spacing: 0.22em;
+      color: var(--gold); text-transform: uppercase;
+    }
+    .nav-logo img {
+      height: 36px; width: 36px; object-fit: contain; opacity: 0.92;
+    }
+    .nav-badge {
+      font-size: 0.62rem; letter-spacing: 0.25em; color: var(--gold);
+      opacity: 0.65; text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--ink) 0%, var(--ink-mid) 50%, var(--ink) 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; text-align: center; padding: 9rem 2rem 5rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(201,169,110,0.07) 0%, transparent 70%);
+    }
+    /* subtle grid lines */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,169,110,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,169,110,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.48em;
+      color: var(--gold); text-transform: uppercase;
+      opacity: 0.82; margin-bottom: 1.8rem;
+    }
+    .hero-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 300; letter-spacing: 0.1em;
+      color: var(--gold-light); line-height: 1.2;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .hero-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.45rem);
+      font-weight: 300; font-style: italic;
+      color: var(--gold-pale); opacity: 0.7;
+      letter-spacing: 0.08em; margin-bottom: 2rem;
+    }
+    .hero-desc {
+      font-size: 0.92rem; line-height: 1.85; color: var(--gold-pale);
+      opacity: 0.65; max-width: 560px; margin: 0 auto 2.8rem;
+    }
+    .hero-desc strong { color: var(--gold-light); opacity: 1; font-weight: 500; }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: transparent; border: 1px solid var(--gold);
+      color: var(--gold); padding: 0.9rem 2.8rem;
+      font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase;
+      cursor: pointer; transition: var(--trans); text-decoration: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .hero-cta:hover { background: var(--gold); color: var(--ink); }
+    .hero-cta svg { width: 14px; height: 14px; transition: var(--trans); }
+    .hero-cta:hover svg { transform: translateY(2px); }
+
+    /* ── STATS ── */
+    .stats {
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(4, 1fr); text-align: center;
+      padding: 2.5rem 2rem;
+    }
+    .stat { padding: 1rem; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.62rem; letter-spacing: 0.2em; color: var(--gold-pale);
+      opacity: 0.5; text-transform: uppercase; margin-top: 0.4rem;
+    }
+    .stat-label-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.72rem; color: var(--gold-pale); opacity: 0.38; display: block;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; max-width: 960px; margin: 0 auto; }
+
+    .section-tag {
+      font-size: 0.6rem; letter-spacing: 0.42em; color: var(--gold);
+      text-transform: uppercase; opacity: 0.68; margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;
+      color: var(--gold-light); letter-spacing: 0.04em; line-height: 1.2;
+    }
+    .section-title-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.92rem; color: var(--gold); opacity: 0.5;
+      letter-spacing: 0.16em; margin-top: 0.3rem; display: block;
+    }
+    .section-desc {
+      font-size: 0.88rem; line-height: 1.85; color: var(--gold-pale);
+      opacity: 0.6; max-width: 680px; margin-top: 1.2rem;
+    }
+    .section-desc strong { color: var(--gold-light); opacity: 1; }
+
+    /* ── 18 LEGENDS GRID ── */
+    .legends-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; margin-top: 3rem;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .legend-card {
+      padding: 2.2rem 1.8rem;
+      background: rgba(255,255,255,0.015);
+      border: none;
+      transition: var(--trans); position: relative; overflow: hidden;
+    }
+    .legend-card::before {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 2px; height: 0; background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .legend-card:hover::before { height: 100%; }
+    .legend-card:hover { background: rgba(201,169,110,0.05); }
+
+    .legend-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 300; color: var(--gold);
+      opacity: 0.25; line-height: 1; margin-bottom: 0.5rem;
+    }
+    .legend-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.2rem;
+    }
+    .legend-title {
+      font-size: 0.62rem; letter-spacing: 0.2em; color: var(--gold);
+      text-transform: uppercase; opacity: 0.55; margin-bottom: 0.8rem;
+    }
+    .legend-desc { font-size: 0.8rem; line-height: 1.7; opacity: 0.5; }
+    .legend-style {
+      display: inline-block; margin-top: 0.9rem;
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; border: 1px solid rgba(201,169,110,0.3);
+      color: var(--gold); opacity: 0.65;
+    }
+
+    /* ── TITAN SIGNAL ── */
+    .signal-box {
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      padding: 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .signal-flow {
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+      text-align: center;
+    }
+    .flow-node {
+      width: 180px; padding: 1.2rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .flow-node span {
+      display: block; font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); opacity: 0.75;
+    }
+    .flow-node small { display: block; font-size: 0.7rem; opacity: 0.45; margin-top: 0.2rem; }
+    .flow-node.execute { background: rgba(201,169,110,0.08); border-color: var(--gold); }
+    .flow-arrow { font-size: 1.2rem; color: var(--gold); opacity: 0.3; padding: 0.4rem 0; }
+
+    .signal-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; color: var(--gold-light); margin-bottom: 1rem;
+    }
+    .signal-text p { font-size: 0.85rem; line-height: 1.85; opacity: 0.6; margin-bottom: 1rem; }
+    .signal-text p strong { color: var(--gold-light); opacity: 1; }
+
+    /* ── PRODUCTS ── */
+    .products-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px; margin-top: 3rem;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .product-card {
+      padding: 2rem 1.8rem; background: rgba(255,255,255,0.015);
+      transition: var(--trans); position: relative;
+    }
+    .product-card::before {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 2px; height: 0; background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .product-card:hover::before { height: 100%; }
+    .product-card:hover { background: rgba(201,169,110,0.05); }
+    .product-tier {
+      font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.65; margin-bottom: 0.7rem;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; color: var(--gold-light); margin-bottom: 0.5rem;
+    }
+    .product-desc { font-size: 0.8rem; line-height: 1.7; opacity: 0.52; }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1px; margin-top: 3rem;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .edu-card {
+      padding: 2.2rem 1.8rem; background: rgba(255,255,255,0.015);
+      transition: var(--trans); position: relative;
+    }
+    .edu-card::before {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 2px; height: 0; background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .edu-card:hover::before { height: 100%; }
+    .edu-card:hover { background: rgba(201,169,110,0.05); }
+    .edu-level {
+      font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.65; margin-bottom: 0.7rem;
+    }
+    .edu-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; color: var(--gold-light); margin-bottom: 0.8rem;
+    }
+    .edu-card ul { list-style: none; }
+    .edu-card ul li {
+      font-size: 0.78rem; line-height: 1.6; opacity: 0.5;
+      padding: 0.35rem 0; border-bottom: 1px solid rgba(201,169,110,0.08);
+    }
+    .edu-card ul li:last-child { border-bottom: none; }
+    .edu-card ul li::before { content: '— '; color: var(--gold); opacity: 0.5; }
+
+    /* ── COMMISSION TIERS ── */
+    .tier-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .tier-card {
+      border: 1px solid var(--border); padding: 2.2rem 1.5rem;
+      text-align: center; position: relative;
+      background: rgba(255,255,255,0.02); transition: var(--trans);
+    }
+    .tier-card.featured { border-color: var(--gold); background: rgba(201,169,110,0.05); }
+    .tier-tag {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--ink);
+      font-size: 0.52rem; letter-spacing: 0.25em; padding: 0.22rem 0.8rem;
+      text-transform: uppercase;
+    }
+    .tier-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; color: var(--gold-light); margin-top: 0.4rem;
+    }
+    .tier-commission {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1;
+      margin: 0.7rem 0;
+    }
+    .tier-deals { font-size: 0.7rem; opacity: 0.5; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+    .tier-bonus { font-size: 0.76rem; color: var(--gold-pale); opacity: 0.65; }
+
+    /* ── PORTAL FORM ── */
+    .portal-section {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+      padding: 4rem 3rem; margin-top: 2rem; position: relative;
+    }
+    .portal-section::before {
+      content: '易'; position: absolute; top: 2rem; right: 2.5rem;
+      font-family: 'Noto Serif TC', serif; font-size: 9rem;
+      color: var(--gold); opacity: 0.03; pointer-events: none; line-height: 1;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.62rem; letter-spacing: 0.26em; color: var(--gold);
+      text-transform: uppercase; opacity: 0.78;
+    }
+    label .zh { font-family: 'Noto Serif TC', serif; margin-left: 0.5rem; opacity: 0.5; font-size: 0.7rem; letter-spacing: 0.05em; }
+
+    input, select, textarea {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      color: var(--gold-pale); padding: 0.9rem 1rem;
+      font-size: 0.88rem; font-family: 'Inter', sans-serif;
+      outline: none; transition: var(--trans); width: 100%;
+      border-radius: var(--radius);
+    }
+    input::placeholder, textarea::placeholder { opacity: 0.3; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold); background: rgba(201,169,110,0.05);
+    }
+    select option { background: var(--ink-mid); color: var(--gold-pale); }
+
+    .submit-row { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .btn-submit {
+      background: var(--gold); color: var(--ink); border: none;
+      padding: 1rem 3rem; font-size: 0.7rem;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      font-family: 'Inter', sans-serif; cursor: pointer;
+      transition: var(--trans); font-weight: 500;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .submit-note { font-size: 0.7rem; opacity: 0.38; }
+
+    .success-msg {
+      display: none; text-align: center; padding: 3.5rem;
+      border: 1px solid var(--gold); background: rgba(201,169,110,0.05);
+    }
+    .success-msg .tick { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; }
+    .success-msg h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      font-weight: 300; color: var(--gold-light);
+    }
+    .success-msg p { font-size: 0.85rem; opacity: 0.55; margin-top: 0.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border); padding: 2.5rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem; background: rgba(0,0,0,0.2);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem; letter-spacing: 0.22em; color: var(--gold); opacity: 0.58;
+    }
+    .footer-copy { font-size: 0.62rem; opacity: 0.28; letter-spacing: 0.1em; }
+
+    /* ── Scroll Reveal ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── DEBATE DEMO ── */
+    .demo-section {
+      padding: 6rem 2rem; max-width: 960px; margin: 0 auto;
+    }
+    .demo-wrapper {
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.015);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .demo-ticker {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.8rem;
+      background: rgba(0,0,0,0.3);
+      border-bottom: 1px solid var(--border);
+    }
+    .demo-ticker-left { display: flex; align-items: center; gap: 1.2rem; }
+    .demo-ticker-symbol { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); }
+    .demo-ticker-price { font-size: 0.8rem; opacity: 0.5; }
+    .demo-ticker-change { font-size: 0.75rem; color: #4ade80; }
+    .demo-live-badge {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #4ade80; opacity: 0.8;
+    }
+    .demo-live-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #4ade80;
+      animation: pulseDot 1.5s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+    .demo-chat {
+      padding: 1.5rem 1.8rem;
+      min-height: 320px; max-height: 400px;
+      overflow-y: auto;
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+    .demo-chat::-webkit-scrollbar { width: 4px; }
+    .demo-chat::-webkit-scrollbar-track { background: transparent; }
+    .demo-chat::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .debate-msg {
+      display: flex; gap: 1rem; align-items: flex-start;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .debate-msg.show { opacity: 1; transform: translateY(0); }
+    .msg-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(201,169,110,0.08);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-family: 'Cormorant Garamond', serif;
+      color: var(--gold); font-weight: 600;
+    }
+    .msg-avatar.titan {
+      background: rgba(201,169,110,0.15); border-color: var(--gold);
+    }
+    .msg-body {}
+    .msg-sender {
+      font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.65; margin-bottom: 0.35rem;
+    }
+    .msg-bubble {
+      display: inline-block;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 0.8rem 1.1rem;
+      border-radius: 0 6px 6px 6px;
+      font-size: 0.83rem; line-height: 1.65;
+      color: var(--gold-pale); opacity: 0.85;
+      max-width: 520px;
+    }
+    .msg-bubble.vote {
+      background: rgba(201,169,110,0.08);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+    .msg-bubble .bull { color: #4ade80; font-weight: 600; }
+    .msg-bubble .bear { color: #f87171; font-weight: 600; }
+    .msg-bubble .neutral { color: var(--gold); font-weight: 600; }
+    .demo-footer {
+      padding: 1rem 1.8rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.15);
+    }
+    .demo-footer-note { font-size: 0.68rem; opacity: 0.4; }
+    .btn-replay {
+      border: 1px solid var(--border); background: transparent;
+      color: var(--gold); padding: 0.5rem 1.2rem;
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      cursor: pointer; transition: var(--trans); font-family: 'Inter', sans-serif;
+    }
+    .btn-replay:hover { border-color: var(--gold); background: rgba(201,169,110,0.05); }
+
+    /* demo input bar */
+    .demo-input-bar {
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+      padding: 1.2rem 1.8rem;
+      background: rgba(0,0,0,0.3); border-bottom: 1px solid var(--border);
+    }
+    .demo-input-label { font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.55; display: block; margin-bottom: 0.3rem; }
+    .ticker-input {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--gold-light); padding: 0.5rem 0.9rem;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      width: 110px; text-transform: uppercase; letter-spacing: 0.1em;
+      outline: none; transition: var(--trans);
+    }
+    .ticker-input:focus { border-color: var(--gold); }
+    .legend-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0; }
+    .legend-pill {
+      padding: 0.3rem 0.65rem; border: 1px solid var(--border);
+      font-size: 0.65rem; letter-spacing: 0.1em; font-family: 'Cormorant Garamond', serif;
+      color: var(--text-dim, var(--gold-pale)); opacity: 0.45; cursor: pointer;
+      transition: var(--trans); user-select: none;
+    }
+    .legend-pill.selected { border-color: var(--gold); color: var(--gold); opacity: 1; }
+    .btn-start-debate {
+      margin-left: auto; background: var(--gold); color: var(--ink); border: none;
+      padding: 0.65rem 1.6rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+      font-family: 'Inter', sans-serif; cursor: pointer; transition: var(--trans); font-weight: 600;
+      white-space: nowrap;
+    }
+    .btn-start-debate:hover { background: var(--gold-light); }
+    .debate-placeholder { font-size: 0.82rem; opacity: 0.3; text-align: center; padding: 4rem 2rem; width: 100%; }
+    .demo-vote-tally { font-size: 0.72rem; letter-spacing: 0.1em; opacity: 0.6; }
+    .demo-vote-tally .bull { color: #4ade80; } .demo-vote-tally .bear { color: #f87171; }
+    /* end demo */
+
+
+    .oracle-event-select {
+      width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      color: var(--gold-pale); padding: 0.5rem 0.9rem;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem;
+      outline: none; transition: var(--trans); cursor: pointer;
+    }
+    .oracle-event-select:focus { border-color: var(--gold); }
+    .oracle-event-select option { background: var(--ink-mid); }
+    .prob-bar-wrap { margin-top: 0.6rem; }
+    .prob-bar-track {
+      height: 4px; background: rgba(201,169,110,0.12); border-radius: 2px; overflow: hidden; margin-top: 0.3rem;
+    }
+    .prob-bar-fill {
+      height: 100%; border-radius: 2px; transition: width 1.2s ease;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    .prob-bar-fill.bear-fill { background: linear-gradient(90deg, #f87171, #fca5a5); }
+    .prob-num { font-size: 0.9rem; font-weight: 600; color: var(--gold); }
+    .oracle-card { border-left: 2px solid rgba(201,169,110,0.4); }
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .legends-grid { grid-template-columns: 1fr 1fr; }
+      .signal-box { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .portal-section { padding: 2.5rem 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.5rem; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .legends-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"><img src="titan_logo_bilingual.png" alt="Titan Signal 鈦訊" />Titan Exchange AI</div>
+    <div class="nav-badge">台灣合作夥伴計畫 · 鈦訊 Taiwan Partner Program · Simon Chu</div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Exclusive Territory · Taiwan · 合作夥伴</p>
+      <h1 class="hero-zh">Simon Chu · 18 Legends 複製交易平台</h1>
+      <p class="hero-en">Simon Chu — Titan Exchange AI Affiliate Partner · Taiwan</p>
+      <div class="ornament"><span>股票 · Crypto · 複製交易 · Copy Trade</span></div>
+      <p class="hero-desc">
+        AI-powered copy trading anchored by <strong>18 of history's greatest investors</strong> — Buffett, Soros, Dalio, Simons, and 14 more. Each Legend's documented strategy is encoded into an autonomous AI model. Validated by <strong>Titan Signal</strong> consensus. One platform. Every market. For everyone from retail novice to institutional desk.
+      </p>
+      <a href="#portal" class="hero-cta">
+        Begin Onboarding 開始入駐
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">18</div>
+      <div class="stat-label">Legendary Investors<span class="stat-label-zh">傳奇投資人策略</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50%</div>
+      <div class="stat-label">Max Commission<span class="stat-label-zh">最高佣金比例</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$2.5K</div>
+      <div class="stat-label">Institutional / Mo<span class="stat-label-zh">機構方案月費</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">AI Signal Engine<span class="stat-label-zh">全天候 鈦訊 AI 訊號</span></div>
+    </div>
+  </div>
+
+  <!-- THE 18 LEGENDS -->
+  <section class="reveal">
+    <p class="section-tag">The Anchor Product · 核心產品</p>
+    <h2 class="section-title">18 Legends — Copy Trade AI</h2>
+    <span class="section-title-zh">跟隨傳奇 · 複製歷史上最偉大的投資策略</span>
+    <p class="section-desc">
+      Every Legend is a real historical investor whose documented philosophy, portfolio moves, and public filings have been encoded into a living AI model. Subscribers choose their Legend — or blend multiple — and the AI executes trades aligned to that master's proven style in real-time across stocks and crypto.
+    </p>
+
+    <div class="legends-grid">
+      <div class="legend-card">
+        <div class="legend-num">01</div>
+        <div class="legend-name">Warren Buffett</div>
+        <div class="legend-title">The Oracle of Omaha</div>
+        <p class="legend-desc">Deep value investing. Buys wonderful companies at fair prices and holds for decades. Focus on competitive moats and owner-operator management.</p>
+        <span class="legend-style">Value · Long-Term Hold</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">02</div>
+        <div class="legend-name">George Soros</div>
+        <div class="legend-title">The Man Who Broke the Bank</div>
+        <p class="legend-desc">Reflexivity theory and global macro. Identifies feedback loops in markets before they self-correct. Known for massive, conviction-driven currency bets.</p>
+        <span class="legend-style">Macro · Forex · Momentum</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">03</div>
+        <div class="legend-name">Charles Schwab</div>
+        <div class="legend-title">The Democratizer</div>
+        <p class="legend-desc">Belief in accessible, diversified, low-cost market participation. Systematic index-based investing with disciplined rebalancing and cost minimization.</p>
+        <span class="legend-style">Index · Passive · Systematic</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">04</div>
+        <div class="legend-name">Peter Lynch</div>
+        <div class="legend-title">The Magellan Master</div>
+        <p class="legend-desc">"Invest in what you know." Finds ten-baggers in overlooked small and mid-cap companies before Wall Street discovers them. PEG ratio pioneer.</p>
+        <span class="legend-style">GARP · Small-Cap Growth</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">05</div>
+        <div class="legend-name">Ray Dalio</div>
+        <div class="legend-title">The Architect</div>
+        <p class="legend-desc">All-weather portfolio and risk parity. Balances four economic environments (growth/decline × inflation/deflation) to achieve consistent returns in any cycle.</p>
+        <span class="legend-style">Risk Parity · All-Weather</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">06</div>
+        <div class="legend-name">Jim Simons</div>
+        <div class="legend-title">The Quant King</div>
+        <p class="legend-desc">Founder of Renaissance Technologies — the most successful quant fund in history. Pure mathematical pattern recognition and statistical arbitrage across every market.</p>
+        <span class="legend-style">Quant · Statistical Arb</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">07</div>
+        <div class="legend-name">Carl Icahn</div>
+        <div class="legend-title">The Corporate Raider</div>
+        <p class="legend-desc">Acquires large stakes in undervalued companies and forces management changes. Event-driven catalyst investing with high-conviction concentrated positions.</p>
+        <span class="legend-style">Activist · Event-Driven</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">08</div>
+        <div class="legend-name">Paul Tudor Jones</div>
+        <div class="legend-title">The Macro Maverick</div>
+        <p class="legend-desc">Predicted and profited from the 1987 crash. Combines technical analysis with macro intuition. Famous for 5:1 risk/reward discipline and never averaging down.</p>
+        <span class="legend-style">Macro · Technical · Futures</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">09</div>
+        <div class="legend-name">Stanley Druckenmiller</div>
+        <div class="legend-title">The Currency Killer</div>
+        <p class="legend-desc">Soros's right hand. Unmatched track record across 30 years with zero down years. Concentration in highest-conviction ideas + ruthless cutting of losers.</p>
+        <span class="legend-style">Macro · Concentrated Bets</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">10</div>
+        <div class="legend-name">Jesse Livermore</div>
+        <div class="legend-title">The Original Tape Reader</div>
+        <p class="legend-desc">The greatest speculator in history. Mastered reading price action and volume before charts existed. Short-seller of the 1907 panic and 1929 crash.</p>
+        <span class="legend-style">Momentum · Tape Reading</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">11</div>
+        <div class="legend-name">Benjamin Graham</div>
+        <div class="legend-title">The Father of Value</div>
+        <p class="legend-desc">Wrote the bible of investing. Buys securities with large margin of safety relative to intrinsic value. Ignore market noise; focus on business fundamentals.</p>
+        <span class="legend-style">Deep Value · Fundamentals</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">12</div>
+        <div class="legend-name">John Templeton</div>
+        <div class="legend-title">The Global Pioneer</div>
+        <p class="legend-desc">Invented global contrarian investing. Buys at the point of maximum pessimism across international markets and holds through recovery cycles.</p>
+        <span class="legend-style">Contrarian · Global Value</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">13</div>
+        <div class="legend-name">Philip Fisher</div>
+        <div class="legend-title">The Growth Visionary</div>
+        <p class="legend-desc">Find great companies and hold them forever. Focus on R&D, sales force quality, and management integrity — not just the balance sheet.</p>
+        <span class="legend-style">Quality Growth · Long-Term</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">14</div>
+        <div class="legend-name">Michael Burry</div>
+        <div class="legend-title">The Big Short</div>
+        <p class="legend-desc">Deep contrarian research to find mispriced risk. Found the housing bubble years before 2008. Specializes in unpopular, misunderstood, and ignored assets.</p>
+        <span class="legend-style">Contrarian · Deep Research</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">15</div>
+        <div class="legend-name">Cathie Wood</div>
+        <div class="legend-title">The Disruptive Tech Oracle</div>
+        <p class="legend-desc">Bets on convergence of disruptive technologies — AI, genomics, blockchain, robotics. 5-year investment horizon with high volatility tolerance for exponential gains.</p>
+        <span class="legend-style">Innovation · Disruptive Tech</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">16</div>
+        <div class="legend-name">Ken Griffin</div>
+        <div class="legend-title">The Citadel</div>
+        <p class="legend-desc">Founder of Citadel — the world's most profitable hedge fund. Multi-strategy: equities, fixed income, quant, and market-making across all asset classes simultaneously.</p>
+        <span class="legend-style">Multi-Strategy · Quant</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">17</div>
+        <div class="legend-name">David Tepper</div>
+        <div class="legend-title">The Distressed King</div>
+        <p class="legend-desc">Made billions buying distressed bank debt in 2009 when everyone else fled. Masters the art of buying extreme fear in fundamentally sound but temporarily broken assets.</p>
+        <span class="legend-style">Distressed · Contrarian Value</span>
+      </div>
+      <div class="legend-card">
+        <div class="legend-num">18</div>
+        <div class="legend-name">William O'Neil</div>
+        <div class="legend-title">The CANSLIM Creator</div>
+        <p class="legend-desc">Founder of Investor's Business Daily. Created the CANSLIM system combining earnings acceleration, new highs, and institutional sponsorship to find the next market leaders early.</p>
+        <span class="legend-style">Growth · Momentum · CANSLIM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TITAN SIGNAL -->
+  <section class="reveal">
+    <p class="section-tag">The Consensus Layer · 共識驗證層</p>
+    <h2 class="section-title">Titan Signal — The Second Vote</h2>
+    <span class="section-title-zh">每筆交易都需要雙重確認 · 鈦訊驗證系統</span>
+    <div class="signal-box">
+      <div class="signal-text">
+        <h3>Two systems must agree before a trade fires.</h3>
+        <p>Every signal generated by the 18 Legends AI passes through <strong>Titan Signal</strong> — our proprietary real-time consensus engine. A Legend fires a buy signal on NVDA. Titan Signal then cross-references institutional order flow, current volatility regime, macro backdrop, and sentiment data.</p>
+        <p>Only when both agree does the trade reach your portfolio. This dual-validation architecture eliminates false positives and dramatically increases the quality of every signal your subscribers receive.</p>
+      </div>
+      <div class="signal-flow">
+        <div class="flow-node">
+          <span>Legend Signal</span>
+          <small>AI generates trade idea</small>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node">
+          <span>Titan Signal</span>
+          <small>Consensus validation</small>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node execute">
+          <span>Execute</span>
+          <small>High-conviction trade</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEBATE DEMO -->
+  <section class="demo-section reveal" id="demo">
+    <p class="section-tag">Live Demo · 即時體驗</p>
+    <h2 class="section-title">See the Debate Chamber in action</h2>
+    <span class="section-title-zh">輸入任一股票 · 傳奇投資人即時辯論 · 鈦訊 最終裁決</span>
+    <p class="section-desc">Type any stock or crypto ticker. Pick your 3 Legends. Watch them debate — each one arguing from their documented philosophy. Titan Signal casts the deciding vote. <strong>This is Product 1.</strong></p>
+
+    <div class="demo-wrapper">
+      <div class="demo-input-bar">
+        <div class="demo-input-wrap">
+          <span class="demo-input-label">Ticker</span>
+          <input type="text" id="tickerInput" class="ticker-input" placeholder="NVDA" maxlength="10" />
+        </div>
+        <div class="demo-legends-select">
+          <span class="demo-input-label">Legends (3)</span>
+          <div class="legend-pills">
+            <span class="legend-pill selected" data-legend="WB" data-name="Buffett">WB</span>
+            <span class="legend-pill selected" data-legend="GS" data-name="Soros">GS</span>
+            <span class="legend-pill selected" data-legend="JS" data-name="Simons">JS</span>
+            <span class="legend-pill" data-legend="RD" data-name="Dalio">RD</span>
+            <span class="legend-pill" data-legend="PL" data-name="Lynch">PL</span>
+            <span class="legend-pill" data-legend="MB" data-name="Burry">MB</span>
+          </div>
+        </div>
+        <button class="btn-start-debate" id="startDebateBtn">Start Debate →</button>
+      </div>
+
+      <div class="demo-chat" id="debateChat"><div class="debate-placeholder">Select your Legends above and enter a ticker to begin the debate.</div></div>
+
+      <div class="demo-footer">
+        <span class="demo-footer-note">Demo — actual debates powered by live market data in the full product</span>
+        <div class="demo-vote-tally" id="voteTally"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ORACLE DEMO -->
+  <section class="demo-section reveal" id="oracle-demo">
+    <p class="section-tag">Legend Oracle Demo · 預測市場體驗</p>
+    <h2 class="section-title">Watch the Legends call Polymarket</h2>
+    <span class="section-title-zh">真實世界事件 · 傳奇投資人概率辯論 · 鈦訊 共識輸出</span>
+    <p class="section-desc">Pick a live real-world event and a prediction market platform. The Legends debate probability from their documented worldview. Titan Signal synthesizes the council into a <strong>consensus probability</strong> and deploys it across Polymarket, Kalshi, Manifold, and more — simultaneously. <strong>One Legend Council. Every prediction market. This is Product 4.</strong></p>
+
+    <div class="demo-wrapper">
+      <div class="demo-input-bar">
+        <div class="demo-input-wrap" style="flex:1">
+          <span class="demo-input-label">Event</span>
+          <select id="oracleEventSelect" class="oracle-event-select">
+            <option value="btc100k">Will BTC reach $100K before Dec 2025?</option>
+            <option value="fedcut">Will the Fed cut rates in June 2025?</option>
+            <option value="recession">Will the US enter recession in 2025?</option>
+            <option value="taiwan">Will Taiwan hold elections without incident in 2026?</option>
+            <option value="nvda500">Will NVDA exceed $500 by Q3 2025?</option>
+            <option value="gold3k">Will Gold hit $3,000/oz in 2025?</option>
+            <option value="ai2025">Will an AI system pass the bar exam by end of 2025?</option>
+            <option value="usdebt">Will the US debt ceiling be raised by Q3 2025?</option>
+          </select>
+        </div>
+        <div class="demo-input-wrap">
+          <span class="demo-input-label">Platform</span>
+          <select id="oraclePlatformSelect" class="oracle-event-select" style="width:160px">
+            <option value="polymarket">Polymarket</option>
+            <option value="kalshi">Kalshi</option>
+            <option value="manifold">Manifold Markets</option>
+            <option value="predictit">PredictIt</option>
+            <option value="metaculus">Metaculus</option>
+          </select>
+        </div>
+        <button class="btn-start-debate" id="startOracleBtn" style="margin-left:1rem">Run Oracle →</button>
+      </div>
+
+      <div class="demo-chat" id="oracleChat"><div class="debate-placeholder">Select an event above and run the Oracle to see the Legends' probability estimates.</div></div>
+
+      <div class="demo-footer">
+        <span class="demo-footer-note">Demo — live Oracle connected to real Polymarket API in the full product</span>
+        <div class="demo-vote-tally" id="oracleTally"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="reveal">
+    <p class="section-tag">Product Suite · 產品組合</p>
+    <h2 class="section-title">9 Products. One Upsell Path.</h2>
+    <span class="section-title-zh">從入門到機構 · 每位客戶都有下一步</span>
+    <p class="section-desc">Every product builds on the last. Sales reps start clients on Product 1 and upsell naturally as they grow. Each tier unlocks more Legends, more intelligence, and more returns.</p>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-tier">Product 1 · Starter — $99/mo</div>
+        <div class="product-name">The Debate Chamber</div>
+        <p class="product-desc">Choose <strong>3 Legends</strong> — their AI models debate a stock or crypto trade in real time, each arguing from their documented philosophy. Titan Signal casts the deciding vote. Majority wins. The trade executes. <em>Interactive, educational, addictive.</em></p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-tier">Product 2 · Growth — $249/mo</div>
+        <div class="product-name">Council of 8</div>
+        <p class="product-desc">Unlock <strong>8 Legends</strong> simultaneously. A richer debate across more philosophies — value vs. growth, macro vs. quant, contrarian vs. momentum. Titan Signal arbitrates. More voices = higher conviction signals.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-tier">Product 3 · Professional — $499/mo</div>
+        <div class="product-name">The Full Council — All 18</div>
+        <p class="product-desc">All <strong>18 Legends</strong> in session. The complete war room. Every major investing philosophy represented. Watch Buffett and Soros clash over a macro trade while Simons runs the numbers. Titan Signal synthesizes the final verdict.</p>
+      </div>
+
+
+      <div class="product-card oracle-card">
+        <div class="product-tier">Product 4 · Prediction Markets — $599/mo</div>
+        <div class="product-name">Legend Oracle</div>
+        <p class="product-desc">The 18 Legends applied to <strong>prediction markets across every platform</strong> — Polymarket, Kalshi, Manifold, PredictIt. One real-world event: each Legend estimates probability from their documented worldview. Titan Signal synthesizes the council into a consensus probability and deploys it simultaneously across all connected venues. <em>Same intelligence. Every market. Compounding simultaneously.</em></p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-tier">Product 5 · Intelligence — $699/mo</div>
+        <div class="product-name">Legend Spotlight</div>
+        <p class="product-desc">Follow ONE Legend exclusively. Daily AI briefings delivered in that Legend's voice — current portfolio thesis, what they'd buy today, what they'd short. Deep-dive mentorship from the greatest investor minds in history.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-tier">Product 6 · Alpha — $999/mo</div>
+        <div class="product-name">Titan Signal Solo</div>
+        <p class="product-desc">The pure consensus layer, standalone. No Legends needed. Titan Signal aggregates institutional order flow, dark pool data, macro signals, and sentiment across 40+ venues into one clean buy/sell/hold decision. For traders who want the output, not the debate.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-tier">Product 7 · Crypto — $1,299/mo</div>
+        <div class="product-name">CryptoVault + Legends</div>
+        <p class="product-desc">The 18 Legends applied to crypto. On-chain whale tracking, exchange inflows, stablecoin dominance — layered into the debate. Watch Cathie Wood and Michael Burry argue over Bitcoin at the $50K level. Titan Signal resolves it with live chain data.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-tier">Product 8 · Portfolio — $1,799/mo</div>
+        <div class="product-name">Legend Portfolio Builder</div>
+        <p class="product-desc">Build a model portfolio by blending multiple Legends in custom percentages. 40% Buffett, 30% Dalio, 30% Simons. The AI manages rebalancing, weights signals by conviction, and applies Titan Signal validation to every combined output.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-tier">Product 9 · Institutional — $2,499/mo</div>
+        <div class="product-name">Command Center</div>
+        <p class="product-desc">Full institution-grade access. All 18 Legends, Titan Signal, CryptoVault, Portfolio Builder, API + WebSocket feeds, white-label options, dedicated quant analyst support, and custom Legend weighting for family offices, hedge funds, and prop desks.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="reveal">
+    <p class="section-tag">Titan Academy · 交易學院</p>
+    <h2 class="section-title">Education for every level</h2>
+    <span class="section-title-zh">從入門散戶到頂級機構，全方位培訓</span>
+    <p class="section-desc">Subscribers don't just get signals — they learn. Titan Academy is the reason they stay subscribed for years, not months.</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-level">Level 1 · 入門</div>
+        <div class="edu-name">Novice Launchpad</div>
+        <ul>
+          <li>What are stocks & crypto</li>
+          <li>Reading charts & candles</li>
+          <li>Risk management basics</li>
+          <li>Paper trading simulator</li>
+          <li>Understanding the 18 Legends</li>
+        </ul>
+      </div>
+      <div class="edu-card">
+        <div class="edu-level">Level 2 · 進階</div>
+        <div class="edu-name">Active Trader</div>
+        <ul>
+          <li>Technical analysis deep-dive</li>
+          <li>Options basics & spreads</li>
+          <li>Reading AlphaStream flow</li>
+          <li>Building a copy-trade portfolio</li>
+          <li>Blending multiple Legends</li>
+        </ul>
+      </div>
+      <div class="edu-card">
+        <div class="edu-level">Level 3 · 專業</div>
+        <div class="edu-name">Professional Desk</div>
+        <ul>
+          <li>Quantitative strategy design</li>
+          <li>Options Greeks & hedging</li>
+          <li>Dark pool & microstructure</li>
+          <li>Custom Legend weighting</li>
+          <li>Tax optimization frameworks</li>
+        </ul>
+      </div>
+      <div class="edu-card">
+        <div class="edu-level">Level 4 · 機構</div>
+        <div class="edu-name">Institutional Desk</div>
+        <ul>
+          <li>API & WebSocket integration</li>
+          <li>Custom AI model configuration</li>
+          <li>Multi-prime brokerage setup</li>
+          <li>Institutional risk framework</li>
+          <li>White-label deployment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MLM NETWORK STRUCTURE -->
+  <section class="reveal" style="max-width:1080px">
+    <p class="section-tag">Partner Network · 三層夥伴網絡</p>
+    <h2 class="section-title">Build a Network. Earn on 3 Levels.</h2>
+    <span class="section-title-zh">直接佣金 + 二層 + 三層超額獎勵 · 合法台灣三層架構</span>
+    <p class="section-desc">Every partner you recruit earns you an L2 override on their clients. Their partners earn you L3. Three levels — compliant with Taiwan and Japanese multi-tier regulations. <strong>The deeper your network, the more you earn passively.</strong></p>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:3rem">
+      <div style="border:1px solid rgba(205,127,50,.4);background:rgba(205,127,50,.04);padding:1.8rem 1rem;text-align:center">
+        <div style="width:44px;height:44px;border-radius:50%;margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;background:rgba(205,127,50,.12);border:1px solid #cd7f32;font-size:1.1rem">🥉</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:.2rem">Bronze</div>
+        <div style="font-size:.58rem;letter-spacing:.15em;opacity:.4;text-transform:uppercase;margin-bottom:.9rem">1–3 Clients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1">30%</div>
+        <div style="font-size:.52rem;letter-spacing:.15em;opacity:.45;text-transform:uppercase;margin-bottom:.7rem">L1 Direct</div>
+        <div style="padding-top:.7rem;border-top:1px solid rgba(201,169,110,.12);font-size:.7rem;opacity:.3">L2 — &nbsp;·&nbsp; L3 —</div>
+      </div>
+      <div style="border:1px solid rgba(170,183,196,.4);background:rgba(170,183,196,.04);padding:1.8rem 1rem;text-align:center">
+        <div style="width:44px;height:44px;border-radius:50%;margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;background:rgba(170,183,196,.12);border:1px solid #aab7c4;font-size:1.1rem">🥈</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:.2rem">Silver</div>
+        <div style="font-size:.58rem;letter-spacing:.15em;opacity:.4;text-transform:uppercase;margin-bottom:.9rem">4–8 Clients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1">35%</div>
+        <div style="font-size:.52rem;letter-spacing:.15em;opacity:.45;text-transform:uppercase;margin-bottom:.7rem">L1 Direct</div>
+        <div style="padding-top:.7rem;border-top:1px solid rgba(201,169,110,.12);font-size:.7rem;opacity:.55;line-height:1.8">L2: <strong style="color:var(--gold)">8%</strong><br>L3 —</div>
+      </div>
+      <div style="border:1px solid rgba(201,169,110,.5);background:rgba(201,169,110,.06);padding:1.8rem 1rem;text-align:center;position:relative">
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:.5rem;letter-spacing:.2em;padding:.2rem .7rem;text-transform:uppercase;white-space:nowrap">推薦</div>
+        <div style="width:44px;height:44px;border-radius:50%;margin:.6rem auto .8rem;display:flex;align-items:center;justify-content:center;background:rgba(201,169,110,.15);border:1px solid var(--gold);font-size:1.1rem">🥇</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:.2rem">Gold</div>
+        <div style="font-size:.58rem;letter-spacing:.15em;opacity:.4;text-transform:uppercase;margin-bottom:.9rem">9–15 Clients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1">40%</div>
+        <div style="font-size:.52rem;letter-spacing:.15em;opacity:.45;text-transform:uppercase;margin-bottom:.7rem">L1 Direct</div>
+        <div style="padding-top:.7rem;border-top:1px solid rgba(201,169,110,.2);font-size:.7rem;opacity:.6;line-height:1.8">L2: <strong style="color:var(--gold)">10%</strong><br>L3: <strong style="color:var(--gold)">5%</strong></div>
+      </div>
+      <div style="border:1px solid rgba(142,202,230,.4);background:rgba(142,202,230,.04);padding:1.8rem 1rem;text-align:center">
+        <div style="width:44px;height:44px;border-radius:50%;margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;background:rgba(142,202,230,.12);border:1px solid #8ecae6;font-size:1.1rem">💠</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:.2rem">Platinum</div>
+        <div style="font-size:.58rem;letter-spacing:.15em;opacity:.4;text-transform:uppercase;margin-bottom:.9rem">16–25 Clients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1">45%</div>
+        <div style="font-size:.52rem;letter-spacing:.15em;opacity:.45;text-transform:uppercase;margin-bottom:.7rem">L1 Direct</div>
+        <div style="padding-top:.7rem;border-top:1px solid rgba(142,202,230,.2);font-size:.7rem;opacity:.6;line-height:1.8">L2: <strong style="color:#8ecae6">12%</strong><br>L3: <strong style="color:#8ecae6">7%</strong></div>
+      </div>
+      <div style="border:1px solid rgba(181,234,215,.4);background:rgba(181,234,215,.04);padding:1.8rem 1rem;text-align:center">
+        <div style="width:44px;height:44px;border-radius:50%;margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;background:rgba(181,234,215,.12);border:1px solid #b5ead7;font-size:1.1rem">💎</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:.2rem">Diamond</div>
+        <div style="font-size:.58rem;letter-spacing:.15em;opacity:.4;text-transform:uppercase;margin-bottom:.9rem">26+ Clients</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1">50%</div>
+        <div style="font-size:.52rem;letter-spacing:.15em;opacity:.45;text-transform:uppercase;margin-bottom:.7rem">L1 Direct</div>
+        <div style="padding-top:.7rem;border-top:1px solid rgba(181,234,215,.2);font-size:.7rem;opacity:.6;line-height:1.8">L2: <strong style="color:#b5ead7">15%</strong><br>L3: <strong style="color:#b5ead7">10%</strong></div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;border:1px solid var(--border);background:rgba(255,255,255,.02);padding:2.5rem 3rem">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold-light);margin-bottom:1.5rem">Gold Rank — Income Example · 月收入範例</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+        <div>
+          <div style="font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:1rem">Breakdown</div>
+          <div style="display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid rgba(201,169,110,.08);font-size:.8rem"><span style="opacity:.6">10 clients × $499 × 40% (L1)</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold)">$1,996</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid rgba(201,169,110,.08);font-size:.8rem"><span style="opacity:.6">3 partners × 5 clients × $249 × 10% (L2)</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold)">$374</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.55rem 0;font-size:.8rem"><span style="opacity:.6">Growing L3 network</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold)">+est.</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center">
+          <div style="padding:1.5rem;background:rgba(201,169,110,.06);border:1px solid var(--gold);text-align:center">
+            <div style="font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">Monthly Total · 月收入</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--gold-light);line-height:1">$2,370</div>
+            <div style="font-size:.68rem;opacity:.38;margin-top:.4rem">passive / recurring</div>
+          </div>
+          <p style="font-size:.65rem;opacity:.32;margin-top:.7rem;text-align:center">3-level structure · Taiwan &amp; Japan compliant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- PORTAL FORM -->
+  <section id="portal" class="reveal">
+    <p class="section-tag">Partner Onboarding · 夥伴入駐</p>
+    <h2 class="section-title">Submit Your Profile</h2>
+    <span class="section-title-zh">提交您的合作夥伴資料</span>
+
+    <div class="portal-section" id="formWrap">
+      <form id="partnerForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nameEn">Full Name <span class="zh">英文全名</span></label>
+            <input type="text" id="nameEn" placeholder="e.g. Simon Chu" required />
+          </div>
+          <div class="form-group">
+            <label for="nameZh">中文姓名 <span class="zh">Chinese Name</span></label>
+            <input type="text" id="nameZh" placeholder="例：Simon" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="zh">電子信箱</span></label>
+            <input type="email" id="email" placeholder="simon.chu@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone / LINE ID <span class="zh">電話 / LINE</span></label>
+            <input type="tel" id="phone" placeholder="+886 912 345 678" />
+          </div>
+
+          <div class="form-group">
+            <label for="territory">Primary Territory <span class="zh">主要地區</span></label>
+            <select id="territory">
+              <option value="">Select region · 選擇地區</option>
+              <option value="taipei">台北市 Taipei City</option>
+              <option value="new-taipei">新北市 New Taipei City</option>
+              <option value="taichung">台中市 Taichung</option>
+              <option value="kaohsiung">高雄市 Kaohsiung</option>
+              <option value="taiwan-all">全台灣 All Taiwan</option>
+              <option value="taiwan-intl">台灣 + 國際 Taiwan + International</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="network">Client Network Size <span class="zh">客戶網絡規模</span></label>
+            <select id="network">
+              <option value="">Select · 選擇</option>
+              <option value="1-10">1–10 clients</option>
+              <option value="11-30">11–30 clients</option>
+              <option value="31-60">31–60 clients</option>
+              <option value="60+">60+ clients</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="market">Primary Market Focus <span class="zh">主要市場</span></label>
+            <select id="market">
+              <option value="">Select · 選擇</option>
+              <option value="stocks">Stocks 股票</option>
+              <option value="crypto">Crypto 加密貨幣</option>
+              <option value="both">Both 股票 + 加密貨幣</option>
+              <option value="forex">Forex 外匯</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="referral">How did you hear about us? <span class="zh">如何得知此計畫</span></label>
+            <input type="text" id="referral" placeholder="Simon Chu / NeuForge introduction" />
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">Submit Application · 提交申請</button>
+          <p class="submit-note">Your information is shared only with the Titan Exchange AI team · 資料僅供 Titan Exchange AI 團隊使用</p>
+        </div>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <div class="tick">✦</div>
+        <h3>Application Received · 申請已收到</h3>
+        <p>Welcome to the Titan Exchange AI Taiwan Partner Program.<br />
+           Our team will reach out within 24 hours. · 我們將在 24 小時內與您聯絡。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">TITAN EXCHANGE AI · 18 Legends Copy Trade Platform</div>
+    <div class="footer-copy">© 2026 NeuForge / Titan Signal · Simon Chu Taiwan Partner Program · Confidential</div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Form submit
+    const form = document.getElementById('partnerForm');
+    const successMsg = document.getElementById('successMsg');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const required = ['nameEn', 'email'];
+      let valid = true;
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) { el.style.borderColor = 'rgba(200,80,80,0.6)'; el.focus(); valid = false; }
+        else { el.style.borderColor = ''; }
+      });
+      if (!valid) return;
+      const payload = {
+        name_en: document.getElementById('nameEn').value,
+        name_zh: document.getElementById('nameZh').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        territory: document.getElementById('territory').value,
+        network: document.getElementById('network').value,
+        market: document.getElementById('market').value,
+        referral: document.getElementById('referral').value,
+        submitted: new Date().toISOString(),
+        program: 'Titan Exchange AI — 18 Legends — Simon Chu Taiwan'
+      };
+      console.log('Partner submission:', payload);
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `titan_exchange_partner_${payload.name_en.replace(/\s+/g,'_')}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Debate Demo
+    const legendData = {
+      WB: { name: 'Warren Buffett', title: 'The Oracle of Omaha',
+        bull: t => `I like <strong>${t}</strong> here. Look at that moat — high returns on invested capital, honest management, decade-long tailwinds. The market will reward patience. <span class="bull">BUYING more on weakness.</span>`,
+        bear: t => `<strong>${t}</strong> is trading well above intrinsic value. I didn't get rich chasing prices. Buy wonderful companies at fair prices — this isn't fair. <span class="bear">On the sideline.</span>`,
+        neutral: t => `<strong>${t}</strong> is an interesting business, but the price needs to come down before it enters my circle of competence. <span class="neutral">Not buying, not selling.</span>`
+      },
+      GS: { name: 'George Soros', title: 'The Man Who Broke the Bank',
+        bull: t => `The reflexive narrative around <strong>${t}</strong> is still self-reinforcing — institutions buying drives price up, more follow. We're not at the reversal point yet. <span class="bull">Riding momentum — finger on the exit.</span>`,
+        bear: t => `Dangerous crowding in <strong>${t}</strong>. When reflexive feedback loops reverse, they reverse hard. Positioning at extremes — this is where I short. <span class="bear">Positioning SHORT.</span>`,
+        neutral: t => `<strong>${t}</strong> is at a reflexive inflection point. Could go either way. Watching macro flows before committing. <span class="neutral">Flat. Waiting for confirmation.</span>`
+      },
+      JS: { name: 'Jim Simons', title: 'The Quant King',
+        bull: t => `Models show a statistically significant momentum signal in <strong>${t}</strong> on a 14-day horizon. Sentiment Z-score elevated but not extreme. Dark pool prints net positive. <span class="bull">Edge: mildly bullish. Sizing in.</span>`,
+        bear: t => `Statistical patterns in <strong>${t}</strong> show distribution — high-volume down days outpacing up days. Momentum signal turning. Mean reversion probability elevated. <span class="bear">Models say short.</span>`,
+        neutral: t => `The quantitative signal in <strong>${t}</strong> is flat — no edge either direction. We only trade when models agree. <span class="neutral">Staying out until signal clears.</span>`
+      },
+      RD: { name: 'Ray Dalio', title: 'The Architect',
+        bull: t => `<strong>${t}</strong> fits the growth + low-inflation quadrant of my all-weather framework. Macro environment supportive — increasing exposure. <span class="bull">Adding to allocation.</span>`,
+        bear: t => `Inflationary de-leveraging cycle underway. <strong>${t}</strong> is a growth asset that suffers here. All-weather says reduce now. <span class="bear">REDUCING position.</span>`,
+        neutral: t => `<strong>${t}</strong> balanced in my risk parity portfolio — hold current weight, neither overweight nor underweight. <span class="neutral">Maintain allocation.</span>`
+      },
+      PL: { name: 'Peter Lynch', title: 'The Magellan Master',
+        bull: t => `I love <strong>${t}</strong> — exactly the kind of company I'd find walking around before Wall Street noticed it. PEG reasonable, earnings accelerating. <span class="bull">TEN-BAGGER potential. Buying.</span>`,
+        bear: t => `<strong>${t}</strong> is well-known now — all big funds are in it. Best gains behind us. When everyone knows the story, it's priced for perfection. <span class="bear">Too late. Moving on.</span>`,
+        neutral: t => `<strong>${t}</strong> is solid but PEG puts it in fairly-valued territory. Holding what I have, not adding aggressively. <span class="neutral">Hold — not a strong buy.</span>`
+      },
+      MB: { name: 'Michael Burry', title: 'The Big Short',
+        bull: t => `Everyone hates <strong>${t}</strong> right now. Exactly when I buy. Fundamentals ignored, price reflects maximum pessimism. Margin of safety substantial. <span class="bull">Loading up — contrarian BUY.</span>`,
+        bear: t => `<strong>${t}</strong> is the consensus trade — everyone loves it. I've been here before. When consensus is this one-sided and valuation this stretched, I go the other way. <span class="bear">Building SHORT position.</span>`,
+        neutral: t => `<strong>${t}</strong> doesn't offer enough mispricing either way. I only trade extreme value or extreme overvaluation. <span class="neutral">No trade here.</span>`
+      }
+    };
+
+    document.querySelectorAll('.legend-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const selected = document.querySelectorAll('.legend-pill.selected');
+        if (pill.classList.contains('selected')) {
+          pill.classList.remove('selected');
+        } else {
+          if (selected.length >= 3) selected[0].classList.remove('selected');
+          pill.classList.add('selected');
+        }
+      });
+    });
+
+    function runDebate() {
+      const ticker = (document.getElementById('tickerInput').value.trim().toUpperCase() || 'NVDA');
+      const keys = Array.from(document.querySelectorAll('.legend-pill.selected')).map(p => p.dataset.legend);
+      if (keys.length === 0) return;
+
+      const chat = document.getElementById('debateChat');
+      chat.innerHTML = '';
+      document.getElementById('voteTally').innerHTML = '';
+
+      const stances = ['bull', 'bear', 'neutral'];
+      const assigned = keys.map(k => ({ key: k, stance: stances[Math.floor(Math.random() * stances.length)] }));
+      if (!assigned.find(a => a.stance === 'bull')) assigned[0].stance = 'bull';
+
+      const messages = [];
+      assigned.forEach(a => messages.push({ key: a.key, stance: a.stance }));
+      assigned.forEach(a => {
+        const extract = legendData[a.key][a.stance](ticker).match(/<span[^>]*>([^<]*)<\/span>/);
+        const verdict_text = extract ? extract[1] : a.stance.toUpperCase();
+        const rebuttal = `My reading on <strong>${ticker}</strong> hasn't changed. ${a.stance === 'bull' ? 'The long-term thesis is intact.' : a.stance === 'bear' ? 'The risks are real.' : 'The data is mixed.'} <span class="${a.stance}">${verdict_text}</span>`;
+        messages.push({ key: a.key, stance: a.stance, rebuttalHtml: rebuttal });
+      });
+
+      const bulls = assigned.filter(a => a.stance === 'bull').length;
+      const bears = assigned.filter(a => a.stance === 'bear').length;
+      const verdict = bulls > bears ? 'bull' : bulls < bears ? 'bear' : 'neutral';
+      const verdictText = verdict === 'bull' ? `<span class="bull">BULLISH — BUY ${ticker}</span>` : verdict === 'bear' ? `<span class="bear">BEARISH — AVOID ${ticker}</span>` : `<span class="neutral">NEUTRAL — WAIT ${ticker}</span>`;
+      const tallyParts = assigned.map(a => `${legendData[a.key].name.split(' ')[1]}: <span class="${a.stance}">${a.stance.toUpperCase()}</span>`).join(' · ');
+      const flowMsg = verdict === 'neutral' ? 'MIXED SIGNALS — Reduce size, wait for clarity.' : verdict === 'bull' ? 'CONFIRMED. Institutional accumulation detected. Proceed.' : 'CONFIRMED. Distribution pattern active. Caution advised.';
+
+      let delay = 400;
+      messages.forEach(msg => {
+        const ld = legendData[msg.key];
+        const html = msg.rebuttalHtml || ld[msg.stance](ticker);
+        const el = document.createElement('div');
+        el.className = 'debate-msg';
+        el.innerHTML = `<div class="msg-avatar">${msg.key}</div><div class="msg-body"><div class="msg-sender">${ld.name} — ${ld.title}</div><div class="msg-bubble">${html}</div></div>`;
+        chat.appendChild(el);
+        setTimeout(() => { el.classList.add('show'); chat.scrollTop = chat.scrollHeight; }, delay);
+        delay += 1800;
+      });
+
+      setTimeout(() => {
+        const el = document.createElement('div');
+        el.className = 'debate-msg';
+        el.innerHTML = `<div class="msg-avatar titan">&#x26A1;</div><div class="msg-body"><div class="msg-sender">TITAN SIGNAL — Consensus Engine</div><div class="msg-bubble vote"><strong>VERDICT: ${verdictText}</strong><br><br>${tallyParts}<br><br>Institutional flow: <span class="${verdict}">${flowMsg}</span></div></div>`;
+        chat.appendChild(el);
+        setTimeout(() => { el.classList.add('show'); chat.scrollTop = chat.scrollHeight; }, 200);
+        document.getElementById('voteTally').innerHTML = `Council: ${tallyParts}`;
+      }, delay);
+    }
+
+
+    // ── Legend Oracle Demo ───────────────────────────────────────────────────
+    const oracleEvents = {
+      btc100k: { label: 'Will BTC reach $100K before Dec 2025?', tag: 'Crypto · Macro' },
+      fedcut:  { label: 'Will the Fed cut rates in June 2025?',  tag: 'Macro · Policy' },
+      recession:{ label: 'Will the US enter recession in 2025?', tag: 'Macro · Economy' },
+      taiwan:  { label: 'Will Taiwan hold elections without incident in 2026?', tag: 'Geopolitical' },
+      nvda500: { label: 'Will NVDA exceed $500 by Q3 2025?',     tag: 'Tech · Equity' },
+      gold3k:  { label: 'Will Gold hit $3,000/oz in 2025?',      tag: 'Commodities · Macro' },
+      ai2025:  { label: 'Will an AI system pass the bar exam by end 2025?', tag: 'Technology' },
+      usdebt:  { label: 'Will the US debt ceiling be raised by Q3 2025?',   tag: 'Policy · Macro' }
+    };
+
+    const oracleLegends = [
+      { key: 'WB', name: 'Warren Buffett', title: 'The Oracle of Omaha',
+        prob: (ev) => ev.includes('recession') ? 28 : ev.includes('Fed') ? 42 : ev.includes('BTC') ? 34 : ev.includes('Gold') ? 71 : ev.includes('NVDA') ? 61 : ev.includes('Taiwan') ? 78 : 55,
+        rationale: (ev, p) => p > 55
+          ? `I think YES is probable here. The fundamentals support it — when the economics are right, outcomes tend to follow. Markets are often wrong in the short term but the long-term picture is clear. I'd put it at <strong>${p}%</strong>.`
+          : `I'm skeptical. The price of certainty is too high right now. This is not a bet I'd make without more margin of safety. I'd say <strong>${p}%</strong> at best.`
+      },
+      { key: 'GS', name: 'George Soros', title: 'The Man Who Broke the Bank',
+        prob: (ev) => ev.includes('recession') ? 61 : ev.includes('Fed') ? 38 : ev.includes('BTC') ? 48 : ev.includes('Gold') ? 82 : ev.includes('NVDA') ? 44 : ev.includes('Taiwan') ? 65 : 50,
+        rationale: (ev, p) => p > 50
+          ? `Reflexivity is at work here. The feedback loop is self-reinforcing — as probability is perceived to increase, actors behave in ways that make it more likely. I see this resolving YES at <strong>${p}%</strong>.`
+          : `The dominant narrative here is wrong. Reflexivity can reverse violently, and I believe this is overpriced by the market. My estimate: <strong>${p}%</strong>. I'd consider shorting the YES position.`
+      },
+      { key: 'JS', name: 'Jim Simons', title: 'The Quant King',
+        prob: (ev) => ev.includes('recession') ? 39 : ev.includes('Fed') ? 51 : ev.includes('BTC') ? 52 : ev.includes('Gold') ? 68 : ev.includes('NVDA') ? 58 : ev.includes('Taiwan') ? 71 : 53,
+        rationale: (ev, p) => `The statistical model assigns <strong>${p}%</strong> probability. Pattern recognition across ${Math.floor(Math.random()*800+1200)} comparable historical events, regime-adjusted. Signal confidence: ${p > 55 ? 'moderately high' : p > 45 ? 'low-moderate' : 'low'}. Position the YES shares ${p > 50 ? 'at current market price — edge exists.' : 'only if liquidity improves — edge is thin.'}`
+      }
+    ];
+
+    const platformNames = { polymarket: 'Polymarket', kalshi: 'Kalshi', manifold: 'Manifold Markets', predictit: 'PredictIt', metaculus: 'Metaculus' };
+
+    function runOracle() {
+      const evKey = document.getElementById('oracleEventSelect').value;
+      const platform = document.getElementById('oraclePlatformSelect').value;
+      const ev = oracleEvents[evKey];
+      const chat = document.getElementById('oracleChat');
+      const tally = document.getElementById('oracleTally');
+      chat.innerHTML = '';
+      tally.innerHTML = '';
+
+      const platformName = platformNames[platform] || 'Polymarket';
+
+      let delay = 400;
+
+      // Intro message
+      const intro = document.createElement('div');
+      intro.className = 'debate-msg';
+      intro.innerHTML = `<div class="msg-avatar titan">⚡</div><div class="msg-body"><div class="msg-sender">TITAN SIGNAL — Oracle Session Opened</div><div class="msg-bubble vote">Platform: <strong>${platformName}</strong> &nbsp;·&nbsp; Event: <em>${ev.label}</em><br><br>Consulting the Legend Council for probability estimates…</div></div>`;
+      chat.appendChild(intro);
+      setTimeout(() => { intro.classList.add('show'); chat.scrollTop = chat.scrollHeight; }, delay);
+      delay += 1600;
+
+      const probs = [];
+      oracleLegends.forEach(legend => {
+        const p = legend.prob(ev.label);
+        probs.push(p);
+        const rationale = legend.rationale(ev.label, p);
+        const barColor = p > 55 ? '' : 'bear-fill';
+
+        const el = document.createElement('div');
+        el.className = 'debate-msg';
+        el.innerHTML = `<div class="msg-avatar">${legend.key}</div><div class="msg-body"><div class="msg-sender">${legend.name} — ${legend.title}</div><div class="msg-bubble">${rationale}<div class="prob-bar-wrap"><div class="prob-bar-track"><div class="prob-bar-fill ${barColor}" style="width:0%" data-target="${p}"></div></div><small style="opacity:0.5;font-size:0.7rem">${ev.tag} · ${platformName}</small></div></div></div>`;
+        chat.appendChild(el);
+
+        setTimeout(() => {
+          el.classList.add('show');
+          chat.scrollTop = chat.scrollHeight;
+          setTimeout(() => {
+            const bar = el.querySelector('.prob-bar-fill');
+            if (bar) bar.style.width = bar.dataset.target + '%';
+          }, 300);
+        }, delay);
+        delay += 2000;
+      });
+
+      // Titan Signal consensus
+      setTimeout(() => {
+        const avg = Math.round(probs.reduce((a, b) => a + b, 0) / probs.length);
+        const verdict = avg > 55 ? 'bull' : avg < 45 ? 'bear' : 'neutral';
+        const verdictWord = avg > 55 ? 'YES — BUY' : avg < 45 ? 'NO — SELL' : 'UNCERTAIN — WAIT';
+        const barColor = avg > 55 ? '' : 'bear-fill';
+
+        const el = document.createElement('div');
+        el.className = 'debate-msg';
+        el.innerHTML = `<div class="msg-avatar titan">⚡</div><div class="msg-body"><div class="msg-sender">TITAN SIGNAL — Cross-Platform Consensus</div><div class="msg-bubble vote"><strong>VERDICT: <span class="${verdict}">${verdictWord}</span></strong><br><br>
+          Council probabilities: Buffett <strong>${probs[0]}%</strong> · Soros <strong>${probs[1]}%</strong> · Simons <strong>${probs[2]}%</strong><br>
+          Titan Signal consensus: <span class="${verdict}"><strong>${avg}%</strong></span><br><br>
+          <div class="prob-bar-wrap"><div class="prob-bar-track"><div class="prob-bar-fill ${barColor}" style="width:0%" data-target="${avg}"></div></div></div>
+          Deploying to: <strong>${platformName}</strong> — signal simultaneously available on all connected prediction markets.</div></div>`;
+        chat.appendChild(el);
+        setTimeout(() => {
+          el.classList.add('show');
+          chat.scrollTop = chat.scrollHeight;
+          setTimeout(() => {
+            const bar = el.querySelector('.prob-bar-fill');
+            if (bar) bar.style.width = bar.dataset.target + '%';
+          }, 300);
+        }, 200);
+        tally.innerHTML = `Consensus: <span class="${verdict}">${avg}% YES</span> on ${platformName}`;
+      }, delay);
+    }
+
+    document.getElementById('startOracleBtn').addEventListener('click', runOracle);
+
+    document.getElementById('startDebateBtn').addEventListener('click', runDebate);
+    document.getElementById('tickerInput').addEventListener('keydown', e => { if (e.key === 'Enter') runDebate(); });
+
+  </script>
+</body>
+</html>
