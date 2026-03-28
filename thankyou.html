@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Welcome to 18 Legends — Titan Exchange AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Serif+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--ink:#08100d;--gold:#c9a96e;--gold-light:#e8cfa0;--gold-pale:#f5e9d4;--border:rgba(201,169,110,0.22)}
+    body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--gold-pale);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(201,169,110,0.06) 0%,transparent 65%);pointer-events:none}
+    .card{position:relative;z-index:1;max-width:600px;width:100%}
+    .check{font-size:3.5rem;margin-bottom:1.5rem;animation:pop .6s cubic-bezier(0.34,1.56,0.64,1) both}
+    @keyframes pop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--gold-light);line-height:1.15;margin-bottom:.5rem}
+    .zh{font-family:'Noto Serif TC',serif;font-size:.9rem;color:var(--gold);opacity:.55;letter-spacing:.15em;margin-bottom:2rem;display:block}
+    .desc{font-size:.9rem;line-height:1.85;opacity:.65;max-width:460px;margin:0 auto 2.5rem}
+    .desc strong{color:var(--gold-light);opacity:1}
+    .steps{border:1px solid var(--border);background:rgba(255,255,255,.02);padding:2rem;margin-bottom:2rem;text-align:left}
+    .step{display:flex;gap:1.2rem;align-items:flex-start;padding:.8rem 0;border-bottom:1px solid rgba(201,169,110,.08)}
+    .step:last-child{border-bottom:none}
+    .step-num{width:28px;height:28px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.85rem;line-height:1.7;opacity:.7}
+    .step-text strong{color:var(--gold-light);opacity:1}
+    .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-family:'Inter',sans-serif;cursor:pointer;transition:.3s;text-decoration:none;border-radius:2px}
+    .btn-primary{background:var(--gold);color:var(--ink);border:none;font-weight:500}
+    .btn-primary:hover{background:var(--gold-light)}
+    .btn-outline{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+    .btn-outline:hover{background:var(--gold);color:var(--ink)}
+    .footer-note{font-size:.68rem;opacity:.3;letter-spacing:.1em;margin-top:1rem}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:.85rem;letter-spacing:.3em;color:var(--gold);opacity:.4;text-transform:uppercase;margin-bottom:2.5rem}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">TITAN EXCHANGE AI · 鈦訊</div>
+    <div class="check">✦</div>
+    <h1 id="headline">Payment Confirmed</h1>
+    <span class="zh" id="subheadline">訂閱成功 · ご登録完了</span>
+    <p class="desc" id="desc">
+      You're now subscribed to <strong id="planName">18 Legends</strong>. Our team has received your order and will reach out within <strong>24 hours</strong> to complete your onboarding and connect you to live signals.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Check your email</strong> — A welcome email is on its way from our 24/7 Customer Service Hotline (support@titansignal.io) with your subscription details.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text" id="step2text"><strong>Join the Signal group</strong> — Connect with your partner and the team on Telegram or LINE while we finalize your access.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Onboarding call</strong> — Your account manager will contact you within 24 hours to walk you through live signal setup.</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="mailto:support@titansignal.io" class="btn btn-outline">Contact Us →</a>
+    </div>
+    <p class="footer-note" id="footerRef"></p>
+  </div>
+
+  <script>
+    const p = new URLSearchParams(location.search);
+    const lang = p.get('lang') || 'en';
+    const ref  = p.get('ref')  || '';
+
+    const i18n = {
+      en: {
+        headline:   'Payment Confirmed',
+        sub:        'Welcome to 18 Legends',
+        desc:       'You\'re subscribed. Our team will reach out within <strong>24 hours</strong> to complete your onboarding and connect you to live signals.',
+        step2:      '<strong>Join the Signal group</strong> — Connect with your partner while we finalize your access.',
+      },
+      tw: {
+        headline:   '訂閱成功',
+        sub:        '歡迎加入 18 Legends',
+        desc:       '您的訂閱已確認。我們的團隊將在 <strong>24 小時</strong>內與您聯繫，完成入駐程序並連接您的即時訊號。',
+        step2:      '<strong>加入訊號群組</strong> — 請透過 LINE 或 Telegram 聯繫您的合作夥伴，等待我們完成開通。',
+      },
+      jp: {
+        headline:   'お支払い完了',
+        sub:        '18の伝説へようこそ',
+        desc:       'ご登録ありがとうございます。<strong>24時間以内</strong>に担当者よりご連絡し、オンボーディングを完了いたします。',
+        step2:      '<strong>シグナルグループに参加</strong> — LineまたはTelegramでパートナーにご連絡ください。',
+      }
+    };
+
+    const t = i18n[lang] || i18n.en;
+    document.getElementById('headline').textContent = t.headline;
+    document.getElementById('subheadline').textContent = t.sub;
+    document.getElementById('desc').innerHTML = t.desc;
+    document.getElementById('step2text').innerHTML = t.step2;
+
+    if (ref) {
+      document.getElementById('footerRef').textContent = `Referred by: ${ref.replace(/_tw|_jp/g,'')}`;
+    }
+  </script>
+</body>
+</html>
