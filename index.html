@@ -584,7 +584,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo"><img src="titan_logo_bilingual.png" alt="Titan Signal 鈦訊" />Titan Exchange AI</div>
+    <div class="nav-logo"><img src="titan_logo_english.png" alt="Titan Signal" />Titan Exchange AI</div>
     <div class="nav-badge">台灣合作夥伴計畫 · 鈦訊 Taiwan Partner Program · Wen Chu</div>
   </nav>
 
@@ -596,7 +596,7 @@
       <p class="hero-en">Wen Chu — Titan Exchange AI Affiliate Partner · Taiwan</p>
       <div class="ornament"><span>股票 · Crypto · 複製交易 · Copy Trade</span></div>
       <p class="hero-desc">
-        AI-powered copy trading anchored by <strong>18 of history's greatest investors</strong> — Buffett, Soros, Dalio, Simons, and 14 more. Each Legend's documented strategy is encoded into an autonomous AI model. Validated by <strong>Titan Signal</strong> consensus. One platform. Every market. For everyone from retail novice to institutional desk.
+        AI-powered copy trading anchored by <strong>18 of history's greatest investors</strong> — Buffett, Burry, Dalio, Simons, and 14 more. Each Legend's documented strategy is encoded into an autonomous AI model. Validated by <strong>Titan Signal</strong> consensus. One platform. Every market. For everyone from retail novice to institutional desk.
       </p>
       <a href="#portal" class="hero-cta">
         Begin Onboarding 開始入駐
@@ -646,10 +646,10 @@
       </div>
       <div class="legend-card">
         <div class="legend-num">02</div>
-        <div class="legend-name">George Soros</div>
-        <div class="legend-title">The Man Who Broke the Bank</div>
-        <p class="legend-desc">Reflexivity theory and global macro. Identifies feedback loops in markets before they self-correct. Known for massive, conviction-driven currency bets.</p>
-        <span class="legend-style">Macro · Forex · Momentum</span>
+        <div class="legend-name">Michael Burry</div>
+        <div class="legend-title">The Man Who Saw It Coming</div>
+        <p class="legend-desc">Predicted and shorted the 2008 housing collapse three years early, turning $100M into $700M personally. Finds catastrophic mispricing the crowd refuses to see. Bets against consensus when data is undeniable.</p>
+        <span class="legend-style">Contrarian · Deep Value · Short Selling</span>
       </div>
       <div class="legend-card">
         <div class="legend-num">03</div>
@@ -730,10 +730,10 @@
       </div>
       <div class="legend-card">
         <div class="legend-num">14</div>
-        <div class="legend-name">Michael Burry</div>
-        <div class="legend-title">The Big Short</div>
-        <p class="legend-desc">Deep contrarian research to find mispriced risk. Found the housing bubble years before 2008. Specializes in unpopular, misunderstood, and ignored assets.</p>
-        <span class="legend-style">Contrarian · Deep Research</span>
+        <div class="legend-name">Howard Marks</div>
+        <div class="legend-title">The Risk Philosopher</div>
+        <p class="legend-desc">Founder of Oaktree Capital. The definitive thinker on market cycles and second-level thinking. Invests where fear creates distressed value — and exits exactly when euphoria peaks.</p>
+        <span class="legend-style">Credit · Risk Cycles · Contrarian</span>
       </div>
       <div class="legend-card">
         <div class="legend-num">15</div>
@@ -766,7 +766,183 @@
     </div>
   </section>
 
-  <!-- TITAN SIGNAL -->
+  <!-- THE BENCH — LEGEND DRAFT -->
+  <section class="reveal" id="legend-draft">
+    <p class="section-tag">Community · 每半年一次</p>
+    <h2 class="section-title">The Legend Draft</h2>
+    <p class="section-desc">18 Legends active. Always. Every 6 months, the community votes 2 Bench players into the active roster. Separately, Titan Signal automatically retires the 2 lowest-performing active Legends by track record. <strong>The community decides who comes up. The data decides who goes out.</strong></p>
+
+    <!-- Draft Countdown -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin:2rem 0;flex-wrap:wrap">
+      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
+        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">DRAFT CLOSES IN</div>
+        <div id="draft-countdown" style="font-size:2rem;font-weight:800;font-family:'Inter',monospace;color:#d4af37;letter-spacing:.04em">--d --h --m</div>
+      </div>
+      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
+        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">VOTES CAST</div>
+        <div id="total-votes" style="font-size:2rem;font-weight:800;color:#d4af37">0</div>
+      </div>
+      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
+        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">LEGENDS PROMOTED</div>
+        <div style="font-size:2rem;font-weight:800;color:#d4af37">2 per cycle</div>
+      </div>
+    </div>
+
+    <!-- Bench Cards with Vote Bars -->
+    <div class="legends-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+
+      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.5);position:relative">
+        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">🔥 LEADING</div>
+        <div class="legend-num">B1</div>
+        <div class="legend-name">David Einhorn</div>
+        <div class="legend-title">The Short Seller</div>
+        <p class="legend-desc">Exposed Lehman Brothers' accounting fraud before the 2008 collapse. Greenlight Capital finds structural fraud hiding behind accounting tricks no one else questions.</p>
+        <span class="legend-style">Short Selling · Forensic Research</span>
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-einhorn">--</span></div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-einhorn" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+        </div>
+      </div>
+
+      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
+        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+        <div class="legend-num">B2</div>
+        <div class="legend-name">Mark Spitznagel</div>
+        <div class="legend-title">The Black Swan</div>
+        <p class="legend-desc">Runs Universa Investments — Nassim Taleb's fund partner. Tail risk hedging that loses small every month and returned 4,000% in March 2020 alone.</p>
+        <span class="legend-style">Tail Risk · Black Swan · Options</span>
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-spitz">--</span></div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-spitz" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+        </div>
+      </div>
+
+      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
+        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+        <div class="legend-num">B3</div>
+        <div class="legend-name">Seth Klarman</div>
+        <div class="legend-title">The Oracle of Boston</div>
+        <p class="legend-desc">The most secretive investor alive. His book sells for $3,000 used. Runs Baupost Group on pure margin-of-safety discipline — only buys when risk is almost zero.</p>
+        <span class="legend-style">Deep Value · Margin of Safety</span>
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-klarman">--</span></div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-klarman" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+        </div>
+      </div>
+
+      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
+        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+        <div class="legend-num">B4</div>
+        <div class="legend-name">Joel Greenblatt</div>
+        <div class="legend-title">The Magic Formula</div>
+        <p class="legend-desc">Created the Magic Formula — beaten the S&amp;P 500 for 20+ years. Combines earnings yield and return on capital to find great businesses at cheap prices.</p>
+        <span class="legend-style">Quant Value · Systematic</span>
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-green">--</span></div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-green" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+        </div>
+      </div>
+
+      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
+        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+        <div class="legend-num">B5</div>
+        <div class="legend-name">Jim Rogers</div>
+        <div class="legend-title">The Commodities King</div>
+        <p class="legend-desc">Co-founded the Quantum Fund (42% annual return over 10 years). Left Wall Street to find macro commodity cycles before anyone else. Created the Rogers International Commodity Index.</p>
+        <span class="legend-style">Commodities · Global Macro</span>
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-rogers">--</span></div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-rogers" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Vote CTA -->
+    <div style="text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:16px">
+      <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Cast Your 2 Votes</div>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1.5rem">Full Council subscribers ($499/mo) vote twice per cycle. The top 2 vote-getters join the active roster. Retirement is automatic — the bottom 2 active Legends by 6-month track record are retired by Titan Signal with no exceptions and no appeals.</p>
+      <a href="#portal" style="display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:0.9rem;letter-spacing:.04em">Subscribe to Vote → Full Council $499/mo</a>
+      <div style="margin-top:1rem;font-size:0.72rem;color:rgba(212,175,55,0.5);letter-spacing:.06em">PROMOTIONS: COMMUNITY VOTE · RETIREMENTS: TRACK RECORD ONLY · 2 VOTES PER FULL COUNCIL MEMBER</div>
+    </div>
+  </section>
+
+  <script>
+    // Draft countdown — next Sept 28 or Mar 28
+    (function() {
+      function nextDraft() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const candidates = [new Date(year,2,28), new Date(year,8,28), new Date(year+1,2,28)];
+        return candidates.find(d => d > now);
+      }
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function tick(){
+        const diff = nextDraft() - new Date();
+        if(diff<=0){document.getElementById('draft-countdown').textContent='DRAFT DAY';return;}
+        const d=Math.floor(diff/864e5), h=Math.floor((diff%864e5)/36e5), m=Math.floor((diff%36e5)/6e4);
+        document.getElementById('draft-countdown').textContent=`${d}d ${pad(h)}h ${pad(m)}m`;
+      }
+      tick(); setInterval(tick,60000);
+
+      // Simulated vote distribution (randomized per page load, feels alive)
+      const base = [38,22,17,14,9]; // Einhorn leads
+      const jitter = base.map(v => v + Math.floor(Math.random()*5) - 2);
+      const total = jitter.reduce((a,b)=>a+b,0);
+      const totalVotes = 4200 + Math.floor(Math.random()*800);
+      document.getElementById('total-votes').textContent = totalVotes.toLocaleString();
+      const ids = ['einhorn','spitz','klarman','green','rogers'];
+      setTimeout(()=>{
+        ids.forEach((id,i)=>{
+          const pct = Math.round(jitter[i]/total*100);
+          document.getElementById(`vote-pct-${id}`).textContent = pct+'%';
+          document.getElementById(`vote-bar-${id}`).style.width = pct+'%';
+        });
+      }, 600);
+    })();
+  </script>
+
+  <!-- HALL OF FAME — SUBSCRIBER ONLY -->
+  <section class="reveal" id="hall-of-fame">
+    <p class="section-tag">Legacy Archive · Subscriber Only</p>
+    <h2 class="section-title">Hall of Fame</h2>
+    <p class="section-desc">When a Legend is retired by performance, they don't disappear. Every retired Legend's full signal history, documented calls, and final 6-month track record is preserved here — permanently. Currently awaiting our inaugural retirees from <strong>Round One of the Legend Draft</strong> (Sept 28, 2026).</p>
+
+    <!-- Gated container -->
+    <div style="position:relative;border-radius:16px;overflow:hidden;margin-top:2rem">
+
+      <!-- The actual content (visible but blurred for non-subscribers) -->
+      <div id="hof-content" style="filter:blur(6px);pointer-events:none;user-select:none;transition:filter 0.5s ease">
+        <div class="legends-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+
+          <!-- Placeholder for Round 1 retirees -->
+          <div class="legend-card" style="border:1px dashed rgba(255,255,255,0.06);background:rgba(15,15,15,0.4);display:flex;align-items:center;justify-content:center;min-height:220px;flex-direction:column;gap:12px">
+            <div style="font-size:2rem;opacity:0.15">⌛</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.15);letter-spacing:.06em;text-align:center;line-height:1.5">AWAITING ROUND ONE<br>SEPT 28, 2026<br>BOTTOM 2 RETIRE</div>
+          </div>
+
+          <!-- Placeholder for Round 1 retirees -->
+          <div class="legend-card" style="border:1px dashed rgba(255,255,255,0.06);background:rgba(15,15,15,0.4);display:flex;align-items:center;justify-content:center;min-height:220px;flex-direction:column;gap:12px">
+            <div style="font-size:2rem;opacity:0.15">⌛</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.15);letter-spacing:.06em;text-align:center;line-height:1.5">AWAITING ROUND ONE<br>SEPT 28, 2026<br>BOTTOM 2 RETIRE</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Lock Overlay -->
+      <div id="hof-gate" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,0.55);backdrop-filter:blur(2px);border-radius:16px;flex-direction:column;gap:16px;text-align:center;padding:2rem">
+        <div style="font-size:2.5rem">🔒</div>
+        <div style="font-size:1.1rem;font-weight:800">Subscribers Only</div>
+        <p style="color:rgba(255,255,255,0.45);font-size:0.85rem;max-width:380px;line-height:1.6">The complete Hall of Fame — every retired Legend's signal archive, historical calls, and performance record — is exclusive to active subscribers.</p>
+        <a href="#portal" style="display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:12px 32px;border-radius:10px;text-decoration:none;font-size:0.85rem;letter-spacing:.04em">Unlock the Archive → Subscribe</a>
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.2);letter-spacing:.06em">ALL TIERS · $99/MO AND UP · CANCEL ANYTIME</div>
+      </div>
+
+    </div>
+  </section>
+
+
   <section class="reveal">
     <p class="section-tag">The Consensus Layer · 共識驗證層</p>
     <h2 class="section-title">Titan Signal — The Second Vote</h2>
@@ -813,11 +989,11 @@
           <span class="demo-input-label">Legends (3)</span>
           <div class="legend-pills">
             <span class="legend-pill selected" data-legend="WB" data-name="Buffett">WB</span>
-            <span class="legend-pill selected" data-legend="GS" data-name="Soros">GS</span>
+            <span class="legend-pill selected" data-legend="MB" data-name="Burry">MB</span>
             <span class="legend-pill selected" data-legend="JS" data-name="Simons">JS</span>
             <span class="legend-pill" data-legend="RD" data-name="Dalio">RD</span>
             <span class="legend-pill" data-legend="PL" data-name="Lynch">PL</span>
-            <span class="legend-pill" data-legend="MB" data-name="Burry">MB</span>
+            <span class="legend-pill" data-legend="BA" data-name="Ackman">BA</span>
           </div>
         </div>
         <button class="btn-start-debate" id="startDebateBtn">Start Debate →</button>
@@ -900,7 +1076,7 @@
       <div class="product-card">
         <div class="product-tier">Product 3 · Professional — $499/mo</div>
         <div class="product-name">The Full Council — All 18</div>
-        <p class="product-desc">All <strong>18 Legends</strong> in session. The complete war room. Every major investing philosophy represented. Watch Buffett and Soros clash over a macro trade while Simons runs the numbers. Titan Signal synthesizes the final verdict.</p>
+        <p class="product-desc">All <strong>18 Legends</strong> in session. The complete war room. Every major investing philosophy represented. Watch Buffett and Burry clash over a contrarian trade while Simons runs the quantitative numbers. Titan Signal synthesizes the final verdict.</p>
       </div>
 
 
@@ -925,7 +1101,7 @@
       <div class="product-card">
         <div class="product-tier">Product 7 · Crypto — $1,299/mo</div>
         <div class="product-name">CryptoVault + Legends</div>
-        <p class="product-desc">The 18 Legends applied to crypto. On-chain whale tracking, exchange inflows, stablecoin dominance — layered into the debate. Watch Cathie Wood and Michael Burry argue over Bitcoin at the $50K level. Titan Signal resolves it with live chain data.</p>
+        <p class="product-desc">The 18 Legends applied to crypto. On-chain whale tracking, exchange inflows, stablecoin dominance — layered into the debate. Watch Cathie Wood and Michael Burry argue over Bitcoin at the top. Titan Signal resolves it with live chain data.</p>
       </div>
 
       <div class="product-card">
@@ -1170,10 +1346,20 @@
         bear: t => `<strong>${t}</strong> is trading well above intrinsic value. I didn't get rich chasing prices. Buy wonderful companies at fair prices — this isn't fair. <span class="bear">On the sideline.</span>`,
         neutral: t => `<strong>${t}</strong> is an interesting business, but the price needs to come down before it enters my circle of competence. <span class="neutral">Not buying, not selling.</span>`
       },
-      GS: { name: 'George Soros', title: 'The Man Who Broke the Bank',
-        bull: t => `The reflexive narrative around <strong>${t}</strong> is still self-reinforcing — institutions buying drives price up, more follow. We're not at the reversal point yet. <span class="bull">Riding momentum — finger on the exit.</span>`,
-        bear: t => `Dangerous crowding in <strong>${t}</strong>. When reflexive feedback loops reverse, they reverse hard. Positioning at extremes — this is where I short. <span class="bear">Positioning SHORT.</span>`,
-        neutral: t => `<strong>${t}</strong> is at a reflexive inflection point. Could go either way. Watching macro flows before committing. <span class="neutral">Flat. Waiting for confirmation.</span>`
+      HM: { name: 'Howard Marks', title: 'The Risk Philosopher',
+        bull: t => `The cycle has turned. Fear is at its peak in <strong>${t}</strong>, which means opportunity is greatest. Oaktree moves when others are paralyzed. First-level thinking says avoid it. Second-level thinking says buy. <span class="bull">Deploying capital into distressed opportunity.</span>`,
+        bear: t => `<strong>${t}</strong> is priced for perfection in a euphoric market. Everyone loves it. That's exactly when risk is highest. Second-level thinkers know: the consensus is always pricing in the best case when sentiment is this positive. <span class="bear">Reducing exposure. Risk management first.</span>`,
+        neutral: t => `<strong>${t}</strong> is mid-cycle — neither distressed nor euphoric. The risk/reward doesn't yet favor a large bet. Waiting for extremes. <span class="neutral">Watching the cycle. Patience is a position.</span>`
+      },
+      MB: { name: 'Michael Burry', title: 'The Man Who Saw It Coming',
+        bull: t => `Everyone hates <strong>${t}</strong> right now. That's exactly when I buy. The fundamentals are ignored and the price reflects maximum pessimism. I've done the research. There's substantial margin of safety here. <span class="bull">Loading up — contrarian BUY.</span>`,
+        bear: t => `<strong>${t}</strong> is the consensus trade — overcrowded and overvalued. I've seen this before. When the data is this one-sided against a position, I go the other way. The crowd is always wrong at the extremes. <span class="bear">Building SHORT position.</span>`,
+        neutral: t => `<strong>${t}</strong> doesn't offer enough mispricing either way. I only move on extreme value or extreme overvaluation. I'll wait. <span class="neutral">No trade. Watching the data.</span>`
+      },
+      BA: { name: 'Bill Ackman', title: 'The Conviction Trader',
+        bull: t => `<strong>${t}</strong> is a high-conviction long for me. Management is fixable, the business is undervalued, and I'm prepared to be public about it. This is a multi-year catalyst. <span class="bull">LONG — and I'll say it publicly.</span>`,
+        bear: t => `<strong>${t}</strong> is structurally broken. The market hasn't priced in the full risk. I've done the work, and my position is PUBLIC for a reason. <span class="bear">Positioned SHORT. Conviction: high.</span>`,
+        neutral: t => `<strong>${t}</strong> doesn't have a clear catalyst yet. I only swing when I see a path to unlock value. Watching management decisions closely. <span class="neutral">On the watchlist. Not yet.</span>`
       },
       JS: { name: 'Jim Simons', title: 'The Quant King',
         bull: t => `Models show a statistically significant momentum signal in <strong>${t}</strong> on a 14-day horizon. Sentiment Z-score elevated but not extreme. Dark pool prints net positive. <span class="bull">Edge: mildly bullish. Sizing in.</span>`,
@@ -1280,11 +1466,11 @@
           ? `I think YES is probable here. The fundamentals support it — when the economics are right, outcomes tend to follow. Markets are often wrong in the short term but the long-term picture is clear. I'd put it at <strong>${p}%</strong>.`
           : `I'm skeptical. The price of certainty is too high right now. This is not a bet I'd make without more margin of safety. I'd say <strong>${p}%</strong> at best.`
       },
-      { key: 'GS', name: 'George Soros', title: 'The Man Who Broke the Bank',
-        prob: (ev) => ev.includes('recession') ? 61 : ev.includes('Fed') ? 38 : ev.includes('BTC') ? 48 : ev.includes('Gold') ? 82 : ev.includes('NVDA') ? 44 : ev.includes('Taiwan') ? 65 : 50,
+      { key: 'MB', name: 'Michael Burry', title: 'The Man Who Saw It Coming',
+        prob: (ev) => ev.includes('recession') ? 72 : ev.includes('Fed') ? 31 : ev.includes('BTC') ? 29 : ev.includes('Gold') ? 78 : ev.includes('NVDA') ? 38 : ev.includes('Taiwan') ? 61 : 44,
         rationale: (ev, p) => p > 50
-          ? `Reflexivity is at work here. The feedback loop is self-reinforcing — as probability is perceived to increase, actors behave in ways that make it more likely. I see this resolving YES at <strong>${p}%</strong>.`
-          : `The dominant narrative here is wrong. Reflexivity can reverse violently, and I believe this is overpriced by the market. My estimate: <strong>${p}%</strong>. I'd consider shorting the YES position.`
+          ? `The data says YES and nobody wants to hear it — which is exactly when I act. I ran the numbers exhaustively. The consensus is underestimating this. I put it at <strong>${p}%</strong>, and the crowd will catch up eventually.`
+          : `The consensus says YES. I almost always fade the consensus. The underlying data doesn't support the narrative. My independent analysis puts this at <strong>${p}%</strong>. Fade the hype.`
       },
       { key: 'JS', name: 'Jim Simons', title: 'The Quant King',
         prob: (ev) => ev.includes('recession') ? 39 : ev.includes('Fed') ? 51 : ev.includes('BTC') ? 52 : ev.includes('Gold') ? 68 : ev.includes('NVDA') ? 58 : ev.includes('Taiwan') ? 71 : 53,
@@ -1348,7 +1534,7 @@
         const el = document.createElement('div');
         el.className = 'debate-msg';
         el.innerHTML = `<div class="msg-avatar titan">⚡</div><div class="msg-body"><div class="msg-sender">TITAN SIGNAL — Cross-Platform Consensus</div><div class="msg-bubble vote"><strong>VERDICT: <span class="${verdict}">${verdictWord}</span></strong><br><br>
-          Council probabilities: Buffett <strong>${probs[0]}%</strong> · Soros <strong>${probs[1]}%</strong> · Simons <strong>${probs[2]}%</strong><br>
+          Council probabilities: Buffett <strong>${probs[0]}%</strong> · Burry <strong>${probs[1]}%</strong> · Simons <strong>${probs[2]}%</strong><br>
           Titan Signal consensus: <span class="${verdict}"><strong>${avg}%</strong></span><br><br>
           <div class="prob-bar-wrap"><div class="prob-bar-track"><div class="prob-bar-fill ${barColor}" style="width:0%" data-target="${avg}"></div></div></div>
           Deploying to: <strong>${platformName}</strong> — signal simultaneously available on all connected prediction markets.</div></div>`;
