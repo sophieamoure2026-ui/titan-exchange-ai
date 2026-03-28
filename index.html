@@ -577,6 +577,29 @@
       .stat { border-right: none; border-bottom: 1px solid var(--border); }
       .legends-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    /* ── At-Risk UI ── */
+    .legend-card.at-risk {
+      border: 1px solid rgba(255, 50, 50, 0.4) !important;
+      background: linear-gradient(135deg, rgba(255,50,50,0.05), transparent) !important;
+    }
+    .at-risk-overlay {
+      position: absolute; inset: 0; z-index: 10;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(4px);
+      padding: 2rem; text-align: center;
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .legend-card.at-risk:hover .at-risk-overlay { opacity: 1; }
+    .at-risk-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      background: #ff3333; color: white; padding: 4px 8px;
+      font-size: 0.7rem; font-weight: 800; border-radius: 4px;
+      animation: pulse-red 2s infinite; z-index: 5;
+    }
+    @keyframes pulse-red {
+      0% { box-shadow: 0 0 0 0 rgba(255,51,51, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(255,51,51, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,51,51, 0); }
     }
   </style>
 </head>
@@ -885,20 +908,77 @@
       }
       tick(); setInterval(tick,60000);
 
-      // Simulated vote distribution (randomized per page load, feels alive)
-      const base = [38,22,17,14,9]; // Einhorn leads
-      const jitter = base.map(v => v + Math.floor(Math.random()*5) - 2);
-      const total = jitter.reduce((a,b)=>a+b,0);
-      const totalVotes = 4200 + Math.floor(Math.random()*800);
-      document.getElementById('total-votes').textContent = totalVotes.toLocaleString();
-      const ids = ['einhorn','spitz','klarman','green','rogers'];
-      setTimeout(()=>{
-        ids.forEach((id,i)=>{
-          const pct = Math.round(jitter[i]/total*100);
-          document.getElementById(`vote-pct-${id}`).textContent = pct+'%';
-          document.getElementById(`vote-bar-${id}`).style.width = pct+'%';
-        });
-      }, 600);
+      const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+        ? 'http://localhost:8000/api/v1' 
+        : 'http://66.94.118.215:8000/api/v1';
+
+      // LIVE API FETCH: Draft Leaderboard
+      async function updateLeaderboard() {
+        try {
+          const res = await fetch(`${API_BASE}/draft/leaderboard`);
+          if (!res.ok) return;
+          const data = await res.json();
+          let total = 0;
+          data.forEach(c => total += c.votes);
+          document.getElementById('total-votes').textContent = total.toLocaleString();
+          
+          data.forEach(c => {
+            const elPct = document.getElementById(`vote-pct-${c.id}`);
+            const elBar = document.getElementById(`vote-bar-${c.id}`);
+            if (elPct) elPct.textContent = c.percentage.toFixed(1) + '%';
+            if (elBar) elBar.style.width = c.percentage + '%';
+          });
+        } catch (e) {
+          console.log('Leaderboard API offline. Waiting for Titan Atlas...');
+        }
+      }
+      
+      // LIVE API FETCH: Roster At Risk (Monetization Hook)
+      async function updateRosterRisk() {
+        try {
+          const res = await fetch(`${API_BASE}/roster/at_risk`);
+          if (!res.ok) return;
+          const data = await res.json();
+          const atRiskNames = data.map(d => d.name);
+          
+          document.querySelectorAll('.legend-card').forEach(card => {
+            const nameEl = card.querySelector('.legend-name');
+            // Only target active roster cards, ensure they aren't already flagged
+            if(nameEl && atRiskNames.includes(nameEl.textContent.trim()) && !card.classList.contains('at-risk')) {
+                 card.classList.add('at-risk');
+                 
+                 // Add pulsating badge
+                 const badge = document.createElement('div');
+                 badge.className = 'at-risk-badge';
+                 badge.textContent = 'AT RISK';
+                 card.appendChild(badge);
+
+                 // Add hover override overlay connected to Stripe
+                 const overlay = document.createElement('div');
+                 overlay.className = 'at-risk-overlay';
+                 
+                 // Find which specific legend this is to append reference ID
+                 const legendId = data.find(d => d.name === nameEl.textContent.trim()).id;
+
+                 overlay.innerHTML = `
+                   <div style="color:#ff3333;font-weight:900;font-size:1.5rem;letter-spacing:0.1em;margin-bottom:8px">AXE PENDING</div>
+                   <div style="color:rgba(255,255,255,0.7);font-size:0.8rem;margin-bottom:1.5rem;line-height:1.4">Algorithmic 6-mo returns beneath retention threshold. Proceeding with permanent retirement.</div>
+                   <a href="https://buy.stripe.com/28E28tfqn326gXpbmld7q0r?client_reference_id=save_legend_${legendId}" target="_blank" style="background:#ff3333;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:0.9rem;border:1px solid #ffaaaa;box-shadow:0 0 20px rgba(255,50,50,0.4);transition:all 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">OVERRIDE: Save for $99</a>
+                 `;
+                 card.appendChild(overlay);
+            }
+          });
+        } catch (e) {
+           console.log('Roster API offline. Waiting for Titan Atlas...');
+        }
+      }
+
+      // Initial Fetch & Polling
+      setTimeout(() => {
+        updateLeaderboard();
+        updateRosterRisk();
+      }, 500);
+      setInterval(updateLeaderboard, 10000);
     })();
   </script>
 
