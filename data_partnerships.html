@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Titan Signal | AI Data Partnerships</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* TITAN DESIGN SYSTEM - DATA PARTNERSHIPS */
+    :root {
+      --bg: #050505;
+      --bg-light: #0d0d0d;
+      --ink: #111111;
+      --gold: #C9A96E;
+      --gold-dark: #8F7240;
+      --gold-light: #ebd6a1;
+      --gold-pale: #f2e7c4;
+      --white: #ffffff;
+      --text-main: #eaeaea;
+      --text-muted: rgba(255,255,255,0.6);
+      --border: rgba(201,169,110,0.15);
+      --glass: rgba(10, 10, 10, 0.6);
+      --trans: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+    .tagline { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+    
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center;
+      background: var(--glass); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.2rem; letter-spacing: 0.2em; color: var(--gold-light); text-decoration: none; font-family: 'Cormorant Garamond', serif; }
+    
+    /* HERO SECTION */
+    header {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 0 5%;
+      background: radial-gradient(circle at center, rgba(201,169,110,0.05) 0%, var(--bg) 70%);
+      position: relative;
+    }
+    header::before {
+      content: ''; position: absolute; top:0;left:0;right:0;bottom:0;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.2; z-index: -1;
+    }
+    .hero-title { font-size: clamp(3rem, 6vw, 5rem); color: var(--white); line-height: 1.1; margin: 1rem 0 2rem; }
+    .hero-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 3rem; font-weight: 300; }
+    
+    .btn-primary {
+      display: inline-block; padding: 1.2rem 3rem; background: var(--gold); color: var(--ink);
+      font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
+      transition: var(--trans); border: 1px solid var(--gold); font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: transparent; color: var(--gold); }
+
+    /* GRID SECTION */
+    section { padding: 6rem 5%; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+    }
+    .glass-card h3 { font-size: 2rem; color: var(--gold-light); margin-bottom: 1rem; }
+    .glass-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .badge { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid var(--gold-dark); color: var(--gold); font-size: 0.65rem; letter-spacing: 0.15em; margin-bottom: 1rem; }
+
+    /* BANT FORM */
+    .form-container { max-width: 600px; margin: 0 auto; }
+    .form-group { margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    input, select, textarea {
+      width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      padding: 1rem; color: var(--white); font-family: 'Inter', sans-serif; outline: none; transition: var(--trans);
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); background: rgba(201,169,110,0.05); }
+
+    /* JSONL PREVIEW */
+    .code-block {
+      background: #000; border: 1px solid var(--border); padding: 2rem; overflow-x: auto;
+      font-family: monospace; font-size: 0.85rem; color: #a5d6ff; line-height: 1.5; margin-top: 2rem;
+    }
+    .code-sys { color: #ff7b72; }
+    .code-usr { color: #79c0ff; }
+    .code-ast { color: #d2a8ff; }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="logo">TITAN SIGNAL</a>
+    <a href="#request" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.6rem;">Request Data Sample</a>
+  </nav>
+
+  <header>
+    <div class="tagline">Data Partnerships</div>
+    <h1 class="hero-title">Beyond the Data Wall.</h1>
+    <p class="hero-subtitle">You have scraped the public intenet. Now you need outcome-validated reasoning. License the proprietary RLHF financial decision-logs from 11 autonomous Wall Street daemons.</p>
+    <a href="#request" class="btn-primary">License Financial Data</a>
+  </header>
+
+  <section>
+    <div class="grid-2">
+      <div>
+        <div class="tagline">The Paradigm Shift</div>
+        <h2 style="font-size: 3rem; margin: 1rem 0; color: var(--gold-light);">Outcome-Validated RLHF</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">
+          To break the capability barrier and train agentic models (like o1 or Claude), you need more than raw text. You need internal chain-of-thought traces explicitly mapped to ground-truth outcomes.
+        </p>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">
+          Titan Signal runs a closed-loop swarm of 23 quantitative trading agents and 11 research daemons 24/7. They analyze, reason, execute, and record PnL. We package these multi-million line reasoning traces into clean, ChatML-ready JSONL payloads.
+        </p>
+      </div>
+      <div class="glass-card">
+        <span class="badge">PROPRIETARY JSONL CORPUS</span>
+        <h3>The Titan Reasoning Dataset</h3>
+        <p>A continuous firehose of structured data specifically designed for reasoning-model finetuning and RLHF.</p>
+        <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding-top: 1rem; border-top: 1px solid var(--border);">
+          <li style="margin-bottom: 0.8rem;">✓ <strong>Structured Rationale:</strong> Step-by-step logic extraction.</li>
+          <li style="margin-bottom: 0.8rem;">✓ <strong>Ground Truth validation:</strong> Reasoning mapped to actual PnL.</li>
+          <li style="margin-bottom: 0.8rem;">✓ <strong>IP Obfuscated:</strong> Core execution thresholds masked to protect our structural alpha.</li>
+          <li>✓ <strong>Multi-Market:</strong> Crypto, Polymarket, Options, Yield Farming.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <div class="tagline" style="text-align: center;">Technical Specification</div>
+      <h2 style="font-size: 2.5rem; text-align: center; margin: 1rem 0 3rem; color: var(--white);">Format: OpenAI ChatML Standard</h2>
+      
+      <div class="code-block">
+<span class="code-sys">{"messages": [{"role": "system", "content": "You are a quantitative AI agent assessing a market condition..."}</span>,
+<span class="code-usr">{"role": "user", "content": "Market Context: BTC/USD volatility spike at 14:00 UTC. Order book imbalance detected on major CEX."}</span>,
+<span class="code-ast">{"role": "assistant", "content": "Reasoning Trace: Given the sudden drop in liquidity on the bid side and a [CORE_STRATEGY_REDACTED] quantitative anomaly on the 5-minute timeframe from [NODE_ID_REDACTED], the probability of a downward cascade is 87%. Recommending immediate Delta-Neutral hedge to preserve APY.\n\nGround Truth Market Validation: PROFIT VALIDATED: +$1,240 (Hedge successfully mitigated $4,500 drawdown)."}</span><span class="code-sys">]}</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="request">
+    <div class="form-container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div class="tagline">Data Partnerships</div>
+        <h2 style="font-size: 2.5rem; margin-top: 1rem; color: var(--gold-light);">Request a Data Sample</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Access to the 100k line sample payload ($10,000 to $25,000 Evaluation Tier).</p>
+      </div>
+      
+      <form action="/submit-data-request" method="POST" class="glass-card">
+        <div class="form-group">
+          <label>Organization (AI Lab / Institute)</label>
+          <input type="text" name="organization" placeholder="e.g. Anthropic, xAI, OpenAI" required>
+        </div>
+        <div class="form-group">
+          <label>Corporate Email</label>
+          <input type="email" name="email" placeholder="name@anthropic.com" required>
+        </div>
+        <div class="form-group">
+          <label>Intended Use Case (Model Training, Evaluation, etc.)</label>
+          <select name="use_case" required>
+            <option value="">Select a use case</option>
+            <option value="rlhf">Pre-training / RLHF Pipeline</option>
+            <option value="eval">Model Evaluation</option>
+            <option value="research">Academic Research</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message / Additional Requirements</label>
+          <textarea name="message" rows="4" placeholder="Let us know your dataset minimum row requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Submit Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>

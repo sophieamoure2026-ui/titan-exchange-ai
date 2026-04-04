@@ -8,20 +8,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #08100d; --ink-mid: #0d1a14; --ink-light: #162b20;
-      --gold: #c9a96e; --gold-light: #e8cfa0; --gold-pale: #f5e9d4;
-      --green: #4ade80; --red: #f87171;
-      --border: rgba(201,169,110,0.22); --trans: 0.3s cubic-bezier(0.4,0,0.2,1);
+        :root {
+      --ink: #050505; --ink-mid: #0a0a0a; --ink-light: #1a1a1a;
+      --gold: #FF003C; --gold-light: #FF3366; --gold-pale: #FFFFFF;
+      --green: #00F0FF; --red: #FF003C;
+      --border: rgba(255,0,60,0.4); --trans: 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--ink); color: var(--gold-pale); overflow-x: hidden; }
+    body { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em; background: var(--ink); color: var(--gold-pale); overflow-x: hidden; }
 
     /* NAV */
     nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
       background: linear-gradient(to bottom, rgba(8,16,13,0.97), transparent);
-      backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+      -webkit-backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300;
       letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.8rem; }
     .nav-logo img { height: 34px; width: 34px; object-fit: contain; opacity: 0.9; }
@@ -134,7 +134,7 @@
     .legend-pill.selected { border-color: var(--gold); color: var(--gold); opacity: 1; }
     .btn-start-debate { background: var(--gold); color: var(--ink); border: none;
       padding: 0.65rem 1.6rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      font-family: 'Inter', sans-serif; cursor: pointer; transition: var(--trans); font-weight: 600; white-space: nowrap; }
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em; cursor: pointer; transition: var(--trans); font-weight: 600; white-space: nowrap; }
     .btn-start-debate:hover { background: var(--gold-light); }
     .demo-chat { padding: 1.5rem 1.8rem; min-height: 300px; max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 1.2rem; }
     .demo-chat::-webkit-scrollbar { width: 4px; }
@@ -142,7 +142,7 @@
     .debate-placeholder { font-size: 0.82rem; opacity: 0.3; text-align: center; padding: 4rem 2rem; width: 100%; }
     .debate-msg { display: flex; gap: 1rem; align-items: flex-start; opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .debate-msg.show { opacity: 1; transform: translateY(0); }
-    .msg-avatar { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+    .msg-avatar { width: 36px; height: 36px; border-radius: 0%; border: 1px solid var(--border);
       background: rgba(201,169,110,0.08); flex-shrink: 0; display: flex; align-items: center;
       justify-content: center; font-size: 0.75rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); font-weight: 600; }
     .msg-avatar.titan { background: rgba(201,169,110,0.15); border-color: var(--gold); }
@@ -165,21 +165,21 @@
     .oracle-platform-tabs { display: flex; border-bottom: 1px solid var(--border); }
     .oracle-tab { padding: 0.85rem 1.4rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--gold-pale); opacity: 0.4; cursor: pointer; transition: var(--trans); border-right: 1px solid var(--border);
-      background: transparent; border-top: none; border-left: none; border-bottom: none; font-family: 'Inter', sans-serif; }
+      background: transparent; border-top: none; border-left: none; border-bottom: none; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em; }
     .oracle-tab:last-child { border-right: none; }
     .oracle-tab.active { opacity: 1; color: var(--gold); background: rgba(201,169,110,0.06); box-shadow: inset 0 -2px 0 var(--gold); }
     .oracle-tab:hover:not(.active) { opacity: 0.75; }
     .oracle-events { padding: 1.2rem 1.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border); }
     .oracle-event-btn { padding: 0.35rem 0.9rem; border: 1px solid var(--border); font-size: 0.7rem;
       color: var(--gold-pale); opacity: 0.5; background: transparent; cursor: pointer; transition: var(--trans);
-      font-family: 'Inter', sans-serif; letter-spacing: 0.05em; }
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em; letter-spacing: 0.05em; }
     .oracle-event-btn.active { border-color: var(--gold); color: var(--gold); opacity: 1; background: rgba(201,169,110,0.05); }
     .oracle-event-btn:hover:not(.active) { opacity: 0.8; }
     .oracle-run-bar { padding: 1rem 1.8rem; display: flex; align-items: center; gap: 1.5rem; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.15); flex-wrap: wrap; }
     .oracle-run-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); opacity: 0.6; }
     .btn-run-oracle { background: var(--gold); color: var(--ink); border: none; padding: 0.6rem 1.5rem;
       font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer;
-      font-family: 'Inter', sans-serif; font-weight: 600; transition: var(--trans); }
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em; font-weight: 600; transition: var(--trans); }
     .btn-run-oracle:hover { background: var(--gold-light); }
     .oracle-body { padding: 1.8rem; min-height: 280px; }
     .oracle-placeholder { font-size: 0.82rem; opacity: 0.3; text-align: center; padding: 4rem 2rem; }
@@ -189,8 +189,8 @@
     .oracle-platform-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); opacity: 0.55; margin-bottom: 1.5rem; }
     .oracle-consensus { margin-bottom: 1.8rem; }
     .oracle-consensus-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.6; margin-bottom: 0.5rem; }
-    .oracle-bar-wrap { height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; margin-bottom: 0.35rem; }
-    .oracle-bar-fill { height: 100%; border-radius: 4px; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); width: 0; }
+    .oracle-bar-wrap { height: 8px; background: rgba(255,255,255,0.06); border-radius: 0px; overflow: hidden; margin-bottom: 0.35rem; }
+    .oracle-bar-fill { height: 100%; border-radius: 0px; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); width: 0; }
     .oracle-bar-fill.yes { background: linear-gradient(90deg, #4ade80, #22d3ee); }
     .oracle-pct-row { display: flex; justify-content: space-between; font-size: 0.75rem; }
     .oracle-pct-yes { color: var(--green); font-weight: 600; }
@@ -203,7 +203,8 @@
     .oracle-legend-vote .no-call { color: var(--red); font-size: 0.7rem; font-weight: 600; }
     .oracle-titan-verdict { margin-top: 1.5rem; padding: 1.2rem 1.5rem; border: 1px solid var(--gold); background: rgba(201,169,110,0.06); }
     .oracle-titan-verdict strong { color: var(--gold); display: block; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 0.4rem; }
-    .oracle-titan-verdict p { font-size: 0.85rem; color: var(--gold-pale); opacity: 0.85; line-height: 1.6; }
+    .oracle-titan-verdict p { font-size: 0.85rem; color: var(--gold-pale); opacity: 0.85; line-height: 1.2;
+    letter-spacing: -0.05em; }
 
     /* PRODUCTS */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -218,7 +219,7 @@
     .btn-subscribe { display: inline-block; margin-top: 1.2rem; background: transparent;
       border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.4rem;
       font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-      text-decoration: none; transition: var(--trans); font-family: 'Inter', sans-serif; }
+      text-decoration: none; transition: var(--trans); font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em; }
     .btn-subscribe:hover { background: var(--gold); color: var(--ink); }
 
 
@@ -229,7 +230,8 @@
     .mlm-level.l2 { border-color: rgba(201,169,110,0.4); background: rgba(201,169,110,0.03); }
     .mlm-level-badge { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); opacity: 0.65; margin-bottom: 0.5rem; }
     .mlm-level-pct { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1; }
-    .mlm-level-desc { font-size: 0.75rem; opacity: 0.5; margin-top: 0.5rem; line-height: 1.6; }
+    .mlm-level-desc { font-size: 0.75rem; opacity: 0.5; margin-top: 0.5rem; line-height: 1.2;
+    letter-spacing: -0.05em; }
     .rank-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; font-size: 0.82rem; }
     .rank-table th { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.6; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); text-align: left; }
     .rank-table td { padding: 0.9rem 1rem; border-bottom: 1px solid rgba(201,169,110,0.08); opacity: 0.7; }
@@ -262,14 +264,14 @@
     .form-group.full { grid-column: 1 / -1; }
     label { font-size: 0.62rem; letter-spacing: 0.26em; color: var(--gold); text-transform: uppercase; opacity: 0.78; }
     input, select, textarea { background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-      color: var(--gold-pale); padding: 0.9rem 1rem; font-size: 0.88rem; font-family: 'Inter', sans-serif;
+      color: var(--gold-pale); padding: 0.9rem 1rem; font-size: 0.88rem; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em;
       outline: none; transition: var(--trans); width: 100%; }
     input::placeholder, textarea::placeholder { opacity: 0.3; }
     input:focus, select:focus, textarea:focus { border-color: var(--gold); background: rgba(201,169,110,0.04); }
     select option { background: var(--ink-mid); color: var(--gold-pale); }
     .submit-row { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
     .btn-submit { background: var(--gold); color: var(--ink); border: none; padding: 1rem 3rem;
-      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; font-family: 'Inter', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; letter-spacing: -0.05em;
       cursor: pointer; transition: var(--trans); font-weight: 600; }
     .btn-submit:hover { background: var(--gold-light); }
     .submit-note { font-size: 0.7rem; opacity: 0.38; }
@@ -305,6 +307,25 @@
       .legends-grid { grid-template-columns: 1fr; }
     }
   </style>
+
+<style id="ts-extracted-styles">
+  .ts-opt-394ad8 { display:flex;align-items:center;justify-content:center;gap:24px;margin:2rem 0;flex-wrap:wrap }
+  .ts-opt-b27fc1 { background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius: 0px;padding:1.2rem 2rem;text-align:center }
+  .ts-opt-1fd974 { font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px }
+  .ts-opt-dc5312 { font-size:2rem;font-weight:800;font-family:'Inter',monospace;color:#d4af37;letter-spacing:.04em }
+  .ts-opt-11f834 { font-size:2rem;font-weight:800;color:#d4af37 }
+  .ts-opt-125c0e { grid-template-columns:repeat(auto-fill,minmax(220px,1fr)) }
+  .ts-opt-dd8123 { border:1px dashed rgba(212,175,55,0.5);position:relative }
+  .ts-opt-065382 { position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius: 0px;border:1px solid rgba(212,175,55,0.3) }
+  .ts-opt-e9f574 { display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px }
+  .ts-opt-1acf9a { background:rgba(255,255,255,0.08);border-radius: 0px;height:6px }
+  .ts-opt-616890 { border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85 }
+  .ts-opt-37bfc1 { text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:16px }
+  .ts-opt-d8328c { font-size:1.1rem;font-weight:700;margin-bottom:8px }
+  .ts-opt-cd6fc0 { color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1.5rem }
+  .ts-opt-51df8d { display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:14px 36px;border-radius: 0px;text-decoration:none;font-size:0.9rem;letter-spacing:.04em }
+  .ts-opt-e3916b { margin-top:1rem;font-size:0.72rem;color:rgba(212,175,55,0.5);letter-spacing:.06em }
+</style>
 </head>
 <body>
 
@@ -487,97 +508,97 @@
     <p class="section-desc">18 Legends active. Always. Every 6 months, the community votes 2 Bench players into the active roster. Separately, Titan Signal automatically retires the 2 lowest-performing active Legends by track record. <strong>The community decides who comes up. The data decides who goes out.</strong></p>
 
     <!-- Draft Countdown -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin:2rem 0;flex-wrap:wrap">
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">DRAFT CLOSES IN</div>
-        <div id="draft-countdown" style="font-size:2rem;font-weight:800;font-family:'Inter',monospace;color:#d4af37;letter-spacing:.04em">--d --h --m</div>
+    <div class="ts-opt-394ad8" >
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >DRAFT CLOSES IN</div>
+        <div id="draft-countdown" class="ts-opt-dc5312" >--d --h --m</div>
       </div>
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">VOTES CAST</div>
-        <div id="total-votes" style="font-size:2rem;font-weight:800;color:#d4af37">0</div>
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >VOTES CAST</div>
+        <div id="total-votes" class="ts-opt-11f834" >0</div>
       </div>
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">LEGENDS PROMOTED</div>
-        <div style="font-size:2rem;font-weight:800;color:#d4af37">2 per cycle</div>
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >LEGENDS PROMOTED</div>
+        <div class="ts-opt-11f834" >2 per cycle</div>
       </div>
     </div>
 
     <!-- Bench Cards with Vote Bars -->
-    <div class="legends-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+    <div class="legends-grid ts-opt-125c0e" >
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.5);position:relative">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">🔥 LEADING</div>
+      <div class="legend-card ts-opt-dd8123" >
+        <div class="ts-opt-065382" >🔥 LEADING</div>
         <div class="legend-num">B1</div>
         <div class="legend-name">David Einhorn</div>
         <div class="legend-title">The Short Seller</div>
         <p class="legend-desc">Exposed Lehman Brothers' accounting fraud before the 2008 collapse. Greenlight Capital finds structural fraud hiding behind accounting tricks no one else questions.</p>
         <span class="legend-style">Short Selling · Forensic Research</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-einhorn">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-einhorn" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-einhorn">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-einhorn" style="background:#d4af37;height:6px;border-radius: 0px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B2</div>
         <div class="legend-name">Mark Spitznagel</div>
         <div class="legend-title">The Black Swan</div>
         <p class="legend-desc">Runs Universa Investments — Nassim Taleb's fund partner. Tail risk hedging that loses small every month and returned 4,000% in March 2020 alone.</p>
         <span class="legend-style">Tail Risk · Black Swan · Options</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-spitz">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-spitz" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-spitz">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-spitz" style="background:#d4af37;height:6px;border-radius: 0px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B3</div>
         <div class="legend-name">Seth Klarman</div>
         <div class="legend-title">The Oracle of Boston</div>
         <p class="legend-desc">The most secretive investor alive. His book sells for $3,000 used. Runs Baupost Group on pure margin-of-safety discipline — only buys when risk is almost zero.</p>
         <span class="legend-style">Deep Value · Margin of Safety</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-klarman">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-klarman" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-klarman">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-klarman" style="background:#d4af37;height:6px;border-radius: 0px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B4</div>
         <div class="legend-name">Joel Greenblatt</div>
         <div class="legend-title">The Magic Formula</div>
         <p class="legend-desc">Created the Magic Formula — beaten the S&amp;P 500 for 20+ years. Combines earnings yield and return on capital to find great businesses at cheap prices.</p>
         <span class="legend-style">Quant Value · Systematic</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-green">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-green" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-green">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-green" style="background:#d4af37;height:6px;border-radius: 0px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B5</div>
         <div class="legend-name">Jim Rogers</div>
         <div class="legend-title">The Commodities King</div>
         <p class="legend-desc">Co-founded the Quantum Fund (42% annual return over 10 years). Left Wall Street to find macro commodity cycles before anyone else. Created the Rogers International Commodity Index.</p>
         <span class="legend-style">Commodities · Global Macro</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-rogers">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-rogers" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-rogers">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-rogers" style="background:#d4af37;height:6px;border-radius: 0px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
     </div>
 
     <!-- Vote CTA -->
-    <div style="text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:16px">
-      <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Cast Your 2 Votes</div>
-      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1.5rem">Full Council subscribers ($499/mo) vote twice per cycle. The top 2 vote-getters join the active roster. Retirement is automatic — the bottom 2 active Legends by 6-month track record are retired by Titan Signal with no exceptions and no appeals.</p>
-      <a href="#portal" style="display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:0.9rem;letter-spacing:.04em">Subscribe to Vote → Full Council $499/mo</a>
-      <div style="margin-top:1rem;font-size:0.72rem;color:rgba(212,175,55,0.5);letter-spacing:.06em">PROMOTIONS: COMMUNITY VOTE · RETIREMENTS: TRACK RECORD ONLY · 2 VOTES PER FULL COUNCIL MEMBER</div>
+    <div class="ts-opt-37bfc1" >
+      <div class="ts-opt-d8328c" >Cast Your 2 Votes</div>
+      <p class="ts-opt-cd6fc0" >Full Council subscribers ($499/mo) vote twice per cycle. The top 2 vote-getters join the active roster. Retirement is automatic — the bottom 2 active Legends by 6-month track record are retired by Titan Signal with no exceptions and no appeals.</p>
+      <a href="#portal" class="ts-opt-51df8d" >Subscribe to Vote → Full Council $499/mo</a>
+      <div class="ts-opt-e3916b" >PROMOTIONS: COMMUNITY VOTE · RETIREMENTS: TRACK RECORD ONLY · 2 VOTES PER FULL COUNCIL MEMBER</div>
     </div>
   </section>
 

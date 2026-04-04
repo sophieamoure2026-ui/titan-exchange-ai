@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>褚文 | Titan Exchange AI — 18 Legends 複製交易平台 Partner Portal</title>
+  <title>Titan Exchange AI — 18 Legends Command Center</title>
   <meta name="description" content="Titan Exchange AI 台灣獨家合作夥伴入口 — 18 Legends AI Copy-Trade Platform. Warren Buffett, George Soros, Ray Dalio and 15 more legendary investor strategies, powered by Titan Signal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,6 +28,7 @@
 
     html { scroll-behavior: smooth; }
 
+    h1, h2, h3, h4, .hero-zh, .hero-en { font-family: 'Inter', sans-serif; }
     body {
       font-family: 'Inter', 'Noto Serif TC', sans-serif;
       background: var(--ink);
@@ -51,7 +52,7 @@
       padding: 1.4rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
       background: linear-gradient(to bottom, rgba(8,16,13,0.97), transparent);
-      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -125,7 +126,8 @@
       color: var(--gold); padding: 0.9rem 2.8rem;
       font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase;
       cursor: pointer; transition: var(--trans); text-decoration: none;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Space Mono', monospace;
+    letter-spacing: -0.01em;
     }
     .hero-cta:hover { background: var(--gold); color: var(--ink); }
     .hero-cta svg { width: 14px; height: 14px; transition: var(--trans); }
@@ -362,7 +364,8 @@
     input, select, textarea {
       background: rgba(255,255,255,0.03); border: 1px solid var(--border);
       color: var(--gold-pale); padding: 0.9rem 1rem;
-      font-size: 0.88rem; font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; font-family: 'Space Mono', monospace;
+    letter-spacing: -0.01em;
       outline: none; transition: var(--trans); width: 100%;
       border-radius: var(--radius);
     }
@@ -377,7 +380,8 @@
       background: var(--gold); color: var(--ink); border: none;
       padding: 1rem 3rem; font-size: 0.7rem;
       letter-spacing: 0.3em; text-transform: uppercase;
-      font-family: 'Inter', sans-serif; cursor: pointer;
+      font-family: 'Space Mono', monospace;
+    letter-spacing: -0.01em; cursor: pointer;
       transition: var(--trans); font-weight: 500;
     }
     .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
@@ -470,7 +474,6 @@
     .msg-avatar.titan {
       background: rgba(201,169,110,0.15); border-color: var(--gold);
     }
-    .msg-body {}
     .msg-sender {
       font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--gold); opacity: 0.65; margin-bottom: 0.35rem;
@@ -504,7 +507,8 @@
       border: 1px solid var(--border); background: transparent;
       color: var(--gold); padding: 0.5rem 1.2rem;
       font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
-      cursor: pointer; transition: var(--trans); font-family: 'Inter', sans-serif;
+      cursor: pointer; transition: var(--trans); font-family: 'Space Mono', monospace;
+    letter-spacing: -0.01em;
     }
     .btn-replay:hover { border-color: var(--gold); background: rgba(201,169,110,0.05); }
 
@@ -534,7 +538,8 @@
     .btn-start-debate {
       margin-left: auto; background: var(--gold); color: var(--ink); border: none;
       padding: 0.65rem 1.6rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      font-family: 'Inter', sans-serif; cursor: pointer; transition: var(--trans); font-weight: 600;
+      font-family: 'Space Mono', monospace;
+    letter-spacing: -0.01em; cursor: pointer; transition: var(--trans); font-weight: 600;
       white-space: nowrap;
     }
     .btn-start-debate:hover { background: var(--gold-light); }
@@ -547,7 +552,8 @@
     .oracle-event-select {
       width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
       color: var(--gold-pale); padding: 0.5rem 0.9rem;
-      font-family: 'Inter', sans-serif; font-size: 0.85rem;
+      font-family: 'Space Mono', monospace;
+    letter-spacing: -0.01em; font-size: 0.85rem;
       outline: none; transition: var(--trans); cursor: pointer;
     }
     .oracle-event-select:focus { border-color: var(--gold); }
@@ -585,7 +591,7 @@
     .at-risk-overlay {
       position: absolute; inset: 0; z-index: 10;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.85); backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.85); -webkit-backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
       padding: 2rem; text-align: center;
       opacity: 0; transition: opacity 0.5s ease;
     }
@@ -602,27 +608,58 @@
       100% { box-shadow: 0 0 0 0 rgba(255,51,51, 0); }
     }
   </style>
+
+<style id="ts-extracted-styles">
+  .ts-opt-394ad8 { display:flex;align-items:center;justify-content:center;gap:24px;margin:2rem 0;flex-wrap:wrap }
+  .ts-opt-b27fc1 { background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center }
+  .ts-opt-1fd974 { font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px }
+  .ts-opt-dc5312 { font-size:2rem;font-weight:800;font-family:'Inter',monospace;color:#d4af37;letter-spacing:.04em }
+  .ts-opt-11f834 { font-size:2rem;font-weight:800;color:#d4af37 }
+  .ts-opt-125c0e { grid-template-columns:repeat(auto-fill,minmax(220px,1fr)) }
+  .ts-opt-dd8123 { border:1px dashed rgba(212,175,55,0.5);position:relative }
+  .ts-opt-065382 { position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3) }
+  .ts-opt-e9f574 { display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px }
+  .ts-opt-1acf9a { background:rgba(255,255,255,0.08);border-radius:4px;height:6px }
+  .ts-opt-616890 { border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85 }
+  .ts-opt-37bfc1 { text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:16px }
+  .ts-opt-d8328c { font-size:1.1rem;font-weight:700;margin-bottom:8px }
+  .ts-opt-cd6fc0 { color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1.5rem }
+  .ts-opt-51df8d { display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:0.9rem;letter-spacing:.04em }
+  .ts-opt-e3916b { margin-top:1rem;font-size:0.72rem;color:rgba(212,175,55,0.5);letter-spacing:.06em }
+  .ts-opt-042543 { color:#ff3333;font-weight:900;font-size:1.5rem;letter-spacing:0.1em;margin-bottom:8px }
+  .ts-opt-b0e41d { color:rgba(255,255,255,0.7);font-size:0.8rem;margin-bottom:1.5rem;line-height:1.4 }
+  .ts-opt-3af20f { background:#ff3333;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:0.9rem;border:1px solid #ffaaaa;box-shadow:0 0 20px rgba(255,50,50,0.4);transition:all 0.2s }
+  .ts-opt-a6925a { position:relative;border-radius:16px;overflow:hidden;margin-top:2rem }
+  .ts-opt-0ce032 { filter:blur(6px);pointer-events:none;user-select:none;transition:filter 0.5s ease }
+  .ts-opt-9f30ae { grid-template-columns:repeat(auto-fill,minmax(280px,1fr)) }
+  .ts-opt-b0c69e { border:1px dashed rgba(255,255,255,0.06);background:rgba(15,15,15,0.4);display:flex;align-items:center;justify-content:center;min-height:220px;flex-direction:column;gap:12px }
+  .ts-opt-9d7560 { font-size:0.75rem;color:rgba(255,255,255,0.15);letter-spacing:.06em;text-align:center;line-height:1.5 }
+  .ts-opt-e2fbe5 { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,0.55);-webkit-backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);border-radius:16px;flex-direction:column;gap:16px;text-align:center;padding:2rem }
+  .ts-opt-61fa5f { font-size:1.1rem;font-weight:800 }
+  .ts-opt-d2c7bb { display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:12px 32px;border-radius:10px;text-decoration:none;font-size:0.85rem;letter-spacing:.04em }
+  .ts-opt-55ba55 { font-size:0.7rem;color:rgba(255,255,255,0.2);letter-spacing:.06em }
+</style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
     <div class="nav-logo"><img src="titan_logo_english.png" alt="Titan Signal" />Titan Exchange AI</div>
-    <div class="nav-badge">台灣合作夥伴計畫 · 鈦訊 Taiwan Partner Program · Wen Chu</div>
+    <div class="nav-badge" class="ts-opt-5dbd80 ">US Market Operation · Titan Signal Intelligence</div>
   </nav>
 
   <!-- HERO -->
   <div class="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">Exclusive Territory · Taiwan · 獨家授權夥伴</p>
-      <h1 class="hero-zh">褚文 · 18 Legends 複製交易平台</h1>
-      <p class="hero-en">Wen Chu — Titan Exchange AI Affiliate Partner · Taiwan</p>
-      <div class="ornament"><span>股票 · Crypto · 複製交易 · Copy Trade</span></div>
+      <p class="hero-eyebrow" class="ts-opt-56dfd2 ">Status: Live · US Market Deployment</p>
+      <h1 class="hero-zh" class="ts-opt-eefb98 ">The Autonomous Strategy Array</h1>
+      <p class="hero-en" class="ts-opt-bd737d ">Phase 2: Eliminate Underperforming Algorithmic Weights</p>
+      <div class="ornament"><span>Stocks · Crypto · Copy Trade · AI Consensus</span></div>
       <p class="hero-desc">
         AI-powered copy trading anchored by <strong>18 of history's greatest investors</strong> — Buffett, Burry, Dalio, Simons, and 14 more. Each Legend's documented strategy is encoded into an autonomous AI model. Validated by <strong>Titan Signal</strong> consensus. One platform. Every market. For everyone from retail novice to institutional desk.
       </p>
       <a href="#portal" class="hero-cta">
-        Begin Onboarding 開始入駐
+        Begin Onboarding
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
@@ -634,27 +671,26 @@
   <div class="stats">
     <div class="stat">
       <div class="stat-num">18</div>
-      <div class="stat-label">Legendary Investors<span class="stat-label-zh">傳奇投資人策略</span></div>
+      <div class="stat-label">Legendary Investors</div>
     </div>
     <div class="stat">
       <div class="stat-num">50%</div>
-      <div class="stat-label">Max Commission<span class="stat-label-zh">最高佣金比例</span></div>
+      <div class="stat-label">Max Commission</div>
     </div>
     <div class="stat">
       <div class="stat-num">$2.5K</div>
-      <div class="stat-label">Institutional / Mo<span class="stat-label-zh">機構方案月費</span></div>
+      <div class="stat-label">Institutional / Mo</div>
     </div>
     <div class="stat">
       <div class="stat-num">24/7</div>
-      <div class="stat-label">AI Signal Engine<span class="stat-label-zh">全天候 鈦訊 AI 訊號</span></div>
+      <div class="stat-label">AI Signal Engine</div>
     </div>
   </div>
 
   <!-- THE 18 LEGENDS -->
   <section class="reveal">
-    <p class="section-tag">The Anchor Product · 核心產品</p>
+    <p class="section-tag">The Anchor Product</p>
     <h2 class="section-title">18 Legends — Copy Trade AI</h2>
-    <span class="section-title-zh">跟隨傳奇 · 複製歷史上最偉大的投資策略</span>
     <p class="section-desc">
       Every Legend is a real historical investor whose documented philosophy, portfolio moves, and public filings have been encoded into a living AI model. Subscribers choose their Legend — or blend multiple — and the AI executes trades aligned to that master's proven style in real-time across stocks and crypto.
     </p>
@@ -791,102 +827,102 @@
 
   <!-- THE BENCH — LEGEND DRAFT -->
   <section class="reveal" id="legend-draft">
-    <p class="section-tag">Community · 每半年一次</p>
+    <p class="section-tag">Community · Bi-Annual Cycle</p>
     <h2 class="section-title">The Legend Draft</h2>
     <p class="section-desc">18 Legends active. Always. Every 6 months, the community votes 2 Bench players into the active roster. Separately, Titan Signal automatically retires the 2 lowest-performing active Legends by track record. <strong>The community decides who comes up. The data decides who goes out.</strong></p>
 
     <!-- Draft Countdown -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin:2rem 0;flex-wrap:wrap">
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">DRAFT CLOSES IN</div>
-        <div id="draft-countdown" style="font-size:2rem;font-weight:800;font-family:'Inter',monospace;color:#d4af37;letter-spacing:.04em">--d --h --m</div>
+    <div class="ts-opt-394ad8" >
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >DRAFT CLOSES IN</div>
+        <div id="draft-countdown" class="ts-opt-dc5312" >--d --h --m</div>
       </div>
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">VOTES CAST</div>
-        <div id="total-votes" style="font-size:2rem;font-weight:800;color:#d4af37">0</div>
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >VOTES CAST</div>
+        <div id="total-votes" class="ts-opt-11f834" >0</div>
       </div>
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">LEGENDS PROMOTED</div>
-        <div style="font-size:2rem;font-weight:800;color:#d4af37">2 per cycle</div>
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >LEGENDS PROMOTED</div>
+        <div class="ts-opt-11f834" >2 per cycle</div>
       </div>
     </div>
 
     <!-- Bench Cards with Vote Bars -->
-    <div class="legends-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+    <div class="legends-grid ts-opt-125c0e" >
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.5);position:relative">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">🔥 LEADING</div>
+      <div class="legend-card ts-opt-dd8123" >
+        <div class="ts-opt-065382" >🔥 LEADING</div>
         <div class="legend-num">B1</div>
         <div class="legend-name">David Einhorn</div>
         <div class="legend-title">The Short Seller</div>
         <p class="legend-desc">Exposed Lehman Brothers' accounting fraud before the 2008 collapse. Greenlight Capital finds structural fraud hiding behind accounting tricks no one else questions.</p>
         <span class="legend-style">Short Selling · Forensic Research</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-einhorn">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-einhorn" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-einhorn">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-einhorn" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B2</div>
         <div class="legend-name">Mark Spitznagel</div>
         <div class="legend-title">The Black Swan</div>
         <p class="legend-desc">Runs Universa Investments — Nassim Taleb's fund partner. Tail risk hedging that loses small every month and returned 4,000% in March 2020 alone.</p>
         <span class="legend-style">Tail Risk · Black Swan · Options</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-spitz">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-spitz" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-spitz">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-spitz" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B3</div>
         <div class="legend-name">Seth Klarman</div>
         <div class="legend-title">The Oracle of Boston</div>
         <p class="legend-desc">The most secretive investor alive. His book sells for $3,000 used. Runs Baupost Group on pure margin-of-safety discipline — only buys when risk is almost zero.</p>
         <span class="legend-style">Deep Value · Margin of Safety</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-klarman">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-klarman" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-klarman">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-klarman" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B4</div>
         <div class="legend-name">Joel Greenblatt</div>
         <div class="legend-title">The Magic Formula</div>
         <p class="legend-desc">Created the Magic Formula — beaten the S&amp;P 500 for 20+ years. Combines earnings yield and return on capital to find great businesses at cheap prices.</p>
         <span class="legend-style">Quant Value · Systematic</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-green">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-green" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-green">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-green" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B5</div>
         <div class="legend-name">Jim Rogers</div>
         <div class="legend-title">The Commodities King</div>
         <p class="legend-desc">Co-founded the Quantum Fund (42% annual return over 10 years). Left Wall Street to find macro commodity cycles before anyone else. Created the Rogers International Commodity Index.</p>
         <span class="legend-style">Commodities · Global Macro</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-rogers">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-rogers" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-rogers">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-rogers" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
     </div>
 
     <!-- Vote CTA -->
-    <div style="text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:16px">
-      <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Cast Your 2 Votes</div>
-      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1.5rem">Full Council subscribers ($499/mo) vote twice per cycle. The top 2 vote-getters join the active roster. Retirement is automatic — the bottom 2 active Legends by 6-month track record are retired by Titan Signal with no exceptions and no appeals.</p>
-      <a href="#portal" style="display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:0.9rem;letter-spacing:.04em">Subscribe to Vote → Full Council $499/mo</a>
-      <div style="margin-top:1rem;font-size:0.72rem;color:rgba(212,175,55,0.5);letter-spacing:.06em">PROMOTIONS: COMMUNITY VOTE · RETIREMENTS: TRACK RECORD ONLY · 2 VOTES PER FULL COUNCIL MEMBER</div>
+    <div class="ts-opt-37bfc1" >
+      <div class="ts-opt-d8328c" >Cast Your 2 Votes</div>
+      <p class="ts-opt-cd6fc0" >Full Council subscribers ($499/mo) vote twice per cycle. The top 2 vote-getters join the active roster. Retirement is automatic — the bottom 2 active Legends by 6-month track record are retired by Titan Signal with no exceptions and no appeals.</p>
+      <a href="#portal" class="ts-opt-51df8d" >Subscribe to Vote → Full Council $499/mo</a>
+      <div class="ts-opt-e3916b" >PROMOTIONS: COMMUNITY VOTE · RETIREMENTS: TRACK RECORD ONLY · 2 VOTES PER FULL COUNCIL MEMBER</div>
     </div>
   </section>
 
@@ -961,9 +997,9 @@
                  const legendId = data.find(d => d.name === nameEl.textContent.trim()).id;
 
                  overlay.innerHTML = `
-                   <div style="color:#ff3333;font-weight:900;font-size:1.5rem;letter-spacing:0.1em;margin-bottom:8px">AXE PENDING</div>
-                   <div style="color:rgba(255,255,255,0.7);font-size:0.8rem;margin-bottom:1.5rem;line-height:1.4">Algorithmic 6-mo returns beneath retention threshold. Proceeding with permanent retirement.</div>
-                   <a href="https://buy.stripe.com/28E28tfqn326gXpbmld7q0r?client_reference_id=save_legend_${legendId}" target="_blank" style="background:#ff3333;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:0.9rem;border:1px solid #ffaaaa;box-shadow:0 0 20px rgba(255,50,50,0.4);transition:all 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">OVERRIDE: Save for $99</a>
+                   <div class="ts-opt-042543" >AXE PENDING</div>
+                   <div class="ts-opt-b0e41d" >Algorithmic 6-mo returns beneath retention threshold. Proceeding with permanent retirement.</div>
+                   <a href="https://buy.stripe.com/28E28tfqn326gXpbmld7q0r?client_reference_id=save_legend_${legendId}" target="_blank" class="ts-opt-3af20f"  onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">OVERRIDE: Save for $99</a>
                  `;
                  card.appendChild(overlay);
             }
@@ -989,34 +1025,34 @@
     <p class="section-desc">When a Legend is retired by performance, they don't disappear. Every retired Legend's full signal history, documented calls, and final 6-month track record is preserved here — permanently. Currently awaiting our inaugural retirees from <strong>Round One of the Legend Draft</strong> (Sept 28, 2026).</p>
 
     <!-- Gated container -->
-    <div style="position:relative;border-radius:16px;overflow:hidden;margin-top:2rem">
+    <div class="ts-opt-a6925a" >
 
       <!-- The actual content (visible but blurred for non-subscribers) -->
-      <div id="hof-content" style="filter:blur(6px);pointer-events:none;user-select:none;transition:filter 0.5s ease">
-        <div class="legends-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+      <div id="hof-content" class="ts-opt-0ce032" >
+        <div class="legends-grid ts-opt-9f30ae" >
 
           <!-- Placeholder for Round 1 retirees -->
-          <div class="legend-card" style="border:1px dashed rgba(255,255,255,0.06);background:rgba(15,15,15,0.4);display:flex;align-items:center;justify-content:center;min-height:220px;flex-direction:column;gap:12px">
+          <div class="legend-card ts-opt-b0c69e" >
             <div style="font-size:2rem;opacity:0.15">⌛</div>
-            <div style="font-size:0.75rem;color:rgba(255,255,255,0.15);letter-spacing:.06em;text-align:center;line-height:1.5">AWAITING ROUND ONE<br>SEPT 28, 2026<br>BOTTOM 2 RETIRE</div>
+            <div class="ts-opt-9d7560" >AWAITING ROUND ONE<br>SEPT 28, 2026<br>BOTTOM 2 RETIRE</div>
           </div>
 
           <!-- Placeholder for Round 1 retirees -->
-          <div class="legend-card" style="border:1px dashed rgba(255,255,255,0.06);background:rgba(15,15,15,0.4);display:flex;align-items:center;justify-content:center;min-height:220px;flex-direction:column;gap:12px">
+          <div class="legend-card ts-opt-b0c69e" >
             <div style="font-size:2rem;opacity:0.15">⌛</div>
-            <div style="font-size:0.75rem;color:rgba(255,255,255,0.15);letter-spacing:.06em;text-align:center;line-height:1.5">AWAITING ROUND ONE<br>SEPT 28, 2026<br>BOTTOM 2 RETIRE</div>
+            <div class="ts-opt-9d7560" >AWAITING ROUND ONE<br>SEPT 28, 2026<br>BOTTOM 2 RETIRE</div>
           </div>
 
         </div>
       </div>
 
       <!-- Lock Overlay -->
-      <div id="hof-gate" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,0.55);backdrop-filter:blur(2px);border-radius:16px;flex-direction:column;gap:16px;text-align:center;padding:2rem">
+      <div id="hof-gate" class="ts-opt-e2fbe5" >
         <div style="font-size:2.5rem">🔒</div>
-        <div style="font-size:1.1rem;font-weight:800">Subscribers Only</div>
+        <div class="ts-opt-61fa5f" >Subscribers Only</div>
         <p style="color:rgba(255,255,255,0.45);font-size:0.85rem;max-width:380px;line-height:1.6">The complete Hall of Fame — every retired Legend's signal archive, historical calls, and performance record — is exclusive to active subscribers.</p>
-        <a href="#portal" style="display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:12px 32px;border-radius:10px;text-decoration:none;font-size:0.85rem;letter-spacing:.04em">Unlock the Archive → Subscribe</a>
-        <div style="font-size:0.7rem;color:rgba(255,255,255,0.2);letter-spacing:.06em">ALL TIERS · $99/MO AND UP · CANCEL ANYTIME</div>
+        <a href="#portal" class="ts-opt-d2c7bb" >Unlock the Archive → Subscribe</a>
+        <div class="ts-opt-55ba55" >ALL TIERS · $99/MO AND UP · CANCEL ANYTIME</div>
       </div>
 
     </div>
@@ -1024,9 +1060,8 @@
 
 
   <section class="reveal">
-    <p class="section-tag">The Consensus Layer · 共識驗證層</p>
+    <p class="section-tag">The Consensus Layer</p>
     <h2 class="section-title">Titan Signal — The Second Vote</h2>
-    <span class="section-title-zh">每筆交易都需要雙重確認 · 鈦訊驗證系統</span>
     <div class="signal-box">
       <div class="signal-text">
         <h3>Two systems must agree before a trade fires.</h3>
@@ -1054,9 +1089,8 @@
 
   <!-- DEBATE DEMO -->
   <section class="demo-section reveal" id="demo">
-    <p class="section-tag">Live Demo · 即時體驗</p>
+    <p class="section-tag">Live Demo</p>
     <h2 class="section-title">See the Debate Chamber in action</h2>
-    <span class="section-title-zh">輸入任一股票 · 傳奇投資人即時辯論 · 鈦訊 最終裁決</span>
     <p class="section-desc">Type any stock or crypto ticker. Pick your 3 Legends. Watch them debate — each one arguing from their documented philosophy. Titan Signal casts the deciding vote. <strong>This is Product 1.</strong></p>
 
     <div class="demo-wrapper">
@@ -1091,9 +1125,8 @@
 
   <!-- ORACLE DEMO -->
   <section class="demo-section reveal" id="oracle-demo">
-    <p class="section-tag">Legend Oracle Demo · 預測市場體驗</p>
+    <p class="section-tag">Legend Oracle Demo</p>
     <h2 class="section-title">Watch the Legends call Polymarket</h2>
-    <span class="section-title-zh">真實世界事件 · 傳奇投資人概率辯論 · 鈦訊 共識輸出</span>
     <p class="section-desc">Pick a live real-world event and a prediction market platform. The Legends debate probability from their documented worldview. Titan Signal synthesizes the council into a <strong>consensus probability</strong> and deploys it across Polymarket, Kalshi, Manifold, and more — simultaneously. <strong>One Legend Council. Every prediction market. This is Product 4.</strong></p>
 
     <div class="demo-wrapper">
@@ -1104,7 +1137,7 @@
             <option value="btc100k">Will BTC reach $100K before Dec 2025?</option>
             <option value="fedcut">Will the Fed cut rates in June 2025?</option>
             <option value="recession">Will the US enter recession in 2025?</option>
-            <option value="taiwan">Will Taiwan hold elections without incident in 2026?</option>
+            <option value="usa">Will the US Federal Reserve cut rates again in 2026?</option>
             <option value="nvda500">Will NVDA exceed $500 by Q3 2025?</option>
             <option value="gold3k">Will Gold hit $3,000/oz in 2025?</option>
             <option value="ai2025">Will an AI system pass the bar exam by end of 2025?</option>
@@ -1135,9 +1168,8 @@
 
   <!-- PRODUCTS -->
   <section class="reveal">
-    <p class="section-tag">Product Suite · 產品組合</p>
+    <p class="section-tag">Product Suite</p>
     <h2 class="section-title">9 Products. One Upsell Path.</h2>
-    <span class="section-title-zh">從入門到機構 · 每位客戶都有下一步</span>
     <p class="section-desc">Every product builds on the last. Sales reps start clients on Product 1 and upsell naturally as they grow. Each tier unlocks more Legends, more intelligence, and more returns.</p>
     <div class="products-grid">
 
@@ -1145,18 +1177,21 @@
         <div class="product-tier">Product 1 · Starter — $99/mo</div>
         <div class="product-name">The Debate Chamber</div>
         <p class="product-desc">Choose <strong>3 Legends</strong> — their AI models debate a stock or crypto trade in real time, each arguing from their documented philosophy. Titan Signal casts the deciding vote. Majority wins. The trade executes. <em>Interactive, educational, addictive.</em></p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/28E28tfqn326gXpbmld7q0r" target="_blank" rel="noopener noreferrer">Subscribe $99/mo →</a>
       </div>
 
       <div class="product-card">
         <div class="product-tier">Product 2 · Growth — $249/mo</div>
         <div class="product-name">Council of 8</div>
         <p class="product-desc">Unlock <strong>8 Legends</strong> simultaneously. A richer debate across more philosophies — value vs. growth, macro vs. quant, contrarian vs. momentum. Titan Signal arbitrates. More voices = higher conviction signals.</p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/3cI9AV2DBauy22vfCBd7q0s" target="_blank" rel="noopener noreferrer">Subscribe $249/mo →</a>
       </div>
 
       <div class="product-card">
         <div class="product-tier">Product 3 · Professional — $499/mo</div>
         <div class="product-name">The Full Council — All 18</div>
         <p class="product-desc">All <strong>18 Legends</strong> in session. The complete war room. Every major investing philosophy represented. Watch Buffett and Burry clash over a contrarian trade while Simons runs the quantitative numbers. Titan Signal synthesizes the final verdict.</p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/eVq6oJ7XVcCGgXp765d7q0t" target="_blank" rel="noopener noreferrer">Subscribe $499/mo →</a>
       </div>
 
 
@@ -1164,36 +1199,42 @@
         <div class="product-tier">Product 4 · Prediction Markets — $599/mo</div>
         <div class="product-name">Legend Oracle</div>
         <p class="product-desc">The 18 Legends applied to <strong>prediction markets across every platform</strong> — Polymarket, Kalshi, Manifold, PredictIt. One real-world event: each Legend estimates probability from their documented worldview. Titan Signal synthesizes the council into a consensus probability and deploys it simultaneously across all connected venues. <em>Same intelligence. Every market. Compounding simultaneously.</em></p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/4gMbJ3gurbyCfTl4XXd7q0u" target="_blank" rel="noopener noreferrer">Subscribe $599/mo →</a>
       </div>
 
       <div class="product-card">
         <div class="product-tier">Product 5 · Intelligence — $699/mo</div>
         <div class="product-name">Legend Spotlight</div>
         <p class="product-desc">Follow ONE Legend exclusively. Daily AI briefings delivered in that Legend's voice — current portfolio thesis, what they'd buy today, what they'd short. Deep-dive mentorship from the greatest investor minds in history.</p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/7sYcN7fqn7im0Yreyxd7q0v" target="_blank" rel="noopener noreferrer">Subscribe $699/mo →</a>
       </div>
 
       <div class="product-card">
         <div class="product-tier">Product 6 · Alpha — $999/mo</div>
         <div class="product-name">Titan Signal Solo</div>
         <p class="product-desc">The pure consensus layer, standalone. No Legends needed. Titan Signal aggregates institutional order flow, dark pool data, macro signals, and sentiment across 40+ venues into one clean buy/sell/hold decision. For traders who want the output, not the debate.</p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/fZu14p2DBfOS7mP4XXd7q0w" target="_blank" rel="noopener noreferrer">Subscribe $999/mo →</a>
       </div>
 
       <div class="product-card">
         <div class="product-tier">Product 7 · Crypto — $1,299/mo</div>
         <div class="product-name">CryptoVault + Legends</div>
         <p class="product-desc">The 18 Legends applied to crypto. On-chain whale tracking, exchange inflows, stablecoin dominance — layered into the debate. Watch Cathie Wood and Michael Burry argue over Bitcoin at the top. Titan Signal resolves it with live chain data.</p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/4gMbJ35PNcCG4aDcqpd7q0x" target="_blank" rel="noopener noreferrer">Subscribe $1,299/mo →</a>
       </div>
 
       <div class="product-card">
         <div class="product-tier">Product 8 · Portfolio — $1,799/mo</div>
         <div class="product-name">Legend Portfolio Builder</div>
         <p class="product-desc">Build a model portfolio by blending multiple Legends in custom percentages. 40% Buffett, 30% Dalio, 30% Simons. The AI manages rebalancing, weights signals by conviction, and applies Titan Signal validation to every combined output.</p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/7sYeVf91Z8mqbD5bmld7q0y" target="_blank" rel="noopener noreferrer">Subscribe $1,799/mo →</a>
       </div>
 
       <div class="product-card">
         <div class="product-tier">Product 9 · Institutional — $2,499/mo</div>
         <div class="product-name">Command Center</div>
         <p class="product-desc">Full institution-grade access. All 18 Legends, Titan Signal, CryptoVault, Portfolio Builder, API + WebSocket feeds, white-label options, dedicated quant analyst support, and custom Legend weighting for family offices, hedge funds, and prop desks.</p>
+        <a class="btn-subscribe" href="https://buy.stripe.com/3cI7sN3HFauy22v9edd7q0z" target="_blank" rel="noopener noreferrer">Subscribe $2,499/mo →</a>
       </div>
 
     </div>
@@ -1201,13 +1242,12 @@
 
   <!-- EDUCATION -->
   <section class="reveal">
-    <p class="section-tag">Titan Academy · 交易學院</p>
+    <p class="section-tag">Titan Academy</p>
     <h2 class="section-title">Education for every level</h2>
-    <span class="section-title-zh">從入門散戶到頂級機構，全方位培訓</span>
     <p class="section-desc">Subscribers don't just get signals — they learn. Titan Academy is the reason they stay subscribed for years, not months.</p>
     <div class="edu-grid">
       <div class="edu-card">
-        <div class="edu-level">Level 1 · 入門</div>
+        <div class="edu-level">Level 1 · Novice</div>
         <div class="edu-name">Novice Launchpad</div>
         <ul>
           <li>What are stocks & crypto</li>
@@ -1218,7 +1258,7 @@
         </ul>
       </div>
       <div class="edu-card">
-        <div class="edu-level">Level 2 · 進階</div>
+        <div class="edu-level">Level 2 · Intermediate</div>
         <div class="edu-name">Active Trader</div>
         <ul>
           <li>Technical analysis deep-dive</li>
@@ -1229,7 +1269,7 @@
         </ul>
       </div>
       <div class="edu-card">
-        <div class="edu-level">Level 3 · 專業</div>
+        <div class="edu-level">Level 3 · Advanced</div>
         <div class="edu-name">Professional Desk</div>
         <ul>
           <li>Quantitative strategy design</li>
@@ -1240,7 +1280,7 @@
         </ul>
       </div>
       <div class="edu-card">
-        <div class="edu-level">Level 4 · 機構</div>
+        <div class="edu-level">Level 4 · Institutional</div>
         <div class="edu-name">Institutional Desk</div>
         <ul>
           <li>API & WebSocket integration</li>
@@ -1255,9 +1295,8 @@
 
   <!-- COMMISSION TIERS -->
   <section class="reveal">
-    <p class="section-tag">Commission Structure · 佣金結構</p>
+    <p class="section-tag">Commission Structure</p>
     <h2 class="section-title">Lock in monthly recurring income</h2>
-    <span class="section-title-zh">每位訂閱者為您帶來持續月收入</span>
     <p class="section-desc">Every subscriber you onboard generates MRR. Upsell naturally as clients grow from Starter to Institutional. The more they trade, the more they need.</p>
     <div class="tier-grid">
       <div class="tier-card">
@@ -1270,14 +1309,14 @@
         <div class="tier-name">Silver</div>
         <div class="tier-commission">35%</div>
         <div class="tier-deals">$499/mo plan · 4–8 clients</div>
-        <div class="tier-bonus">+ TWD 15,000 quarterly bonus</div>
+        <div class="tier-bonus">+ Quarterly performance bonus</div>
       </div>
       <div class="tier-card featured">
-        <div class="tier-tag">Recommended 推薦</div>
+        <div class="tier-tag">Recommended</div>
         <div class="tier-name">Gold</div>
         <div class="tier-commission">40%</div>
         <div class="tier-deals">$499–$999/mo · 9–15 clients</div>
-        <div class="tier-bonus">+ TWD 40,000 + co-marketing</div>
+        <div class="tier-bonus">+ Co-marketing support</div>
       </div>
       <div class="tier-card">
         <div class="tier-name">Elite</div>
@@ -1290,47 +1329,40 @@
 
   <!-- PORTAL FORM -->
   <section id="portal" class="reveal">
-    <p class="section-tag">Partner Onboarding · 夥伴入駐</p>
+    <p class="section-tag">Partner Onboarding</p>
     <h2 class="section-title">Submit Your Profile</h2>
-    <span class="section-title-zh">提交您的合作夥伴資料</span>
 
     <div class="portal-section" id="formWrap">
       <form id="partnerForm" novalidate>
         <div class="form-grid">
           <div class="form-group">
-            <label for="nameEn">Full Name <span class="zh">英文全名</span></label>
-            <input type="text" id="nameEn" placeholder="e.g. Wen Chu" required />
+            <label for="nameEn">Full Name</label>
+            <input type="text" id="nameEn" placeholder="e.g. John Doe" required />
           </div>
           <div class="form-group">
-            <label for="nameZh">中文姓名 <span class="zh">Chinese Name</span></label>
-            <input type="text" id="nameZh" placeholder="例：褚文" />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email <span class="zh">電子信箱</span></label>
-            <input type="email" id="email" placeholder="wen.chu@example.com" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone / LINE ID <span class="zh">電話 / LINE</span></label>
-            <input type="tel" id="phone" placeholder="+886 912 345 678" />
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="john@example.com" required />
           </div>
 
           <div class="form-group">
-            <label for="territory">Primary Territory <span class="zh">主要地區</span></label>
+            <label for="phone">Phone / Contact</label>
+            <input type="tel" id="phone" placeholder="+1 555 012 3456" />
+          </div>
+
+          <div class="form-group">
+            <label for="territory">Primary Territory</label>
             <select id="territory">
-              <option value="">Select region · 選擇地區</option>
-              <option value="taipei">台北市 Taipei City</option>
-              <option value="new-taipei">新北市 New Taipei City</option>
-              <option value="taichung">台中市 Taichung</option>
-              <option value="kaohsiung">高雄市 Kaohsiung</option>
-              <option value="taiwan-all">全台灣 All Taiwan</option>
-              <option value="taiwan-intl">台灣 + 國際 Taiwan + International</option>
+              <option value="">Select region</option>
+              <option value="us-east">US East</option>
+              <option value="us-west">US West</option>
+              <option value="us-central">US Central</option>
+              <option value="intl">International</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="network">Client Network Size <span class="zh">客戶網絡規模</span></label>
+            <label for="network">Client Network Size</label>
             <select id="network">
-              <option value="">Select · 選擇</option>
+              <option value="">Select</option>
               <option value="1-10">1–10 clients</option>
               <option value="11-30">11–30 clients</option>
               <option value="31-60">31–60 clients</option>
@@ -1339,32 +1371,32 @@
           </div>
 
           <div class="form-group">
-            <label for="market">Primary Market Focus <span class="zh">主要市場</span></label>
+            <label for="market">Primary Market Focus</label>
             <select id="market">
-              <option value="">Select · 選擇</option>
-              <option value="stocks">Stocks 股票</option>
-              <option value="crypto">Crypto 加密貨幣</option>
-              <option value="both">Both 股票 + 加密貨幣</option>
-              <option value="forex">Forex 外匯</option>
+              <option value="">Select</option>
+              <option value="stocks">Stocks</option>
+              <option value="crypto">Crypto</option>
+              <option value="both">Both</option>
+              <option value="forex">Forex</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="referral">How did you hear about us? <span class="zh">如何得知此計畫</span></label>
-            <input type="text" id="referral" placeholder="Wen Chu / NeuForge introduction" />
+            <label for="referral">How did you hear about us?</label>
+            <input type="text" id="referral" placeholder="Referral source" />
           </div>
         </div>
 
         <div class="submit-row">
-          <button type="submit" class="btn-submit">Submit Application · 提交申請</button>
-          <p class="submit-note">Your information is shared only with the Titan Exchange AI team · 資料僅供 Titan Exchange AI 團隊使用</p>
+          <button type="submit" class="btn-submit">Submit Application</button>
+          <p class="submit-note">Your information is shared only with the Titan Exchange AI team.</p>
         </div>
       </form>
 
       <div class="success-msg" id="successMsg">
         <div class="tick">✦</div>
-        <h3>Application Received · 申請已收到</h3>
-        <p>Welcome to the Titan Exchange AI Taiwan Partner Program.<br />
-           Our team will reach out within 24 hours. · 我們將在 24 小時內與您聯絡。</p>
+        <h3>Application Received</h3>
+        <p>Welcome to the Titan Exchange AI Partner Program.<br />
+           Our team will reach out within 24 hours.</p>
       </div>
     </div>
   </section>
@@ -1372,7 +1404,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">TITAN EXCHANGE AI · 18 Legends Copy Trade Platform</div>
-    <div class="footer-copy">© 2026 NeuForge / Titan Signal · Wen Chu Taiwan Partner Program · Confidential</div>
+    <div class="footer-copy" class="ts-opt-05f333 ">© 2026 NeuForge / Titan Signal · Phase 2 USA Deployment · Confidential</div>
   </footer>
 
   <script>
@@ -1405,7 +1437,7 @@
         market: document.getElementById('market').value,
         referral: document.getElementById('referral').value,
         submitted: new Date().toISOString(),
-        program: 'Titan Exchange AI — 18 Legends — Wen Chu Taiwan'
+        program: 'Titan Exchange AI — 18 Legends — US Market'
       };
       console.log('Partner submission:', payload);
       form.style.display = 'none';
@@ -1532,7 +1564,7 @@
       btc100k: { label: 'Will BTC reach $100K before Dec 2025?', tag: 'Crypto · Macro' },
       fedcut:  { label: 'Will the Fed cut rates in June 2025?',  tag: 'Macro · Policy' },
       recession:{ label: 'Will the US enter recession in 2025?', tag: 'Macro · Economy' },
-      taiwan:  { label: 'Will Taiwan hold elections without incident in 2026?', tag: 'Geopolitical' },
+      taiwan:  { label: 'Will the US Federal Reserve cut rates again in 2026?', tag: 'Geopolitical' },
       nvda500: { label: 'Will NVDA exceed $500 by Q3 2025?',     tag: 'Tech · Equity' },
       gold3k:  { label: 'Will Gold hit $3,000/oz in 2025?',      tag: 'Commodities · Macro' },
       ai2025:  { label: 'Will an AI system pass the bar exam by end 2025?', tag: 'Technology' },

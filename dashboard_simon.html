@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Simon Chu — Partner Dashboard | Titan Exchange AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#08100d;--ink-mid:#0d1a14;--gold:#c9a96e;--gold-light:#e8cfa0;
+      --gold-pale:#f5e9d4;--border:rgba(201,169,110,0.22);--green:#4ade80;
+      --plat:#8ecae6;--diamond:#b5ead7;--trans:.3s cubic-bezier(.4,0,.2,1)
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--gold-pale);min-height:100vh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(201,169,110,0.05) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+    /* ── PIN GATE ── */
+    #pinGate{position:fixed;inset:0;background:var(--ink);z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:2rem;text-align:center}
+    .pin-logo{font-family:'Cormorant Garamond',serif;font-size:.85rem;letter-spacing:.3em;color:var(--gold);opacity:.4;text-transform:uppercase;margin-bottom:2.5rem}
+    .pin-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;color:var(--gold-light);margin-bottom:.5rem}
+    .pin-sub{font-size:.82rem;opacity:.5;margin-bottom:2.5rem;letter-spacing:.05em}
+    .pin-box{border:1px solid var(--border);background:rgba(255,255,255,.02);padding:2.5rem;max-width:380px;width:100%}
+    .pin-label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.7rem;display:block}
+    .pin-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--gold-pale);padding:1rem;font-size:1.4rem;letter-spacing:.5em;text-align:center;outline:none;font-family:'Cormorant Garamond',serif;margin-bottom:1rem}
+    .pin-input:focus{border-color:var(--gold)}
+    .pin-input.error{border-color:rgba(248,113,113,.6)}
+    .pin-name-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--gold-pale);padding:.8rem 1rem;font-size:.9rem;outline:none;font-family:'Inter',sans-serif;margin-bottom:1rem}
+    .pin-name-input:focus{border-color:var(--gold)}
+    .btn-pin{width:100%;background:var(--gold);color:var(--ink);border:none;padding:1rem;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-family:'Inter',sans-serif;cursor:pointer;font-weight:500;transition:var(--trans)}
+    .btn-pin:hover{background:var(--gold-light)}
+    .pin-error{font-size:.75rem;color:rgba(248,113,113,.9);margin-top:.6rem;min-height:1rem}
+    .pin-note{font-size:.65rem;opacity:.3;margin-top:1rem}
+    #newPinFields{display:none}
+
+    /* ── DASHBOARD ── */
+    #dashboard{display:none;position:relative;z-index:1}
+    nav{padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);background:rgba(8,16,13,.97)}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:1.5rem}
+    .rank-badge-nav{font-size:.62rem;letter-spacing:.2em;padding:.3rem .9rem;border:1px solid var(--gold);color:var(--gold);text-transform:uppercase}
+    .btn-logout{background:transparent;border:1px solid var(--border);color:var(--gold-pale);padding:.35rem .9rem;font-size:.62rem;letter-spacing:.15em;cursor:pointer;font-family:'Inter',sans-serif;opacity:.5;transition:var(--trans)}
+    .btn-logout:hover{opacity:1;border-color:var(--gold)}
+
+    /* Stats bar */
+    .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+    .stat{padding:1.8rem 2rem;border-right:1px solid var(--border)}
+    .stat:last-child{border-right:none}
+    .stat-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--gold);line-height:1}
+    .stat-label{font-size:.6rem;letter-spacing:.2em;opacity:.45;text-transform:uppercase;margin-top:.3rem}
+
+    /* MLM Rank progress */
+    .rank-section{padding:3rem;max-width:1100px;margin:0 auto}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold-light);margin-bottom:.4rem}
+    .section-sub{font-size:.75rem;opacity:.4;letter-spacing:.1em;margin-bottom:2rem}
+    .rank-track{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-bottom:2rem}
+    .rank-step{padding:1rem .8rem;border:1px solid var(--border);background:rgba(255,255,255,.01);text-align:center;position:relative}
+    .rank-step.active{border-color:var(--gold);background:rgba(201,169,110,.06)}
+    .rank-step.done{opacity:.5}
+    .rank-step-icon{font-size:1.4rem;margin-bottom:.4rem}
+    .rank-step-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold-light)}
+    .rank-step-clients{font-size:.58rem;opacity:.4;letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+    .rank-step-l1{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin-top:.4rem}
+    .rank-step-l1-label{font-size:.5rem;opacity:.35;text-transform:uppercase;letter-spacing:.1em}
+    .active-dot{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);width:6px;height:6px;border-radius:50%}
+
+    /* Sales table */
+    .sales-section{padding:0 3rem 3rem;max-width:1100px;margin:0 auto}
+    .sales-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+    .sales-table{width:100%;border-collapse:collapse;font-size:.82rem}
+    .sales-table th{background:rgba(201,169,110,.06);color:var(--gold);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;padding:.8rem 1rem;text-align:left;border-bottom:1px solid var(--border);font-weight:500}
+    .sales-table td{padding:.8rem 1rem;border-bottom:1px solid rgba(201,169,110,.06)}
+    .sales-table tr:hover td{background:rgba(201,169,110,.03)}
+    .amount-cell{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold)}
+    .comm-cell{color:var(--green);font-family:'Cormorant Garamond',serif;font-size:1.1rem}
+    .empty-state{text-align:center;padding:4rem;opacity:.3;font-size:.85rem}
+
+    /* Commission summary */
+    .commission-box{border:1px solid var(--gold);background:rgba(201,169,110,.04);padding:2rem;margin-bottom:2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center}
+    .comm-big{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold-light);line-height:1}
+    .comm-label{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;opacity:.5;margin-top:.3rem}
+    .comm-detail{font-size:.78rem;opacity:.55;line-height:1.8}
+
+    @media(max-width:768px){
+      .stats-bar{grid-template-columns:1fr 1fr}
+      .rank-track{grid-template-columns:repeat(3,1fr)}
+      .commission-box{grid-template-columns:1fr}
+      nav{padding:1rem 1.5rem}
+      .rank-section,.sales-section{padding:1.5rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── PIN GATE ── -->
+<div id="pinGate">
+  <div class="pin-logo">TITAN EXCHANGE AI · 鈦訊</div>
+  <div class="pin-title" id="pinTitle">Partner Dashboard</div>
+  <p class="pin-sub" id="pinSub">Enter your PIN to access your commission dashboard</p>
+  <div class="pin-box">
+    <div id="newPinFields">
+      <span class="pin-label">Your Name</span>
+      <input type="text" class="pin-name-input" id="nameInput" placeholder="Simon Chu" />
+    </div>
+    <span class="pin-label" id="pinLabel">Access PIN</span>
+    <input type="password" class="pin-input" id="pinInput" maxlength="8" inputmode="numeric" placeholder="••••"/>
+    <div id="pinConfirmWrap" style="display:none">
+      <span class="pin-label" style="margin-top:.5rem">Confirm PIN</span>
+      <input type="password" class="pin-input" id="pinConfirm" maxlength="8" inputmode="numeric" placeholder="••••"/>
+    </div>
+    <button class="btn-pin" id="pinBtn">Enter Dashboard →</button>
+    <div class="pin-error" id="pinError"></div>
+    <p class="pin-note">Your PIN is stored securely and never visible to Titan staff.</p>
+  </div>
+</div>
+
+<!-- ── DASHBOARD ── -->
+<div id="dashboard">
+  <nav>
+    <div class="nav-logo">18 Legends · Partner Dashboard</div>
+    <div class="nav-right">
+      <span class="rank-badge-nav" id="navRank">Bronze</span>
+      <button class="btn-logout" onclick="logout()">Sign Out</button>
+    </div>
+  </nav>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-val" id="statClients">0</div>
+      <div class="stat-label">Active Clients</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statRevenue">$0</div>
+      <div class="stat-label">Total Revenue</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statCommission">$0</div>
+      <div class="stat-label">Commission Earned</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statRate">30%</div>
+      <div class="stat-label">Your L1 Rate</div>
+    </div>
+  </div>
+
+  <div class="rank-section">
+    <div class="section-title">Your Network Rank</div>
+    <div class="section-sub">5 RANKS · 3 OVERRIDE LEVELS · TAIWAN &amp; JAPAN COMPLIANT</div>
+
+    <div class="rank-track">
+      <div class="rank-step" id="rank-bronze">
+        <div class="rank-step-icon">🥉</div>
+        <div class="rank-step-name">Bronze</div>
+        <div class="rank-step-clients">1–3 clients</div>
+        <div class="rank-step-l1">30%</div>
+        <div class="rank-step-l1-label">L1 Direct</div>
+      </div>
+      <div class="rank-step" id="rank-silver">
+        <div class="rank-step-icon">🥈</div>
+        <div class="rank-step-name">Silver</div>
+        <div class="rank-step-clients">4–8 clients</div>
+        <div class="rank-step-l1">35%</div>
+        <div class="rank-step-l1-label">+ 8% L2</div>
+      </div>
+      <div class="rank-step" id="rank-gold">
+        <div class="rank-step-icon">🥇</div>
+        <div class="rank-step-name">Gold</div>
+        <div class="rank-step-clients">9–15 clients</div>
+        <div class="rank-step-l1">40%</div>
+        <div class="rank-step-l1-label">+ 10% L2 · 5% L3</div>
+      </div>
+      <div class="rank-step" id="rank-platinum">
+        <div class="rank-step-icon">💠</div>
+        <div class="rank-step-name">Platinum</div>
+        <div class="rank-step-clients">16–25 clients</div>
+        <div class="rank-step-l1">45%</div>
+        <div class="rank-step-l1-label">+ 12% L2 · 7% L3</div>
+      </div>
+      <div class="rank-step" id="rank-diamond">
+        <div class="rank-step-icon">💎</div>
+        <div class="rank-step-name">Diamond</div>
+        <div class="rank-step-clients">26+ clients</div>
+        <div class="rank-step-l1">50%</div>
+        <div class="rank-step-l1-label">+ 15% L2 · 10% L3</div>
+      </div>
+    </div>
+
+    <div class="commission-box">
+      <div>
+        <div class="comm-big" id="commBig">$0</div>
+        <div class="comm-label">Total Commission</div>
+      </div>
+      <div class="comm-detail" id="commDetail">
+        Rank: Bronze<br>
+        L1 Rate: 30%<br>
+        Clients: 0<br>
+        Next rank at 4 clients
+      </div>
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:.8rem">Your Partner Links</div>
+        <div style="font-size:.72rem;opacity:.55;line-height:2;word-break:break-all" id="partnerLinks">Loading...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sales-section">
+    <div class="sales-header">
+      <div class="section-title">Sales History</div>
+    </div>
+    <table class="sales-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Product</th>
+          <th>Revenue</th>
+          <th>Your Commission</th>
+          <th>Customer</th>
+        </tr>
+      </thead>
+      <tbody id="salesBody">
+        <tr><td colspan="5"><div class="empty-state">Loading sales data…</div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  const API = 'http://66.94.118.215:8765';
+  const REF = 'simon_chu';
+  const RANK_MAP = {
+    Bronze: {min:1, max:3, l1:.30, l2:.00, l3:.00},
+    Silver: {min:4, max:8, l1:.35, l2:.08, l3:.00},
+    Gold:   {min:9,max:15, l1:.40, l2:.10, l3:.05},
+    Platinum:{min:16,max:25,l1:.45,l2:.12,l3:.07},
+    Diamond:{min:26,max:999,l1:.50,l2:.15,l3:.10}
+  };
+  const BASE = 'https://sophieamoure2026-ui.github.io/titan-exchange-ai';
+
+  let authed = false;
+
+  // Check if already authed this session
+  if (sessionStorage.getItem('titan_auth') === REF) showDashboard(sessionStorage.getItem('titan_data') ? JSON.parse(sessionStorage.getItem('titan_data')) : null);
+
+  // Check new user vs existing
+  async function checkNew() {
+    try {
+      const r = await fetch(`${API}/api/verify-pin`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ref:REF,pin:'__check__'})});
+      const d = await r.json();
+      if (d.new) showNewPinUI();
+    } catch(e) { /* server offline — show normal PIN UI */ }
+  }
+  checkNew();
+
+  function showNewPinUI() {
+    document.getElementById('pinTitle').textContent = 'Set Your PIN';
+    document.getElementById('pinSub').textContent = 'First time here — choose a secure PIN for your dashboard';
+    document.getElementById('newPinFields').style.display = 'block';
+    document.getElementById('pinConfirmWrap').style.display = 'block';
+    document.getElementById('pinBtn').textContent = 'Create PIN & Enter →';
+    document.getElementById('pinBtn').onclick = doSetPin;
+  }
+
+  document.getElementById('pinBtn').addEventListener('click', doVerifyPin);
+  document.getElementById('pinInput').addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('pinBtn').click(); });
+
+  async function doSetPin() {
+    const name = document.getElementById('nameInput').value.trim() || 'Simon Chu';
+    const pin  = document.getElementById('pinInput').value.trim();
+    const conf = document.getElementById('pinConfirm').value.trim();
+    const errEl = document.getElementById('pinError');
+    errEl.textContent = '';
+    if (pin.length < 4) { errEl.textContent = 'PIN must be at least 4 digits'; return; }
+    if (pin !== conf)   { errEl.textContent = 'PINs do not match'; return; }
+    try {
+      const r = await fetch(`${API}/api/set-pin`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ref:REF,pin,name})});
+      const d = await r.json();
+      if (d.ok) { await loadDashboard(pin); }
+      else errEl.textContent = d.error || 'Error setting PIN';
+    } catch(e) { errEl.textContent = 'Could not reach server. Try again.'; }
+  }
+
+  async function doVerifyPin() {
+    const pin = document.getElementById('pinInput').value.trim();
+    const errEl = document.getElementById('pinError');
+    errEl.textContent = '';
+    if (!pin) { errEl.textContent = 'Enter your PIN'; return; }
+    await loadDashboard(pin);
+  }
+
+  async function loadDashboard(pin) {
+    const errEl = document.getElementById('pinError');
+    try {
+      const r = await fetch(`${API}/api/affiliate?ref=${REF}&pin=${encodeURIComponent(pin)}`);
+      if (r.status === 401) { errEl.textContent = 'Incorrect PIN'; document.getElementById('pinInput').classList.add('error'); return; }
+      if (r.status === 404) { errEl.textContent = 'Account not found'; return; }
+      const data = await r.json();
+      sessionStorage.setItem('titan_auth', REF);
+      sessionStorage.setItem('titan_data', JSON.stringify(data));
+      showDashboard(data);
+    } catch(e) {
+      // Offline demo mode
+      errEl.textContent = 'Server unavailable — showing demo data';
+      showDashboard(null);
+    }
+  }
+
+  function showDashboard(data) {
+    document.getElementById('pinGate').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    authed = true;
+
+    if (!data) {
+      data = {rank:'Bronze',l1_rate:.30,client_count:0,total_revenue_usd:0,commission_earned_usd:0,name:'Simon Chu',sales:[]};
+    }
+
+    // Stats
+    document.getElementById('statClients').textContent = data.client_count;
+    document.getElementById('statRevenue').textContent = '$' + data.total_revenue_usd.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+    document.getElementById('statCommission').textContent = '$' + data.commission_earned_usd.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+    document.getElementById('statRate').textContent = Math.round(data.l1_rate * 100) + '%';
+    document.getElementById('navRank').textContent = data.rank;
+    document.getElementById('commBig').textContent = '$' + data.commission_earned_usd.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+
+    // Rank track
+    const rankOrder = ['Bronze','Silver','Gold','Platinum','Diamond'];
+    const curIdx = rankOrder.indexOf(data.rank);
+    rankOrder.forEach((r, i) => {
+      const el = document.getElementById('rank-' + r.toLowerCase());
+      if (el) {
+        el.classList.remove('active','done');
+        if (i < curIdx) el.classList.add('done');
+        else if (i === curIdx) { el.classList.add('active'); el.innerHTML += '<div class="active-dot"></div>'; }
+      }
+    });
+
+    // Next rank
+    const rInfo = RANK_MAP[data.rank] || RANK_MAP.Bronze;
+    const nextIdx = Math.min(curIdx + 1, rankOrder.length - 1);
+    const nextRank = rankOrder[nextIdx];
+    const nextMin = RANK_MAP[nextRank]?.min || '-';
+    const toNext = data.rank === 'Diamond' ? 'Maximum rank reached' : `Next rank at ${nextMin} clients`;
+
+    document.getElementById('commDetail').innerHTML =
+      `Rank: <strong style="color:var(--gold)">${data.rank}</strong><br>
+       L1 Rate: <strong style="color:var(--gold)">${Math.round(data.l1_rate*100)}%</strong><br>
+       Clients: ${data.client_count}<br>${toNext}`;
+
+    // Partner links
+    document.getElementById('partnerLinks').innerHTML =
+      `🇺🇸 <a href="${BASE}/index_simon_en.html?client_reference_id=${REF}" style="color:var(--gold);font-size:.68rem" target="_blank">English Portal</a><br>
+       🇹🇼 <a href="${BASE}/index_tw.html?client_reference_id=${REF}_tw" style="color:var(--gold);font-size:.68rem" target="_blank">Taiwan Portal</a><br>
+       🇯🇵 <a href="${BASE}/index_jp.html?client_reference_id=${REF}_jp" style="color:var(--gold);font-size:.68rem" target="_blank">Japan Portal</a>`;
+
+    // Sales table
+    const tbody = document.getElementById('salesBody');
+    if (!data.sales || data.sales.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state">No sales yet — share your portal links to start earning</div></td></tr>';
+    } else {
+      tbody.innerHTML = data.sales.map(s => {
+        const comm = (s.amount * data.l1_rate).toFixed(2);
+        const emailMask = s.email ? s.email.replace(/(.{2}).+(@.+)/, '$1***$2') : '—';
+        return `<tr>
+          <td>${s.date}</td>
+          <td style="opacity:.7">${s.product}</td>
+          <td class="amount-cell">$${s.amount.toFixed(2)}</td>
+          <td class="comm-cell">$${comm}</td>
+          <td style="opacity:.4;font-size:.75rem">${emailMask}</td>
+        </tr>`;
+      }).join('');
+    }
+  }
+
+  function logout() {
+    sessionStorage.removeItem('titan_auth');
+    sessionStorage.removeItem('titan_data');
+    location.reload();
+  }
+</script>
+</body>
+</html>

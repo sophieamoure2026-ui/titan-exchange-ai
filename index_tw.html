@@ -21,7 +21,7 @@
     nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
       background: linear-gradient(to bottom, rgba(8,16,13,0.97), transparent);
-      backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+      -webkit-backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300;
       letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.8rem; }
     .nav-logo img { height: 34px; width: 34px; object-fit: contain; opacity: 0.9; }
@@ -306,6 +306,25 @@
       .legends-grid { grid-template-columns: 1fr; }
     }
   </style>
+
+<style id="ts-extracted-styles">
+  .ts-opt-394ad8 { display:flex;align-items:center;justify-content:center;gap:24px;margin:2rem 0;flex-wrap:wrap }
+  .ts-opt-b27fc1 { background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center }
+  .ts-opt-1fd974 { font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px }
+  .ts-opt-dc5312 { font-size:2rem;font-weight:800;font-family:'Inter',monospace;color:#d4af37;letter-spacing:.04em }
+  .ts-opt-11f834 { font-size:2rem;font-weight:800;color:#d4af37 }
+  .ts-opt-125c0e { grid-template-columns:repeat(auto-fill,minmax(220px,1fr)) }
+  .ts-opt-dd8123 { border:1px dashed rgba(212,175,55,0.5);position:relative }
+  .ts-opt-065382 { position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3) }
+  .ts-opt-e9f574 { display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px }
+  .ts-opt-1acf9a { background:rgba(255,255,255,0.08);border-radius:4px;height:6px }
+  .ts-opt-616890 { border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85 }
+  .ts-opt-37bfc1 { text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:16px }
+  .ts-opt-d8328c { font-size:1.1rem;font-weight:700;margin-bottom:8px }
+  .ts-opt-cd6fc0 { color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1.5rem }
+  .ts-opt-51df8d { display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:0.9rem;letter-spacing:.04em }
+  .ts-opt-e3916b { margin-top:1rem;font-size:0.72rem;color:rgba(212,175,55,0.5);letter-spacing:.06em }
+</style>
 </head>
 <body>
 
@@ -488,97 +507,97 @@
     <p class="section-desc">18 Legends active. Always. Every 6 months, the community votes 2 Bench players into the active roster. Separately, Titan Signal automatically retires the 2 lowest-performing active Legends by track record. <strong>The community decides who comes up. The data decides who goes out.</strong></p>
 
     <!-- Draft Countdown -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin:2rem 0;flex-wrap:wrap">
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">DRAFT CLOSES IN</div>
-        <div id="draft-countdown" style="font-size:2rem;font-weight:800;font-family:'Inter',monospace;color:#d4af37;letter-spacing:.04em">--d --h --m</div>
+    <div class="ts-opt-394ad8" >
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >DRAFT CLOSES IN</div>
+        <div id="draft-countdown" class="ts-opt-dc5312" >--d --h --m</div>
       </div>
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">VOTES CAST</div>
-        <div id="total-votes" style="font-size:2rem;font-weight:800;color:#d4af37">0</div>
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >VOTES CAST</div>
+        <div id="total-votes" class="ts-opt-11f834" >0</div>
       </div>
-      <div style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center">
-        <div style="font-size:0.7rem;letter-spacing:.1em;color:rgba(212,175,55,0.6);margin-bottom:6px">LEGENDS PROMOTED</div>
-        <div style="font-size:2rem;font-weight:800;color:#d4af37">2 per cycle</div>
+      <div class="ts-opt-b27fc1" >
+        <div class="ts-opt-1fd974" >LEGENDS PROMOTED</div>
+        <div class="ts-opt-11f834" >2 per cycle</div>
       </div>
     </div>
 
     <!-- Bench Cards with Vote Bars -->
-    <div class="legends-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+    <div class="legends-grid ts-opt-125c0e" >
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.5);position:relative">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">🔥 LEADING</div>
+      <div class="legend-card ts-opt-dd8123" >
+        <div class="ts-opt-065382" >🔥 LEADING</div>
         <div class="legend-num">B1</div>
         <div class="legend-name">David Einhorn</div>
         <div class="legend-title">The Short Seller</div>
         <p class="legend-desc">Exposed Lehman Brothers' accounting fraud before the 2008 collapse. Greenlight Capital finds structural fraud hiding behind accounting tricks no one else questions.</p>
         <span class="legend-style">Short Selling · Forensic Research</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-einhorn">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-einhorn" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-einhorn">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-einhorn" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B2</div>
         <div class="legend-name">Mark Spitznagel</div>
         <div class="legend-title">The Black Swan</div>
         <p class="legend-desc">Runs Universa Investments — Nassim Taleb's fund partner. Tail risk hedging that loses small every month and returned 4,000% in March 2020 alone.</p>
         <span class="legend-style">Tail Risk · Black Swan · Options</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-spitz">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-spitz" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-spitz">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-spitz" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B3</div>
         <div class="legend-name">Seth Klarman</div>
         <div class="legend-title">The Oracle of Boston</div>
         <p class="legend-desc">The most secretive investor alive. His book sells for $3,000 used. Runs Baupost Group on pure margin-of-safety discipline — only buys when risk is almost zero.</p>
         <span class="legend-style">Deep Value · Margin of Safety</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-klarman">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-klarman" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-klarman">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-klarman" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B4</div>
         <div class="legend-name">Joel Greenblatt</div>
         <div class="legend-title">The Magic Formula</div>
         <p class="legend-desc">Created the Magic Formula — beaten the S&amp;P 500 for 20+ years. Combines earnings yield and return on capital to find great businesses at cheap prices.</p>
         <span class="legend-style">Quant Value · Systematic</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-green">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-green" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-green">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-green" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
-      <div class="legend-card" style="border:1px dashed rgba(212,175,55,0.4);position:relative;opacity:0.85">
-        <div style="position:absolute;top:12px;right:12px;background:rgba(212,175,55,0.15);color:#d4af37;font-size:0.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,0.3)">BENCH</div>
+      <div class="legend-card ts-opt-616890" >
+        <div class="ts-opt-065382" >BENCH</div>
         <div class="legend-num">B5</div>
         <div class="legend-name">Jim Rogers</div>
         <div class="legend-title">The Commodities King</div>
         <p class="legend-desc">Co-founded the Quantum Fund (42% annual return over 10 years). Left Wall Street to find macro commodity cycles before anyone else. Created the Rogers International Commodity Index.</p>
         <span class="legend-style">Commodities · Global Macro</span>
         <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:4px"><span>Community Votes</span><span id="vote-pct-rogers">--</span></div>
-          <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:6px"><div id="vote-bar-rogers" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
+          <div class="ts-opt-e9f574" ><span>Community Votes</span><span id="vote-pct-rogers">--</span></div>
+          <div class="ts-opt-1acf9a" ><div id="vote-bar-rogers" style="background:#d4af37;height:6px;border-radius:4px;width:0%;transition:width 1.2s ease"></div></div>
         </div>
       </div>
 
     </div>
 
     <!-- Vote CTA -->
-    <div style="text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:16px">
-      <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Cast Your 2 Votes</div>
-      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1.5rem">Full Council subscribers ($499/mo) vote twice per cycle. The top 2 vote-getters join the active roster. Retirement is automatic — the bottom 2 active Legends by 6-month track record are retired by Titan Signal with no exceptions and no appeals.</p>
-      <a href="#portal" style="display:inline-block;background:#d4af37;color:#000;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:0.9rem;letter-spacing:.04em">Subscribe to Vote → Full Council $499/mo</a>
-      <div style="margin-top:1rem;font-size:0.72rem;color:rgba(212,175,55,0.5);letter-spacing:.06em">PROMOTIONS: COMMUNITY VOTE · RETIREMENTS: TRACK RECORD ONLY · 2 VOTES PER FULL COUNCIL MEMBER</div>
+    <div class="ts-opt-37bfc1" >
+      <div class="ts-opt-d8328c" >Cast Your 2 Votes</div>
+      <p class="ts-opt-cd6fc0" >Full Council subscribers ($499/mo) vote twice per cycle. The top 2 vote-getters join the active roster. Retirement is automatic — the bottom 2 active Legends by 6-month track record are retired by Titan Signal with no exceptions and no appeals.</p>
+      <a href="#portal" class="ts-opt-51df8d" >Subscribe to Vote → Full Council $499/mo</a>
+      <div class="ts-opt-e3916b" >PROMOTIONS: COMMUNITY VOTE · RETIREMENTS: TRACK RECORD ONLY · 2 VOTES PER FULL COUNCIL MEMBER</div>
     </div>
   </section>
 
