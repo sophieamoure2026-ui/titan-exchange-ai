@@ -1428,8 +1428,7 @@
       });
       if (!valid) return;
       const payload = {
-        name_en: document.getElementById('nameEn').value,
-        name_zh: document.getElementById('nameZh').value,
+        name: document.getElementById('nameEn').value,
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
         territory: document.getElementById('territory').value,
@@ -1437,18 +1436,16 @@
         market: document.getElementById('market').value,
         referral: document.getElementById('referral').value,
         submitted: new Date().toISOString(),
-        program: 'Titan Exchange AI — 18 Legends — US Market'
+        _subject: 'New Titan Exchange AI Partner Application'
       };
-      console.log('Partner submission:', payload);
-      form.style.display = 'none';
-      successMsg.style.display = 'block';
-      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `titan_exchange_partner_${payload.name_en.replace(/\s+/g,'_')}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
+      fetch('https://formspree.io/f/xnjoonrl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      }).catch(() => alert('Submission failed. Please email gary@titansignal.io directly.'));
     });
 
     // Debate Demo
